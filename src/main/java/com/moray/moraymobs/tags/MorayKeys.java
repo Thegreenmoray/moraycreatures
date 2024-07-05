@@ -10,10 +10,10 @@ import net.minecraft.world.entity.EntityType;
 public class MorayKeys {
 
 
-public static final TagKey<EntityType<?>> ASSIMILABLE= registerEntityTag("assimilable");
+public static final TagKey<EntityType<?>> ASSIMILABLE= EntityTag("assimilable");
 
 
-    private static TagKey<EntityType<?>>  registerEntityTag(String name){
+    private static TagKey<EntityType<?>> EntityTag(String name){
     return TagKey.create(Registries.ENTITY_TYPE,new ResourceLocation(MorayMobs.MODID,name));
     }
 
