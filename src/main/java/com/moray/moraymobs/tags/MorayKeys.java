@@ -15,7 +15,6 @@ public static final TagKey<EntityType<?>> ASSIMILABLE= registerEntityTag("assimi
 
     private static TagKey<EntityType<?>>  registerEntityTag(String name){
     return TagKey.create(Registries.ENTITY_TYPE,new ResourceLocation(MorayMobs.MODID,name));
-   vfdff
     }
 
 
