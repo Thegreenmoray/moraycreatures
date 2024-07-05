@@ -1,5 +1,5 @@
 {
- "__comment": "Enities that can spawn bodysnatchers",
+ "__comment": "Enities that can spawn bodysnatchers on death",
   "values": [
     "minecraft:zombie",
     "minecraft:enderman",
