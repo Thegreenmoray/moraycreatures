@@ -13,8 +13,8 @@ public class MorayKeys {
 public static final TagKey<EntityType<?>> ASSIMILABLE= registerEntityTag("assimilable");
 
 
-    private static TagKey<EntityType<?>>  registerEntityTag(String s){
-    return TagKey.create(Registries.ENTITY_TYPE,new ResourceLocation(MorayMobs.MODID,s));
+    private static TagKey<EntityType<?>>  registerEntityTag(String name){
+    return TagKey.create(Registries.ENTITY_TYPE,new ResourceLocation(MorayMobs.MODID,name));
     }
 
 

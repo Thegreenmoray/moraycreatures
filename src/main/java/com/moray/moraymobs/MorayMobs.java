@@ -103,6 +103,9 @@ public class MorayMobs
     {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
+
+    if (true){}
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
