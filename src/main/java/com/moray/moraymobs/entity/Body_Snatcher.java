@@ -13,17 +13,26 @@ import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class Body_Snatcher extends Monster {
-    protected Body_Snatcher(EntityType<? extends Monster> pEntityType, Level pLevel) {
+public class Body_Snatcher extends Monster implements GeoEntity {
+
+    public Body_Snatcher(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl =new MoveControl(this);
     this.navigation=new GroundPathNavigation(this,level());
     }
-
+    private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.FOLLOW_RANGE, 20.0).add(Attributes.MOVEMENT_SPEED, 0.5).add(Attributes.ATTACK_DAMAGE, 3.0).add(Attributes.ARMOR, 2.0);
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,15).add(Attributes.FOLLOW_RANGE, 20.0).add(Attributes.MOVEMENT_SPEED, 0.5).add(Attributes.ATTACK_DAMAGE, 3.0).add(Attributes.ARMOR, 2.0);
     }
 
 
@@ -44,6 +53,28 @@ public class Body_Snatcher extends Monster {
     }
 
 
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController<>(this,
+                "Controller",this::animations));
 
 
+    }
+
+    private PlayState animations(AnimationState<Body_Snatcher> bodySnatcherAnimationState) {
+
+        if(bodySnatcherAnimationState.isMoving()){
+
+            return PlayState.CONTINUE;
+        }
+
+
+        return PlayState.STOP;
+    }
+
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return Cache;
+    }
 }

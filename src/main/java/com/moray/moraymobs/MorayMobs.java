@@ -1,6 +1,7 @@
 package com.moray.moraymobs;
 
 import com.mojang.logging.LogUtils;
+import com.moray.moraymobs.registries.Mobregistries;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -67,6 +68,11 @@ public class MorayMobs
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
+        Mobregistries.register(modEventBus);
+
+
+
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
