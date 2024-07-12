@@ -6,6 +6,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
@@ -29,20 +30,22 @@ int faint_time;
 
     @Override
     public void stop() {
-        this.out=0;
         opossum.setFainted(false);
+        this.out=0;
+
     }
 
     @Override
     public void tick() {
         super.tick();
-++out;
+             ++out;
+       this.opossum.setDeltaMovement(Vec3.ZERO);
         List<Entity> snetch=this.opossum.level().getEntities(this.opossum,this.opossum.getBoundingBox().inflate(3), e->e instanceof LivingEntity);
 
 for (Entity entity:snetch){
 
-    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS,500,2),this.opossum);
-    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.CONFUSION,500,2),this.opossum);
+    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS,50,2),this.opossum);
+    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.CONFUSION,50,2),this.opossum);
 }
     }
 

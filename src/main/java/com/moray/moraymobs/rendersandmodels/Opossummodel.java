@@ -13,7 +13,7 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class Opossummodel extends GeoModel<Opossum> {
     @Override
     public ResourceLocation getModelResource(Opossum opossum) {
-        return new ResourceLocation(MorayMobs.MODID,"geo/opposum.geo.json");
+        return new ResourceLocation(MorayMobs.MODID,"geo/opussum.geo.json");
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Opossummodel extends GeoModel<Opossum> {
 
         CoreGeoBone head= getAnimationProcessor().getBone("head");
 
-   if (head != null){
+   if (head != null&&!animatable.isfainted()){
        EntityModelData entityModelData=animationState.getData(DataTickets.ENTITY_MODEL_DATA);
 
         head.setRotX(entityModelData.headPitch()* Mth.DEG_TO_RAD);

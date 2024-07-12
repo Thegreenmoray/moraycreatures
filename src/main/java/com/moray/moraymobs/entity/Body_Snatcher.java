@@ -16,13 +16,14 @@ import net.minecraft.world.level.Level;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class Body_Snatcher extends Monster implements GeoEntity {
+
+
+
 
     public Body_Snatcher(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -58,15 +59,21 @@ public class Body_Snatcher extends Monster implements GeoEntity {
         controllerRegistrar.add(new AnimationController<>(this,
                 "Controller",this::animations));
 
-
     }
 
     private PlayState animations(AnimationState<Body_Snatcher> bodySnatcherAnimationState) {
 
-        if(bodySnatcherAnimationState.isMoving()){
 
+        if(bodySnatcherAnimationState.isMoving()){
+bodySnatcherAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.model.walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
+
+        if (!bodySnatcherAnimationState.isMoving()){
+            bodySnatcherAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.bodysnatcher.idle", Animation.LoopType.LOOP));
+        return PlayState.CONTINUE;
+        }
+
 
 
         return PlayState.STOP;

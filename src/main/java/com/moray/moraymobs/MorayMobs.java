@@ -1,6 +1,7 @@
 package com.moray.moraymobs;
 
 import com.mojang.logging.LogUtils;
+import com.moray.moraymobs.registries.Itemregististeries;
 import com.moray.moraymobs.registries.Mobregistries;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -71,8 +72,7 @@ public class MorayMobs
 
         Mobregistries.register(modEventBus);
 
-
-
+        Itemregististeries.register(modEventBus);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
@@ -107,10 +107,13 @@ public class MorayMobs
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(EXAMPLE_BLOCK_ITEM);}
 
-    if (true){}
+    if (event.getTabKey()==CreativeModeTabs.SPAWN_EGGS){
+        event.accept(Itemregististeries.BODYSNATCHER_SPAWN_EGG);
+        event.accept(Itemregististeries.OPPOSUM_SPAWN_EGG);
+    }
 
     }
 
@@ -129,6 +132,8 @@ public class MorayMobs
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+           enitityholder.setup(event);
+
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());

@@ -19,11 +19,11 @@ public class Mobregistries {
 
     final public static RegistryObject<EntityType<Body_Snatcher>> BODY_SNATCHER=
             ENTITY_TYPE.register("bodysnatcher",()->EntityType.Builder.of(Body_Snatcher::new, MobCategory.MONSTER)
-                    .sized(2,3).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"bodysnatcher").toString()));
+                    .sized(0.5F,2).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"bodysnatcher").toString()));
 
     final public static RegistryObject<EntityType<Opossum>> OPOSSUM=
             ENTITY_TYPE.register("opossum",()->EntityType.Builder.of(Opossum::new, MobCategory.CREATURE)
-                    .sized(1,2).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"opossum").toString()));
+                    .sized(1,0.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"opossum").toString()));
 
 
 public static void register(IEventBus bus){

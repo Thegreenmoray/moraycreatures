@@ -40,7 +40,7 @@ event.put(Mobregistries.OPOSSUM.get(),Opossum.createAttributes().build());
          LivingEntity entity = event.getEntity();
 
 
-         if (entity.getType().is(MorayKeys.ASSIMILABLE)){
+         if ((entity.getType().is(MorayKeys.ASSIMILABLE)&&!entity.isBaby())||entity instanceof Player ){
 
              int point = entity.level().random.nextInt(10);
 
