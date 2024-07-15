@@ -11,7 +11,7 @@ public class MorayKeys {
 
 
 public static final TagKey<EntityType<?>> ASSIMILABLE= EntityTag("assimilable");
-
+public static final TagKey<EntityType<?>> IS_SPOTTABLE=EntityTag("canbespotted");
 
     private static TagKey<EntityType<?>> EntityTag(String name){
     return TagKey.create(Registries.ENTITY_TYPE,new ResourceLocation(MorayMobs.MODID,name));

@@ -19,7 +19,8 @@ public class MorayItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
 withExistingParent(Itemregististeries.OPPOSUM_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
 withExistingParent(Itemregististeries.BODYSNATCHER_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
-
+withExistingParent(Itemregististeries.BASALTlISK_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
+    simpleItem(Itemregististeries.BRAIN);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

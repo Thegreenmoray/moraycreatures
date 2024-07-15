@@ -275,7 +275,7 @@
 				}
 			}
 		},
-		"Eat": {
+		"eat": {
 			"animation_length": 0.7576,
 			"bones": {
 				"body": {

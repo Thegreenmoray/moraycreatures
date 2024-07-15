@@ -1,6 +1,7 @@
 package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
+import com.moray.moraymobs.entity.Basaltlisk;
 import com.moray.moraymobs.entity.Body_Snatcher;
 import com.moray.moraymobs.entity.Opossum;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +26,9 @@ public class Mobregistries {
             ENTITY_TYPE.register("opossum",()->EntityType.Builder.of(Opossum::new, MobCategory.CREATURE)
                     .sized(1,0.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"opossum").toString()));
 
+    final public static RegistryObject<EntityType<Basaltlisk>> BASALTISK=
+            ENTITY_TYPE.register("basaltlisk",()->EntityType.Builder.of(Basaltlisk::new, MobCategory.CREATURE)
+                    .sized(2,0.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"basaltlisk").toString()));
 
 public static void register(IEventBus bus){
     ENTITY_TYPE.register(bus);

@@ -1,6 +1,7 @@
 package com.moray.moraymobs.modevents;
 
 import com.moray.moraymobs.MorayMobs;
+import com.moray.moraymobs.entity.Basaltlisk;
 import com.moray.moraymobs.entity.Body_Snatcher;
 import com.moray.moraymobs.entity.Opossum;
 import com.moray.moraymobs.registries.Mobregistries;
@@ -10,8 +11,13 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -23,12 +29,8 @@ public class Events {
 public static void entityattrubitonevent(EntityAttributeCreationEvent event){
     event.put(Mobregistries.BODY_SNATCHER.get(), Body_Snatcher.createAttributes().build());
 event.put(Mobregistries.OPOSSUM.get(),Opossum.createAttributes().build());
+    event.put(Mobregistries.BASALTISK.get(), Basaltlisk.createAttributes().build());
 }
-
-
-
-
-
 
 
 
@@ -59,6 +61,13 @@ event.put(Mobregistries.OPOSSUM.get(),Opossum.createAttributes().build());
 
  }
 
+
+
+
 }
+
+
+
+
 
 }
