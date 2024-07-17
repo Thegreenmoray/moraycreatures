@@ -64,8 +64,8 @@ screaming--;
         opossum.setDeltaMovement(Vec3.ZERO);
 
 
-
-        this.opossum.playSound(SoundEvents.CAT_HISS,0.2f,3f);
+if (screaming%10==0){
+        this.opossum.playSound(SoundEvents.CAT_HISS,0.2f,3f);}
 
 
 

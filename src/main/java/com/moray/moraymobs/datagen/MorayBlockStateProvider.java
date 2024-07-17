@@ -1,6 +1,7 @@
 package com.moray.moraymobs.datagen;
 
 import com.moray.moraymobs.MorayMobs;
+import com.moray.moraymobs.registries.Blockregistrires;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -14,7 +15,7 @@ public class MorayBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-
+blockWithItem(Blockregistrires.BASALTLAMP);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

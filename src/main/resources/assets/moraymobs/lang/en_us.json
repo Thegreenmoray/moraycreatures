@@ -1,0 +1,12 @@
+{"item.moraymobs.brain": "Brain",
+"item.moraymobs.spawn_basaltlisk": "Spawn Basaltlisk",
+  "item.moraymobs.spawn_body_snatcher": "Spawn Body Snatcher",
+  "item.moraymobs.spawn_opposum": "Spawn Opossum",
+  "block.moraymobs.basaltlamp": "Basalt Lamp",
+  "entity.moraymobs.bodysnatcher": "Body Snatcher",
+  "entity.moraymobs.opossum": "Opossum",
+  "entity.moraymobs.basaltlisk": "Basaltlisk",
+  "tooltip.moraymobs.brain": "Shift-Right Click to gain more exp",
+  "tooltip.moraymobs.basaltlamp": "Rare, Powerful, or Notable creatures are lit up by this lamp by right clicking the block. Obtained from Basaltlisks after eating a small magma cube."
+
+}

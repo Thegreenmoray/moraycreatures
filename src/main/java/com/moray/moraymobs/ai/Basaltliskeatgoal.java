@@ -5,10 +5,11 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.monster.MagmaCube;
+import net.minecraft.world.entity.monster.Slime;
 
 public class Basaltliskeatgoal extends Goal {
    Basaltlisk basaltlisk;
-
+int timer;
    public Basaltliskeatgoal(Basaltlisk basaltlisk){
        this.basaltlisk=basaltlisk;
    }
@@ -16,25 +17,34 @@ public class Basaltliskeatgoal extends Goal {
 
     @Override
     public void stop() {
-        super.stop();
-    }
+        this.basaltlisk.settoungetimer(50);
+       this.basaltlisk.settoungetime((byte) 0);
+
+   }
 
     @Override
     public void start() {
-        super.start();
-    }
+       this.timer=50;
+
+   }
 
     public boolean canContinueToUse() {
 
         LivingEntity entity= this.basaltlisk.getTarget();
 
 
+
         if (entity == null){
             return false;
         }
-
-
-        return entity.isAlive()&&this.basaltlisk.position().distanceTo(entity.position())<3&&this.basaltlisk.hasLineOfSight(entity);
+        if (this.basaltlisk.gettoungetimer()>0){
+            return false;
+        }
+        if (timer<=0){
+            return false;
+        }
+        return entity.isAlive()&&this.basaltlisk.distanceTo(entity)<=9&&
+                this.basaltlisk.hasLineOfSight(entity);
     }
 
 
@@ -44,26 +54,26 @@ public class Basaltliskeatgoal extends Goal {
        LivingEntity entity= this.basaltlisk.getTarget();
 
        if (entity!=null){
-
-       if (entity.isAlive()&&entity instanceof MagmaCube magmaCube&&!this.basaltlisk.has_eaten()){
-         int size =magmaCube.getSize();
-         if (size<1){
+           --timer;
+       if (entity.isAlive()&&entity instanceof Slime slime &&!this.basaltlisk.has_eaten()){
+         int size =slime.getSize();
+         if (timer<=35&&size==1){
              this.basaltlisk.settoungetime((byte) 1);
-     float x_pull= (float) ((magmaCube.getX()-basaltlisk.getX())*1.2);
-     float y_pull= (float) ((magmaCube.getY()-basaltlisk.getY())*1.2);
-     float z_pull= (float) ((magmaCube.getZ()-basaltlisk.getZ())*1.2);
-      magmaCube.setDeltaMovement(x_pull,y_pull,z_pull);
+     float x_pull= (float) ((slime.getX()-basaltlisk.getX())*1.2);
+     float y_pull= (float) ((slime.getY()-basaltlisk.getY())*1.2);
+     float z_pull= (float) ((slime.getZ()-basaltlisk.getZ())*1.2);
+      slime.setDeltaMovement(-x_pull,-y_pull,-z_pull);
       basaltlisk.set_eaten(true);
-      magmaCube.remove(Entity.RemovalReason.KILLED);}
-      this.basaltlisk.settoungetime((byte) 0);
+      slime.remove(Entity.RemovalReason.KILLED);}
+timer=0;
        }
 
 
-       if (entity.isAlive()&&this.basaltlisk.hasLineOfSight(entity)&&this.basaltlisk.distanceTo(entity)<3){
+      if (entity.isAlive()&&this.basaltlisk.hasLineOfSight(entity)&&timer<35&& !(entity instanceof Slime slime&&slime.getSize()==1)){
            this.basaltlisk.settoungetime((byte) 1);
            entity.hurt(this.basaltlisk.damageSources().generic(),2.0f);  //may want to add a cooldown
-       entity.knockback(1,-(basaltlisk.getX()-entity.getX()),-(basaltlisk.getZ()-entity.getZ()));
-           this.basaltlisk.settoungetime((byte) 0);
+       entity.knockback(2,-(basaltlisk.getX()-entity.getX()),-(basaltlisk.getZ()-entity.getZ()));
+timer=0;
        }
 
 
@@ -81,7 +91,10 @@ public class Basaltliskeatgoal extends Goal {
         if (livingEntity ==null){
             return false;
         }
+         if (this.basaltlisk.gettoungetimer()>0){
+            return false;
+         }
 
-        return basaltlisk.position().distanceTo(livingEntity.position())<3&&this.basaltlisk.hasLineOfSight(livingEntity);
+        return basaltlisk.position().distanceTo(livingEntity.position())<=9&&this.basaltlisk.hasLineOfSight(livingEntity);
     }
 }

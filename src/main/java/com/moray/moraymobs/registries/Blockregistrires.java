@@ -31,7 +31,7 @@ public class Blockregistrires {
     }
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return Itemregististeries.ITEM.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        return Itemregististeries.ITEM.register(name, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()));
     }
 
 

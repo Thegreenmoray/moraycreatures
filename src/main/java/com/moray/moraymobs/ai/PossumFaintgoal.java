@@ -40,12 +40,12 @@ int faint_time;
         super.tick();
              ++out;
        this.opossum.setDeltaMovement(Vec3.ZERO);
-        List<Entity> snetch=this.opossum.level().getEntities(this.opossum,this.opossum.getBoundingBox().inflate(3), e->e instanceof LivingEntity);
+        List<Entity> snetch=this.opossum.level().getEntities(this.opossum,this.opossum.getBoundingBox().inflate(5), e->e instanceof LivingEntity);
 
 for (Entity entity:snetch){
 
-    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS,50,2),this.opossum);
-    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.CONFUSION,50,2),this.opossum);
+    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS,200,2),this.opossum);
+    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.CONFUSION,200,2),this.opossum);
 }
     }
 

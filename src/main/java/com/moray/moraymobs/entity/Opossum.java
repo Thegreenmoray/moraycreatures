@@ -72,17 +72,32 @@ public class Opossum extends Animal implements GeoEntity {
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0,new FloatGoal(this));
-        this.goalSelector.addGoal(4, new BreedGoal(this, 1.0));
+        this.goalSelector.addGoal(4, new BreedGoal(this, 1.0){
+            @Override
+            public boolean canUse() {
+                return super.canUse()&&(partner instanceof Opossum opossum&&!opossum.isfainted())&&(animal instanceof Opossum opossum1&&!opossum1.isfainted());
+            }
+        });
         this.goalSelector.addGoal(5, new TemptGoal(this, 1.25, Ingredient.of(new ItemLike[]{
-                Items.ROTTEN_FLESH}), false));
+                Items.ROTTEN_FLESH}), false){
+            @Override
+            public boolean canUse() {
+                return super.canUse()&&(mob instanceof Opossum&&!isfainted());
+            }
+        });
         this.goalSelector.addGoal(6, new FollowParentGoal(this, 1.25));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0){
             @Override
             public boolean canUse() {
-                return super.canUse()&&!isfainted();
+                return super.canUse()&&(mob instanceof Opossum&&!isfainted());
             }
         });
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 6.0F){
+            @Override
+            public boolean canUse() {
+                return super.canUse()&&(mob instanceof Opossum&&!isfainted());
+            }
+        });
         this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     this.goalSelector.addGoal(2,new PossumScreamgoal(this,50));
