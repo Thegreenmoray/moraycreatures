@@ -71,7 +71,7 @@ timer=0;
 
       if (entity.isAlive()&&this.basaltlisk.hasLineOfSight(entity)&&timer<35&& !(entity instanceof Slime slime&&slime.getSize()==1)){
            this.basaltlisk.settoungetime((byte) 1);
-           entity.hurt(this.basaltlisk.damageSources().generic(),2.0f);  //may want to add a cooldown
+           entity.hurt(this.basaltlisk.damageSources().generic(),4.0f);  //may want to add a cooldown
        entity.knockback(2,-(basaltlisk.getX()-entity.getX()),-(basaltlisk.getZ()-entity.getZ()));
 timer=0;
        }

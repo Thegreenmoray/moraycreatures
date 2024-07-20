@@ -41,7 +41,9 @@ int maxtime;
         return screaming>0;
     }
 
-
+    public boolean isInterruptable() {
+        return false;
+    }
     @Override
     public void start(){
      this.screaming=this.maxtime;
@@ -68,12 +70,6 @@ if (screaming%10==0){
         this.opossum.playSound(SoundEvents.CAT_HISS,0.2f,3f);}
 
 
-
-      if (this.opossum.getTarget() != null){
-        double $$3 = this.opossum.getTarget().getX() - this.opossum.getX();
-        double $$4 = this.opossum.getTarget().getZ() - this.opossum.getZ();
-        this.opossum.setYRot(-((float)Mth.atan2($$3, $$4)) * Mth.RAD_TO_DEG);
-        this.opossum.yBodyRot = this.opossum.getYRot();}
 
 
 

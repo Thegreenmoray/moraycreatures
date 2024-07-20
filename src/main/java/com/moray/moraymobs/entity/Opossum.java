@@ -57,6 +57,12 @@ public class Opossum extends Animal implements GeoEntity {
 
     private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
 
+    @Override
+    public void aiStep() {
+
+
+        super.aiStep();
+    }
 
     protected void defineSynchedData() {
         super.defineSynchedData();
@@ -65,7 +71,7 @@ public class Opossum extends Animal implements GeoEntity {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Animal.createMobAttributes().add(Attributes.MAX_HEALTH,10).add(Attributes.MOVEMENT_SPEED, 0.5).add(Attributes.FOLLOW_RANGE,10);
+        return Animal.createMobAttributes().add(Attributes.MAX_HEALTH,10).add(Attributes.MOVEMENT_SPEED, 0.25).add(Attributes.FOLLOW_RANGE,10);
     }
 
 
@@ -89,7 +95,7 @@ public class Opossum extends Animal implements GeoEntity {
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0){
             @Override
             public boolean canUse() {
-                return super.canUse()&&(mob instanceof Opossum&&!isfainted());
+                return super.canUse()&&(mob instanceof Opossum&&!isfainted())&&(mob instanceof Opossum&&!isscream());
             }
         });
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 6.0F){

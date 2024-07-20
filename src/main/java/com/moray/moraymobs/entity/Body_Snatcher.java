@@ -46,9 +46,12 @@ public class Body_Snatcher extends Monster implements GeoEntity {
     }
 
     public void aiStep() {
+
+      if (!this.level().isClientSide()){
+
         for(int i = 0; i < 4; ++i) {
             this.level().addParticle(ParticleTypes.MYCELIUM, this.getRandomX(0.5), this.getRandomY(), this.getRandomZ(0.5), 0.0, 0.0, 0.0);
-        }
+        }}
 
         super.aiStep();
     }

@@ -43,7 +43,7 @@ public class Basaltlightblock extends Block {
     if (!pLevel.isClientSide()) {
 
 
-                List<Entity> light = pPlayer.level().getEntities(pPlayer, pPlayer.getBoundingBox().inflate(30), e -> e.getType().is(MorayKeys.IS_SPOTTABLE));
+                List<Entity> light = pPlayer.level().getEntities(pPlayer, pPlayer.getBoundingBox().inflate(50), e -> e.getType().is(MorayKeys.IS_SPOTTABLE));
 
            for (Entity entity:light){
               LivingEntity entity1 =(LivingEntity)entity;
