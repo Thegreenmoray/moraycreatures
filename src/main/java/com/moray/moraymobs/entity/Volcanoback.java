@@ -30,11 +30,34 @@ public class Volcanoback extends Monster {
 
     public final int START_ANIMATION_TIMER = 30;
 
+    public int getanimation(){
+        return this.entityData.get(ANIMATION);
+    }
 
+    public void setanimation(int animation){
+        this.entityData.set(ANIMATION,animation);
+    }
+
+    public int getanimation_timer(){
+        return this.entityData.get(ANIMATION_ATTACK_TIMER);
+    }
+
+    public void setanimationtimer(int toungetime){
+        this.entityData.set(ANIMATION_ATTACK_TIMER,toungetime);
+    }
+
+    public int getgroundpound(){
+        return this.entityData.get(GROUNDPOUND_TIMER);
+    }
+
+    public void setgroundpound(int groundpound){
+        this.entityData.set(GROUNDPOUND_TIMER,groundpound);
+    }
 
     public Volcanoback(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     this.setMaxUpStep(1.0f);
+   this.xpReward=50;
     }
 
 
