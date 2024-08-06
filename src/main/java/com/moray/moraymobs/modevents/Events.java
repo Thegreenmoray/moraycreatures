@@ -2,9 +2,8 @@ package com.moray.moraymobs.modevents;
 
 import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.block.Basaltlightblock;
-import com.moray.moraymobs.entity.Basaltlisk;
-import com.moray.moraymobs.entity.Body_Snatcher;
-import com.moray.moraymobs.entity.Opossum;
+import com.moray.moraymobs.entity.*;
+import com.moray.moraymobs.entity.projectiles.Fireheap;
 import com.moray.moraymobs.registries.Blockregistrires;
 import com.moray.moraymobs.registries.Mobregistries;
 import com.moray.moraymobs.tags.MorayKeys;
@@ -33,6 +32,9 @@ public static void entityattrubitonevent(EntityAttributeCreationEvent event){
     event.put(Mobregistries.BODY_SNATCHER.get(), Body_Snatcher.createAttributes().build());
 event.put(Mobregistries.OPOSSUM.get(),Opossum.createAttributes().build());
     event.put(Mobregistries.BASALTISK.get(), Basaltlisk.createAttributes().build());
+event.put(Mobregistries.VOLCANOBACK.get(), Volcanoback.createAttributes().build());
+event.put(Mobregistries.MORAY.get(), Moray.createAttributes().build());
+
 }
 
 

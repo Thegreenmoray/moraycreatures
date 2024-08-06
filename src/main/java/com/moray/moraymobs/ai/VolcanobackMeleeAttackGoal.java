@@ -20,7 +20,7 @@ public class VolcanobackMeleeAttackGoal extends Goal {
   final boolean followingTargetEvenIfNotSeen;
     Volcanoback volcanoback;
     boolean isinattack=false;
-    int animantion_time=30;
+    int animantion_time=0;
     private Path path;
     private double pathedTargetX;
     private double pathedTargetY;
@@ -30,6 +30,7 @@ public class VolcanobackMeleeAttackGoal extends Goal {
     private long lastCanUseCheck;
     private int failedPathFindingPenalty = 0;
     private boolean canPenalize = false;
+
 
    //largely copied from melee attack but with some changes
     public VolcanobackMeleeAttackGoal(Volcanoback volcanoback, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
@@ -47,9 +48,9 @@ public class VolcanobackMeleeAttackGoal extends Goal {
             this.volcanoback.getLookControl().setLookAt(livingentity, 30.0F, 30.0F);
             double d0 = this.volcanoback.getPerceivedTargetDistanceSquareForMeleeAttack(livingentity);
             this.ticksUntilNextPathRecalculation = Math.max(this.ticksUntilNextPathRecalculation - 1, 0);
+            animantion_time--;
 
-        if (!isinattack){
-            this.volcanoback.getNavigation().moveTo(this.path, this.speedModifier);
+          //  this.volcanoback.getNavigation().moveTo(this.path, this.speedModifier);
             if ((this.followingTargetEvenIfNotSeen || this.volcanoback.getSensing().hasLineOfSight(livingentity)) && this.ticksUntilNextPathRecalculation <= 0 && (this.pathedTargetX == 0.0 && this.pathedTargetY == 0.0 && this.pathedTargetZ == 0.0 || livingentity.distanceToSqr(this.pathedTargetX, this.pathedTargetY, this.pathedTargetZ) >= 1.0 || this.volcanoback.getRandom().nextFloat() < 0.05F)) {
                 this.pathedTargetX = livingentity.getX();
                 this.pathedTargetY = livingentity.getY();
@@ -82,18 +83,14 @@ public class VolcanobackMeleeAttackGoal extends Goal {
                 this.ticksUntilNextPathRecalculation = this.adjustedTickDelay(this.ticksUntilNextPathRecalculation);
             }
             this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);  //this should be changed
-           animantion_time--;
+
 
 
             this.checkAndPerformAttack(livingentity, d0);
     }
 
 
-        if (isinattack){
-           animantion_time--;
-            checkAndPerformAttack(livingentity,d0);
-        }
-        }
+
 
     }
 
@@ -102,41 +99,43 @@ public class VolcanobackMeleeAttackGoal extends Goal {
     protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
         double d0 = this.getAttackReachSqr(pEnemy);
         if (pDistToEnemySqr <= d0 && this.ticksUntilNextAttack <= 0) {
-            this.volcanoback.getNavigation().stop();
+            this.resetCooldown(20);
+            if (this.animantion_time < 0) {
+                this.volcanoback.setanimationtimer(this.volcanoback.START_ANIMATION_TIMER);
+                animantion_time = this.volcanoback.getanimation_timer();
+                this.volcanoback.starttimer = true;
+                isinattack = true;
+                return;
+            }}
 
+          if (animantion_time==10){this.volcanoback.isslashing = true;}
 
-          // if(this.volcanoback.getanimationtimer()<=0) {
-        //       this.volcanoback.setAttackAnimTimer(this.volcanoback.START_ANIMATION_TIMER);
-               animantion_time = this.volcanoback.START_ANIMATION_TIMER;
-               isinattack = true;
-
-               //play animation
-               //hold
-               //begin to drop after a certain point
-        //   }
-
-        if (animantion_time<=10){
-      //      this.volcanoback.setAnimation(1);
-        }
-
-
-        }
-            if(isinattack&&animantion_time<=0){
-
-            this.resetAttackCooldown();
-                List<Entity> damage=this.volcanoback.level().getEntities(this.volcanoback,this.volcanoback.getBoundingBox().inflate(2),e-> this.volcanoback.position().normalize().dot(e.position().normalize())>=0.0&&e instanceof LivingEntity);
-
-           for (Entity entity:damage){
-            this.volcanoback.doHurtTarget(entity);}  //rough idea
-            isinattack=false;
-        }
-
+            if (isinattack && animantion_time==0) {
+                this.volcanoback.getNavigation().stop();
+                List<Entity> damage = this.volcanoback.level().getEntities(this.volcanoback, this.volcanoback.getBoundingBox().inflate(2), e ->  e instanceof LivingEntity);
+                for (Entity entity : damage) {
+                   if (this.volcanoback.position().normalize().dot(entity.position().normalize()) >= 0.0){
+                    this.volcanoback.doHurtTarget(entity);}
+                }
+                isinattack = false;
+                animantion_time = -1;
+            }
 
     }
 
+    protected void resetCooldown(int ticks) {
+        this.ticksUntilNextAttack= this.adjustedTickDelay(ticks);
+    }
+
+
     public boolean canUse() {
         long i = this.volcanoback.level().getGameTime();
+
+        if (this.volcanoback.getgroundpound()>100){
+            return false;
+        }
         if (i - this.lastCanUseCheck < 20L) {
+            this.lastCanUseCheck -= 20;
             return false;
         } else {
             this.lastCanUseCheck = i;
@@ -145,20 +144,13 @@ public class VolcanobackMeleeAttackGoal extends Goal {
                 return false;
             } else if (!livingentity.isAlive()) {
                 return false;
-            } else if (this.canPenalize) {
-                if (--this.ticksUntilNextPathRecalculation <= 0) {
-                    this.path = this.volcanoback.getNavigation().createPath(livingentity, 0);
-                    this.ticksUntilNextPathRecalculation = 4 + this.volcanoback.getRandom().nextInt(7);
-                    return this.path != null;
-                } else {
-                    return true;
-                }
             } else {
                 this.path = this.volcanoback.getNavigation().createPath(livingentity, 0);
-                if (this.path != null) {
+                if (this.path != null&&this.volcanoback.isslashing) {
                     return true;
-                } else {
-                    return this.getAttackReachSqr(livingentity) >= this.volcanoback.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
+                }
+                else {
+                   return this.getAttackReachSqr(livingentity) >= this.volcanoback.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
                 }
             }
         }
@@ -166,6 +158,11 @@ public class VolcanobackMeleeAttackGoal extends Goal {
 
     public boolean canContinueToUse() {
         LivingEntity livingentity = this.volcanoback.getTarget();
+
+       if (this.volcanoback.getgroundpound()>100){
+           return false;
+       }
+
         if (livingentity == null) {
             return false;
         } else if (!livingentity.isAlive()) {
@@ -180,7 +177,8 @@ public class VolcanobackMeleeAttackGoal extends Goal {
     }
 
     public void start() {
-        this.volcanoback.getNavigation().moveTo(this.path, this.speedModifier);
+
+       this.volcanoback.getNavigation().moveTo(this.path, this.speedModifier);
         this.volcanoback.setAggressive(true);
         this.ticksUntilNextPathRecalculation = 0;
         this.ticksUntilNextAttack = 0;
@@ -191,7 +189,6 @@ public class VolcanobackMeleeAttackGoal extends Goal {
         if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) {
             this.volcanoback.setTarget((LivingEntity)null);
         }
-
         this.volcanoback.setAggressive(false);
         this.volcanoback.getNavigation().stop();
     }
@@ -200,27 +197,8 @@ public class VolcanobackMeleeAttackGoal extends Goal {
         return true;
     }
 
-
-
-
-    protected void resetAttackCooldown() {
-        this.ticksUntilNextAttack = this.adjustedTickDelay(20);
-    }
-
-    protected boolean isTimeToAttack() {
-        return this.ticksUntilNextAttack <= 0;
-    }
-
-    protected int getTicksUntilNextAttack() {
-        return this.ticksUntilNextAttack;
-    }
-
-    protected int getAttackInterval() {
-        return this.adjustedTickDelay(20);
-    }
-
     protected double getAttackReachSqr(LivingEntity pAttackTarget) {
-        return (double)(this.volcanoback.getBbWidth() * 2.0F * this.volcanoback.getBbWidth() * 2.0F + pAttackTarget.getBbWidth());
+        return (double)(this.volcanoback.getBbWidth() * this.volcanoback.getBbWidth() + pAttackTarget.getBbWidth());
     }
 
 }

@@ -89,6 +89,7 @@ public class MorayMobs
         event.accept(Itemregististeries.BODYSNATCHER_SPAWN_EGG);
         event.accept(Itemregististeries.OPPOSUM_SPAWN_EGG);
         event.accept(Itemregististeries.BASALTlISK_SPAWN_EGG);
+        event.accept(Itemregististeries.VOLCANOBACK_SPAWN_EGG);
     }
 
     if (event.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS){

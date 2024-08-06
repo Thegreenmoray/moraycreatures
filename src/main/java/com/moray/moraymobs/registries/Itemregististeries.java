@@ -24,7 +24,12 @@ public class Itemregististeries {
     final public static RegistryObject<Item> BASALTlISK_SPAWN_EGG=ITEM.register
             ("spawn_basaltlisk",()-> new ForgeSpawnEggItem(Mobregistries.BASALTISK,0x575d5e,0x545058,new Item.Properties()));
 
-   final public static RegistryObject<Item> BRAIN=ITEM.register("brain",
+    final public static RegistryObject<Item> VOLCANOBACK_SPAWN_EGG=ITEM.register
+            ("spawn_volcanoback",()-> new ForgeSpawnEggItem(Mobregistries.VOLCANOBACK,0x652828,0xc65626,new Item.Properties()));
+
+
+
+    final public static RegistryObject<Item> BRAIN=ITEM.register("brain",
            ()->new Brainitem(new Item.Properties().stacksTo(8)));
 
 

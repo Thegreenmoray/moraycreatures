@@ -63,7 +63,7 @@ int maxtime;
     @Override
     public void tick() {
 screaming--;
-        opossum.setDeltaMovement(Vec3.ZERO);
+
 
 
 if (screaming%10==0){

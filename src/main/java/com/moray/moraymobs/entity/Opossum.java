@@ -150,8 +150,6 @@ this.setScream(pCompound.getBoolean("screm"));
             return PlayState.CONTINUE;
         }
 
-
-
       if (opossumAnimationState.isMoving()){
 opossumAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.possum.walk", Animation.LoopType.LOOP));
           return PlayState.CONTINUE;
@@ -161,11 +159,6 @@ opossumAnimationState.getController().setAnimation(RawAnimation.begin().then("an
           opossumAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.possum.idle", Animation.LoopType.LOOP));
           return PlayState.CONTINUE;
       }
-
-
-
-
-
 
         return PlayState.STOP;
     }

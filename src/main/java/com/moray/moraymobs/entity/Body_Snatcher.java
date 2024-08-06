@@ -33,14 +33,13 @@ public class Body_Snatcher extends Monster implements GeoEntity {
     private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,15).add(Attributes.FOLLOW_RANGE, 20.0).add(Attributes.MOVEMENT_SPEED, 0.5).add(Attributes.ATTACK_DAMAGE, 3.0).add(Attributes.ARMOR, 2.0);
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,15).add(Attributes.FOLLOW_RANGE, 20.0).add(Attributes.MOVEMENT_SPEED, 0.3).add(Attributes.ATTACK_DAMAGE, 3.0).add(Attributes.ARMOR, 2.0);
     }
 
 
     protected void registerGoals() {
-
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0, false));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 0.3, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
@@ -51,7 +50,8 @@ public class Body_Snatcher extends Monster implements GeoEntity {
 
         for(int i = 0; i < 4; ++i) {
             this.level().addParticle(ParticleTypes.MYCELIUM, this.getRandomX(0.5), this.getRandomY(), this.getRandomZ(0.5), 0.0, 0.0, 0.0);
-        }}
+        }
+      }
 
         super.aiStep();
     }

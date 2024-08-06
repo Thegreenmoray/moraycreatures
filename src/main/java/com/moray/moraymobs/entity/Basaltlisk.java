@@ -262,12 +262,6 @@ this.entityData.define(TOUNGE,0);
         return itemStack.is(Items.MAGMA_CREAM);
     }
 
-
-  //  @Override
-   // public boolean isMultipartEntity() {
-   //     return super.isMultipartEntity(); honeslty this may be considered later
-   // }
-
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this,
