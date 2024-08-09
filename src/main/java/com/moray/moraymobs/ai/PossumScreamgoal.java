@@ -1,13 +1,11 @@
 package com.moray.moraymobs.ai;
 
-import com.moray.moraymobs.entity.Opossum;
+import com.moray.moraymobs.entity.living.animal.Opossum;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.phys.Vec3;
 
 import java.util.EnumSet;
 

@@ -1,6 +1,6 @@
 package com.moray.moraymobs;
 import com.moray.moraymobs.registries.Mobregistries;
-import com.moray.moraymobs.rendersandmodels.*;
+import com.moray.moraymobs.rendersandmodels.render.*;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
@@ -14,7 +14,8 @@ public class enitityholder {
         EntityRenderers.register(Mobregistries.BASALTISK.get(), Basaltliskrender::new);
         EntityRenderers.register(Mobregistries.VOLCANOBACK.get(), Volcanobackrender::new);
     EntityRenderers.register(Mobregistries.FIREHEAP.get(), LavaRender::new);
-   EntityRenderers.register(Mobregistries.MORAY.get(),Morayrender::new);
+   EntityRenderers.register(Mobregistries.MORAY.get(), Morayrender::new);
+    EntityRenderers.register(Mobregistries.MORAYJAW.get(), Morayjawrender::new);
     }
 
 

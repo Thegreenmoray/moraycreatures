@@ -1,25 +1,21 @@
 package com.moray.moraymobs.modevents;
 
 import com.moray.moraymobs.MorayMobs;
-import com.moray.moraymobs.block.Basaltlightblock;
-import com.moray.moraymobs.entity.*;
-import com.moray.moraymobs.entity.projectiles.Fireheap;
-import com.moray.moraymobs.registries.Blockregistrires;
+import com.moray.moraymobs.entity.living.animal.Basaltlisk;
+import com.moray.moraymobs.entity.living.animal.Opossum;
+import com.moray.moraymobs.entity.living.monster.Body_Snatcher;
+import com.moray.moraymobs.entity.living.monster.Moray;
+import com.moray.moraymobs.entity.living.monster.Morayjaw;
+import com.moray.moraymobs.entity.living.monster.Volcanoback;
 import com.moray.moraymobs.registries.Mobregistries;
 import com.moray.moraymobs.tags.MorayKeys;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -30,11 +26,11 @@ public class Events {
 @SubscribeEvent
 public static void entityattrubitonevent(EntityAttributeCreationEvent event){
     event.put(Mobregistries.BODY_SNATCHER.get(), Body_Snatcher.createAttributes().build());
-event.put(Mobregistries.OPOSSUM.get(),Opossum.createAttributes().build());
+event.put(Mobregistries.OPOSSUM.get(), Opossum.createAttributes().build());
     event.put(Mobregistries.BASALTISK.get(), Basaltlisk.createAttributes().build());
 event.put(Mobregistries.VOLCANOBACK.get(), Volcanoback.createAttributes().build());
 event.put(Mobregistries.MORAY.get(), Moray.createAttributes().build());
-
+event.put(Mobregistries.MORAYJAW.get(), Morayjaw.createAttributes().build());
 }
 
 

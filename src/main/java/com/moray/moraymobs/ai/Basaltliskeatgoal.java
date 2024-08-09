@@ -1,10 +1,9 @@
 package com.moray.moraymobs.ai;
 
-import com.moray.moraymobs.entity.Basaltlisk;
+import com.moray.moraymobs.entity.living.animal.Basaltlisk;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.monster.MagmaCube;
 import net.minecraft.world.entity.monster.Slime;
 
 public class Basaltliskeatgoal extends Goal {

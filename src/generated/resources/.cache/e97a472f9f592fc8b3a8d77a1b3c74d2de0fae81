@@ -1,6 +1,9 @@
-// 1.20.1	2024-08-05T09:42:58.9123664	Item Models: moraymobs
+// 1.20.1	2024-08-08T23:39:12.5205379	Item Models: moraymobs
 aea342caeb496305e1b66379bc97c3ff8bf8e43f assets/moraymobs/models/item/brain.json
+9d1395e062361b3f52f1da3f25e533504d78a2db assets/moraymobs/models/item/jawloose.json
+9667441bf175707749a542a48f771b5fd5f0f599 assets/moraymobs/models/item/scale.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_basaltlisk.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_body_snatcher.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_moray.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_opposum.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_volcanoback.json

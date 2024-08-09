@@ -1,9 +1,7 @@
 package com.moray.moraymobs.entity.projectiles;
 
-import com.moray.moraymobs.entity.Volcanoback;
+import com.moray.moraymobs.entity.living.monster.Volcanoback;
 import com.moray.moraymobs.registries.Mobregistries;
-import com.moray.moraymobs.rendersandmodels.Volcanobackmodel;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
@@ -11,7 +9,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
@@ -42,7 +39,7 @@ public class Fireheap extends AbstractHurtingProjectile implements GeoEntity {
         if (!this.level().isClientSide) {
         Entity entity = pResult.getEntity();
     if(!(entity instanceof Volcanoback)){
-      entity.hurt(this.damageSources().onFire(),8);
+      entity.hurt(this.damageSources().onFire(),6);
         entity.setSecondsOnFire(7);
     }}
 

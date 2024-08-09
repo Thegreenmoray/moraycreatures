@@ -26,11 +26,19 @@ public class Itemregististeries {
 
     final public static RegistryObject<Item> VOLCANOBACK_SPAWN_EGG=ITEM.register
             ("spawn_volcanoback",()-> new ForgeSpawnEggItem(Mobregistries.VOLCANOBACK,0x652828,0xc65626,new Item.Properties()));
+    final public static RegistryObject<Item> MORAY_SPAWN_EGG=ITEM.register
+            ("spawn_moray",()-> new ForgeSpawnEggItem(Mobregistries.MORAY,0xbcbcbc,0xadabad,new Item.Properties()));
 
 
 
     final public static RegistryObject<Item> BRAIN=ITEM.register("brain",
            ()->new Brainitem(new Item.Properties().stacksTo(8)));
+
+    final public static RegistryObject<Item> JAW=ITEM.register("jawloose",
+            ()->new Item(new Item.Properties().stacksTo(64)));
+
+    final public static RegistryObject<Item> BEETLE_SCALE=ITEM.register("scale",
+            ()->new Item(new Item.Properties().stacksTo(64)));
 
 
     public static void register(IEventBus bus){

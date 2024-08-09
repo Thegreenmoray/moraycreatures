@@ -90,6 +90,7 @@ public class MorayMobs
         event.accept(Itemregististeries.OPPOSUM_SPAWN_EGG);
         event.accept(Itemregististeries.BASALTlISK_SPAWN_EGG);
         event.accept(Itemregististeries.VOLCANOBACK_SPAWN_EGG);
+        event.accept(Itemregististeries.MORAY_SPAWN_EGG);
     }
 
     if (event.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS){
@@ -99,6 +100,8 @@ public class MorayMobs
 
     if (event.getTabKey()==CreativeModeTabs.INGREDIENTS){
         event.accept(Itemregististeries.BRAIN);
+        event.accept(Itemregististeries.JAW);
+        event.accept(Itemregististeries.BEETLE_SCALE);
     }
 
     }

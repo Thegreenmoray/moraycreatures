@@ -1,12 +1,23 @@
 package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
-import com.moray.moraymobs.entity.*;
+import com.moray.moraymobs.entity.living.animal.Basaltlisk;
+import com.moray.moraymobs.entity.living.animal.Opossum;
+import com.moray.moraymobs.entity.living.monster.Body_Snatcher;
+import com.moray.moraymobs.entity.living.monster.Moray;
+import com.moray.moraymobs.entity.living.monster.Morayjaw;
+import com.moray.moraymobs.entity.living.monster.Volcanoback;
 import com.moray.moraymobs.entity.projectiles.Fireheap;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -39,22 +50,23 @@ public class Mobregistries {
 
   final public static RegistryObject<EntityType<Moray>> MORAY=
           ENTITY_TYPE.register("boneymoray",()->EntityType.Builder.of(Moray::new, MobCategory.CREATURE)
-                  .sized(1,1F).build(new ResourceLocation(MorayMobs.MODID,"bonymoray").toString()));
+                  .sized(3,1F).build(new ResourceLocation(MorayMobs.MODID,"bonymoray").toString()));
 
   final public static RegistryObject<EntityType<Morayjaw>> MORAYJAW=
           ENTITY_TYPE.register("boneymorayjaw",()->EntityType.Builder.<Morayjaw>of(Morayjaw::new, MobCategory.MISC)
                   .sized(0.5f,0.5F).build(new ResourceLocation(MorayMobs.MODID,"bonymorayjaw").toString()));
 
 
-  final public static RegistryObject<EntityType<Moraybody>> MORAYBODY=
-          ENTITY_TYPE.register("boneymoraybody",()->EntityType.Builder.<Moraybody>of(Moraybody::new, MobCategory.MISC)
-                  .sized(3,2F).build(new ResourceLocation(MorayMobs.MODID,"bonymoraybody").toString()));
 
   public static void register(IEventBus bus){
     ENTITY_TYPE.register(bus);
 }
 
+  @SubscribeEvent
+  public static void initializeAttributes(EntityAttributeCreationEvent event) {
 
+    SpawnPlacements.register(MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules);
+    SpawnPlacements.register(OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
 
-
-    }
+  }
+}
