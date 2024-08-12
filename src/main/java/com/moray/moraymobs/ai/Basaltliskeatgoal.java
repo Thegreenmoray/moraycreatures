@@ -18,7 +18,7 @@ int timer;
     public void stop() {
         this.basaltlisk.settoungetimer(50);
        this.basaltlisk.settoungetime((byte) 0);
-
+this.timer=50;
    }
 
     @Override
@@ -53,7 +53,7 @@ int timer;
        LivingEntity entity= this.basaltlisk.getTarget();
 
        if (entity!=null){
-           --timer;
+           timer--;
        if (entity.isAlive()&&entity instanceof Slime slime &&!this.basaltlisk.has_eaten()){
          int size =slime.getSize();
          if (timer<=35&&size==1){
@@ -64,7 +64,7 @@ int timer;
       slime.setDeltaMovement(-x_pull,-y_pull,-z_pull);
       basaltlisk.set_eaten(true);
       slime.remove(Entity.RemovalReason.KILLED);}
-timer=0;
+
        }
 
 

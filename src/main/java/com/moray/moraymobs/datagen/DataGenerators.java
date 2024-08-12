@@ -22,7 +22,6 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
         generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));
-
         generator.addProvider(event.includeClient(), new MorayBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new MorayItemModelProvider(packOutput, existingFileHelper));
 

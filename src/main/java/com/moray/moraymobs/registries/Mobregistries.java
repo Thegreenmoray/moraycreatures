@@ -49,11 +49,11 @@ public class Mobregistries {
                   .sized(2,0.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"fireheap").toString()));
 
   final public static RegistryObject<EntityType<Moray>> MORAY=
-          ENTITY_TYPE.register("boneymoray",()->EntityType.Builder.of(Moray::new, MobCategory.CREATURE)
+          ENTITY_TYPE.register("bonymoray",()->EntityType.Builder.of(Moray::new, MobCategory.CREATURE)
                   .sized(3,1F).build(new ResourceLocation(MorayMobs.MODID,"bonymoray").toString()));
 
   final public static RegistryObject<EntityType<Morayjaw>> MORAYJAW=
-          ENTITY_TYPE.register("boneymorayjaw",()->EntityType.Builder.<Morayjaw>of(Morayjaw::new, MobCategory.MISC)
+          ENTITY_TYPE.register("bonymorayjaw",()->EntityType.Builder.<Morayjaw>of(Morayjaw::new, MobCategory.MISC)
                   .sized(0.5f,0.5F).build(new ResourceLocation(MorayMobs.MODID,"bonymorayjaw").toString()));
 
 

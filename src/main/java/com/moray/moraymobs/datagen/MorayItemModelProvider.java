@@ -25,6 +25,10 @@ withExistingParent(Itemregististeries.MORAY_SPAWN_EGG.getId().getPath(),mcLoc("i
     simpleItem(Itemregististeries.BRAIN);
      simpleItem(Itemregististeries.JAW);
      simpleItem(Itemregististeries.BEETLE_SCALE);
+     simpleItem(Itemregististeries.BEETLE_HELMET);
+        simpleItem(Itemregististeries.BEETLE_CHESTPLATE);
+        simpleItem(Itemregististeries.BEETLE_LEGGINGS);
+        simpleItem(Itemregististeries.BEETLE_BOOTS);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

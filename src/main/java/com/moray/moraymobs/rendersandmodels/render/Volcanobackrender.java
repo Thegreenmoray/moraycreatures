@@ -11,7 +11,7 @@ public class Volcanobackrender extends GeoEntityRenderer<Volcanoback> {
     }
 
 
-    // stops the vanilla death animation, allows animantion to play
+
     @Override
     protected float getDeathMaxRotation(Volcanoback entityLivingBaseIn) {
         return 0.0F;

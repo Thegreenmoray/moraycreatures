@@ -23,6 +23,9 @@ public class Blockregistrires {
     public static final RegistryObject<Block> BASALTLAMP=registerBlock("basaltlamp",
             ()->new Basaltlightblock(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).lightLevel((w)->10).instabreak()));
 
+    public static final RegistryObject<Block> BLOCK_OF_SCALES=registerBlock("blockscale",
+            ()->new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

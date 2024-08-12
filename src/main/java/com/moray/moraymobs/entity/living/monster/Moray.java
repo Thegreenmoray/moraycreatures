@@ -1,5 +1,6 @@
 package com.moray.moraymobs.entity.living.monster;
 
+import com.moray.moraymobs.ai.Eelmeeleeattackgoal;
 import com.moray.moraymobs.ai.Grabjawgoal;
 import com.moray.moraymobs.ai.MoraySwimGoal;
 import net.minecraft.nbt.CompoundTag;
@@ -17,7 +18,6 @@ import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
-import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
@@ -93,7 +93,7 @@ public class Moray extends Monster implements GeoEntity {
 
     protected void registerGoals() {
        this.goalSelector.addGoal(1, new MoraySwimGoal(this));
-        //   this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0, false));
+           this.goalSelector.addGoal(5, new Eelmeeleeattackgoal(this, 1.0, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
        this.targetSelector.addGoal(4,new NearestAttackableTargetGoal<>(this, TropicalFish.class,true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
@@ -143,6 +143,12 @@ public class Moray extends Monster implements GeoEntity {
     }
 
     private PlayState animations(AnimationState<Moray> morayAnimationState) {
+
+       if (this.getHealth()<=0.01){
+           morayAnimationState.getController().setAnimation(RawAnimation.begin().then("moray.death", Animation.LoopType.PLAY_ONCE));
+      return PlayState.CONTINUE;
+       }
+
 
         if (getanimation()==1){
             morayAnimationState.getController().setAnimation(RawAnimation.begin().then("bite.moray", Animation.LoopType.PLAY_ONCE));
@@ -210,7 +216,19 @@ public class Moray extends Monster implements GeoEntity {
             }
         }
     }
+    @Override
+    protected void tickDeath() {
+        ++this.deathTime;
 
+
+        if ( this.deathTime==1){
+            setanimation(0);
+        }
+        if (this.deathTime == 60 && !this.level().isClientSide()) {
+            this.level().broadcastEntityEvent(this, (byte) 60);
+            this.remove(RemovalReason.KILLED);
+        }
+    }
 
 
 

@@ -15,6 +15,7 @@ public class MorayBlockLootTables  extends BlockLootSubProvider {
     @Override
     protected void generate() {
     this.dropSelf(Blockregistrires.BASALTLAMP.get());
+   this.dropSelf(Blockregistrires.BLOCK_OF_SCALES.get());
     }
 
     @Override

@@ -5,16 +5,8 @@ import com.moray.moraymobs.registries.Blockregistrires;
 import com.moray.moraymobs.registries.Itemregististeries;
 import com.moray.moraymobs.registries.Mobregistries;
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,9 +19,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -95,6 +85,7 @@ public class MorayMobs
 
     if (event.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS){
         event.accept(Blockregistrires.BASALTLAMP);
+        event.accept(Blockregistrires.BLOCK_OF_SCALES);
     }
 
 
@@ -103,6 +94,15 @@ public class MorayMobs
         event.accept(Itemregististeries.JAW);
         event.accept(Itemregististeries.BEETLE_SCALE);
     }
+if(event.getTabKey()==CreativeModeTabs.COMBAT){
+    event.accept(Itemregististeries.BEETLE_HELMET);
+    event.accept(Itemregististeries.BEETLE_CHESTPLATE);
+    event.accept(Itemregististeries.BEETLE_LEGGINGS);
+    event.accept(Itemregististeries.BEETLE_BOOTS);
+}
+
+
+
 
     }
 
@@ -121,7 +121,7 @@ public class MorayMobs
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-           enitityholder.setup(event);
+           Enitityholder.setup(event);
 
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");

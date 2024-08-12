@@ -16,6 +16,7 @@ public class MorayBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 blockWithItem(Blockregistrires.BASALTLAMP);
+blockWithItem(Blockregistrires.BLOCK_OF_SCALES);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

@@ -1,14 +1,11 @@
 package com.moray.moraymobs.datagen;
 
 import com.moray.moraymobs.MorayMobs;
+import com.moray.moraymobs.registries.Blockregistrires;
+import com.moray.moraymobs.registries.Itemregististeries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
@@ -24,6 +21,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blockregistrires.BLOCK_OF_SCALES.get())
+                .pattern("$$$")
+                .pattern("$$$")
+                .pattern("$$$").define('$',Itemregististeries.BEETLE_SCALE.get())
+                .unlockedBy(getHasName(Itemregististeries.BEETLE_SCALE.get()),has(Itemregististeries.BEETLE_SCALE.get()))
+                .save(pWriter);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,Itemregististeries.BEETLE_SCALE.get(),9)
+                .requires(Blockregistrires.BLOCK_OF_SCALES.get())
+                .unlockedBy(getHasName(Blockregistrires.BLOCK_OF_SCALES.get()), has(Blockregistrires.BLOCK_OF_SCALES.get()))
+                .save(pWriter);
+
+
 
     }
 

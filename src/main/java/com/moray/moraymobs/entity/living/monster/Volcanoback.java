@@ -140,7 +140,7 @@ if (this.getanimation_timer()>0&&getgroundpound()==100){
             float radian=this.random.nextInt(360)*Mth.DEG_TO_RAD;
             float x_sign= (float) (getX()+5*Mth.sin(radian));
             float z_sign= (float) (getZ()+5*Mth.cos(radian));
-            this.level().addParticle(ParticleTypes.SMOKE, x_sign, this.getY(), z_sign, 0.0, 0.0, 0.0);
+            this.level().addParticle(ParticleTypes.ANGRY_VILLAGER, x_sign, this.getY(), z_sign, 0.0, 0.0, 0.0);
         }}
 
 

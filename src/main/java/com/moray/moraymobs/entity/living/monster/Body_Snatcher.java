@@ -22,8 +22,6 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 public class Body_Snatcher extends Monster implements GeoEntity {
 
 
-
-
     public Body_Snatcher(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl =new MoveControl(this);

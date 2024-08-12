@@ -4,7 +4,7 @@ import com.moray.moraymobs.rendersandmodels.render.*;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-public class enitityholder {
+public class Enitityholder {
 
 
 

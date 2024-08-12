@@ -1,8 +1,10 @@
 package com.moray.moraymobs.datagen;
 
 import com.moray.moraymobs.MorayMobs;
+import com.moray.moraymobs.registries.Blockregistrires;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -16,6 +18,6 @@ public class MorayBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-
+this.tag(BlockTags.NEEDS_STONE_TOOL).add(Blockregistrires.BLOCK_OF_SCALES.get());
     }
 }

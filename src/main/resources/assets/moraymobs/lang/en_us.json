@@ -1,4 +1,6 @@
 {"item.moraymobs.brain": "Brain",
+  "item.moraymobs.jawloose": "Eel Jaw",
+  "item.moraymobs.scale": "Beetle Scale",
 "item.moraymobs.spawn_basaltlisk": "Spawn Basaltlisk",
   "item.moraymobs.spawn_body_snatcher": "Spawn Body Snatcher",
   "item.moraymobs.spawn_opposum": "Spawn Opossum",
@@ -6,6 +8,8 @@
   "item.moraymobs.spawn_moray": "Spawn Bony Moray",
 
   "block.moraymobs.basaltlamp": "Basalt Lamp",
+  "block.moraymobs.blockscale": "Block of Scales",
+
   "entity.moraymobs.bodysnatcher": "Body Snatcher",
   "entity.moraymobs.opossum": "Opossum",
   "entity.moraymobs.basaltlisk": "Basaltlisk",

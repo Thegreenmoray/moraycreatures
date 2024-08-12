@@ -1,7 +1,10 @@
 package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
+import com.moray.moraymobs.item.Beetlearmor;
 import com.moray.moraymobs.item.Brainitem;
+import com.moray.moraymobs.item.Morayarmormaterials;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -40,6 +43,17 @@ public class Itemregististeries {
     final public static RegistryObject<Item> BEETLE_SCALE=ITEM.register("scale",
             ()->new Item(new Item.Properties().stacksTo(64)));
 
+    final public static RegistryObject<Item> BEETLE_HELMET=ITEM.register("beetlemask",
+            ()->new Beetlearmor(Morayarmormaterials.BEETLE, ArmorItem.Type.HELMET,new Item.Properties().fireResistant()));
+
+    final public static RegistryObject<Item> BEETLE_CHESTPLATE=ITEM.register("beetlechestplate",
+            ()->new Beetlearmor(Morayarmormaterials.BEETLE, ArmorItem.Type.CHESTPLATE,new Item.Properties().fireResistant()));
+
+    final public static RegistryObject<Item> BEETLE_LEGGINGS=ITEM.register("beetleleggings",
+            ()->new Beetlearmor(Morayarmormaterials.BEETLE, ArmorItem.Type.LEGGINGS,new Item.Properties().fireResistant()));
+
+    final public static RegistryObject<Item> BEETLE_BOOTS=ITEM.register("beetleboots",
+            ()->new Beetlearmor(Morayarmormaterials.BEETLE, ArmorItem.Type.BOOTS,new Item.Properties().fireResistant()));
 
     public static void register(IEventBus bus){
         ITEM.register(bus);
