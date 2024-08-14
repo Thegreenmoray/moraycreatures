@@ -3,10 +3,11 @@ package com.moray.moraymobs.registries;
 import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.item.Beetlearmor;
 import com.moray.moraymobs.item.Brainitem;
+import com.moray.moraymobs.item.Eelwhip;
 import com.moray.moraymobs.item.Morayarmormaterials;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
+import net.minecraftforge.common.ForgeTier;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -54,6 +55,11 @@ public class Itemregististeries {
 
     final public static RegistryObject<Item> BEETLE_BOOTS=ITEM.register("beetleboots",
             ()->new Beetlearmor(Morayarmormaterials.BEETLE, ArmorItem.Type.BOOTS,new Item.Properties().fireResistant()));
+
+    final public static RegistryObject<Item> EEL_WHIP=ITEM.register("eelwhip",
+            ()->new Eelwhip(Tiers.WOOD,0, 0.9F,new Item.Properties().durability(450)));
+
+
 
     public static void register(IEventBus bus){
         ITEM.register(bus);

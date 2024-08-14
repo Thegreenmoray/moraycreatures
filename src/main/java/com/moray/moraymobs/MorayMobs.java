@@ -99,6 +99,7 @@ if(event.getTabKey()==CreativeModeTabs.COMBAT){
     event.accept(Itemregististeries.BEETLE_CHESTPLATE);
     event.accept(Itemregististeries.BEETLE_LEGGINGS);
     event.accept(Itemregististeries.BEETLE_BOOTS);
+    event.accept(Itemregististeries.EEL_WHIP);
 }
 
 

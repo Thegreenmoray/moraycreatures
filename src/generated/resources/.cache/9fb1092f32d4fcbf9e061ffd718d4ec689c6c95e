@@ -1,5 +1,13 @@
-// 1.20.1	2024-08-09T18:02:20.2223928	Recipes
+// 1.20.1	2024-08-12T23:10:55.545373	Recipes
+a92c01af8d311cc62c45031301ea8735762ec57a data/moraymobs/advancements/recipes/combat/beetleboots.json
+4d8c1cd1fecfd97c8fd7afedb58f12bbe552e655 data/moraymobs/advancements/recipes/combat/beetlechestplate.json
+6d4425de926ed87793949d758185965c9a6fbf59 data/moraymobs/advancements/recipes/combat/beetleleggings.json
+6cd63f342f6bacf2e0bde4a5fd481f984008a41a data/moraymobs/advancements/recipes/combat/beetlemask.json
 8d0a28fd525a607e89ab4fac59d073e2243ae635 data/moraymobs/advancements/recipes/misc/blockscale.json
 efee8b92bb4a0777ad70dec900c62bd189891132 data/moraymobs/advancements/recipes/misc/scale.json
+e079441fff66d673df030f7271aeaec71c67f551 data/moraymobs/recipes/beetleboots.json
+710954e3f3e40a9467e2a120bd111c6544fbb74a data/moraymobs/recipes/beetlechestplate.json
+ea5ebacbe2f59cc23b33ec5d040a660df619d226 data/moraymobs/recipes/beetleleggings.json
+76c01f3019ff8d93877408ef8770fa6c00b12623 data/moraymobs/recipes/beetlemask.json
 66f9dc98d246cc4dd7daef22390a58e678a6b8f8 data/moraymobs/recipes/blockscale.json
 3c82d725300d93d432242c2e1caf5e359e0dd9bc data/moraymobs/recipes/scale.json

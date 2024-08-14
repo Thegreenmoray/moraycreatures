@@ -33,8 +33,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Blockregistrires.BLOCK_OF_SCALES.get()), has(Blockregistrires.BLOCK_OF_SCALES.get()))
                 .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Itemregististeries.BEETLE_BOOTS.get())
+                .pattern("   ")
+                .pattern("$ $")
+                .pattern("$ $").define('$',Itemregististeries.BEETLE_SCALE.get())
+                .unlockedBy(getHasName(Itemregististeries.BEETLE_SCALE.get()),has(Itemregististeries.BEETLE_SCALE.get()))
+                .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Itemregististeries.BEETLE_LEGGINGS.get())
+                .pattern("$$$")
+                .pattern("$ $")
+                .pattern("$ $").define('$',Itemregististeries.BEETLE_SCALE.get())
+                .unlockedBy(getHasName(Itemregististeries.BEETLE_SCALE.get()),has(Itemregististeries.BEETLE_SCALE.get()))
+                .save(pWriter);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Itemregististeries.BEETLE_HELMET.get())
+                .pattern("$$$")
+                .pattern("$ $")
+                .pattern("   ").define('$',Itemregististeries.BEETLE_SCALE.get())
+                .unlockedBy(getHasName(Itemregististeries.BEETLE_SCALE.get()),has(Itemregististeries.BEETLE_SCALE.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Itemregististeries.BEETLE_CHESTPLATE.get())
+                .pattern("$ $")
+                .pattern("$$$")
+                .pattern("$$$").define('$',Itemregististeries.BEETLE_SCALE.get())
+                .unlockedBy(getHasName(Itemregististeries.BEETLE_SCALE.get()),has(Itemregististeries.BEETLE_SCALE.get()))
+                .save(pWriter);
     }
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
