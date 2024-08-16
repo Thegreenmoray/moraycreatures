@@ -16,8 +16,10 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -41,7 +43,7 @@ public class Mobregistries {
                     .sized(2,0.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"basaltlisk").toString()));
 
     final public static RegistryObject<EntityType<Volcanoback>> VOLCANOBACK=
-            ENTITY_TYPE.register("volcanoback",()->EntityType.Builder.of(Volcanoback::new, MobCategory.CREATURE)
+            ENTITY_TYPE.register("volcanoback",()->EntityType.Builder.of(Volcanoback::new, MobCategory.MONSTER)
                     .sized(4,2F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"volcanoback").toString()));
 
   final public static RegistryObject<EntityType<Fireheap>> FIREHEAP=
@@ -49,7 +51,7 @@ public class Mobregistries {
                   .sized(2,0.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"fireheap").toString()));
 
   final public static RegistryObject<EntityType<Moray>> MORAY=
-          ENTITY_TYPE.register("bonymoray",()->EntityType.Builder.of(Moray::new, MobCategory.CREATURE)
+          ENTITY_TYPE.register("bonymoray",()->EntityType.Builder.of(Moray::new, MobCategory.MONSTER)
                   .sized(3,1F).build(new ResourceLocation(MorayMobs.MODID,"bonymoray").toString()));
 
   final public static RegistryObject<EntityType<Morayjaw>> MORAYJAW=
@@ -63,10 +65,11 @@ public class Mobregistries {
 }
 
   @SubscribeEvent
-  public static void initializeAttributes(EntityAttributeCreationEvent event) {
+  public static void initializeAttributes(SpawnPlacementRegisterEvent event) {
 
-    SpawnPlacements.register(MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules);
-    SpawnPlacements.register(OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
+    event.register(MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
+ event.register(OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
+event.register(VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Monster::checkAnyLightMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
 
   }
 }

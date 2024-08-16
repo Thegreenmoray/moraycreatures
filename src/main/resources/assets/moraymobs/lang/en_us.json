@@ -5,6 +5,7 @@
   "item.moraymobs.beetlechestplate": "Beetle Chestplate",
   "item.moraymobs.beetleleggings": "Beetle Leggings",
   "item.moraymobs.beetleboots": "Beetle Boots",
+  "item.moraymobs.eelwhip": "Eel Whip",
   "item.moraymobs.spawn_basaltlisk": "Spawn Basaltlisk",
   "item.moraymobs.spawn_body_snatcher": "Spawn Body Snatcher",
   "item.moraymobs.spawn_opposum": "Spawn Opossum",
@@ -18,7 +19,7 @@
   "entity.moraymobs.opossum": "Opossum",
   "entity.moraymobs.basaltlisk": "Basaltlisk",
   "entity.moraymobs.volcanoback": "Volcanoback",
-  "entity.moraymobs.boneymoray": "Bony Moray",
+  "entity.moraymobs.bonymoray": "Bony Moray",
 
 
 

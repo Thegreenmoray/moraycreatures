@@ -57,7 +57,7 @@ public class Itemregististeries {
             ()->new Beetlearmor(Morayarmormaterials.BEETLE, ArmorItem.Type.BOOTS,new Item.Properties().fireResistant()));
 
     final public static RegistryObject<Item> EEL_WHIP=ITEM.register("eelwhip",
-            ()->new Eelwhip(Tiers.WOOD,0, 0.9F,new Item.Properties().durability(450)));
+            ()->new Eelwhip(Tiers.WOOD,3, 0.000000001F,new Item.Properties().durability(450)));
 
 
 

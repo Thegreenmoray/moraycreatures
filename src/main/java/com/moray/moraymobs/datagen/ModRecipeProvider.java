@@ -5,6 +5,7 @@ import com.moray.moraymobs.registries.Blockregistrires;
 import com.moray.moraymobs.registries.Itemregististeries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -59,6 +60,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("$$$")
                 .pattern("$$$").define('$',Itemregististeries.BEETLE_SCALE.get())
                 .unlockedBy(getHasName(Itemregististeries.BEETLE_SCALE.get()),has(Itemregististeries.BEETLE_SCALE.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Itemregististeries.EEL_WHIP.get())
+                .pattern("$  ")
+                .pattern(" **")
+                .pattern(" *&").define('$',Itemregististeries.JAW.get()).define('*', Items.BONE).define('&',Items.LEATHER)
+                .unlockedBy(getHasName(Itemregististeries.JAW.get()),has(Itemregististeries.JAW.get()))
                 .save(pWriter);
     }
 
