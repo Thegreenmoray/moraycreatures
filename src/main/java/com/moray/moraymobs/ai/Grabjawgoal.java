@@ -54,14 +54,23 @@ moray.settimer(0);
            if(jaw==0){
                morayjaw=createjaw();
                 morayjaw.setParent(moray);
+               float radian =  moray.getYRot() * Mth.DEG_TO_RAD;
+               float x_amount = 2*-Mth.sin(radian);
+               float z_amount =2*Mth.cos(radian);
+               morayjaw.setPos(this.moray.getX() + x_amount, this.moray.getY(),this.moray.getZ() + z_amount);
+               this.morayjaw.setYRot(moray.yRotO);
+               this.morayjaw.yHeadRot = this.morayjaw.getYRot();
+               this.morayjaw.yBodyRot = this.morayjaw.yRotO;
               this.moray.level().addFreshEntity(morayjaw);
            morayjaw.setanimation(1);
            moray.setanimation(2);
             }
+if (jaw ==4){
+    entity.startRiding(this.morayjaw);
+}
 
-             if (jaw < 12&&jaw>8&&moray.distanceTo(entity)<=4.5) {
-              entity.startRiding(morayjaw);
-                 entity.hurt(this.moray.damageSources().generic(),5);
+             if (jaw < 12&&jaw>7&&moray.distanceTo(entity)<=4.5) {
+                 entity.hurt(this.moray.damageSources().generic(),2);
              }
 if (jaw==13){
 morayjaw.remove(Entity.RemovalReason.DISCARDED);

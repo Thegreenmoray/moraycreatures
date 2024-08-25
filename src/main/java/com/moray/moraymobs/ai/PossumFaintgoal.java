@@ -39,7 +39,6 @@ int faint_time;
     public void tick() {
         super.tick();
              ++out;
-       this.opossum.setDeltaMovement(Vec3.ZERO);
         List<Entity> snetch=this.opossum.level().getEntities(this.opossum,this.opossum.getBoundingBox().inflate(5), e->e instanceof LivingEntity);
 
 for (Entity entity:snetch){

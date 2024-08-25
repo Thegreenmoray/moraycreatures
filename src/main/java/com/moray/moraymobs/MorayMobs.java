@@ -4,7 +4,9 @@ import com.mojang.logging.LogUtils;
 import com.moray.moraymobs.registries.Blockregistrires;
 import com.moray.moraymobs.registries.Itemregististeries;
 import com.moray.moraymobs.registries.Mobregistries;
+import com.moray.moraymobs.registries.Moraytab;
 import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,6 +23,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+
+import java.util.Locale;
+
+import static javax.swing.text.html.parser.DTDConstants.ID;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MorayMobs.MODID)
@@ -42,7 +48,7 @@ public class MorayMobs
         Mobregistries.register(modEventBus);
         Blockregistrires.register(modEventBus);
         Itemregististeries.register(modEventBus);
-
+        Moraytab.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
 
 
@@ -72,38 +78,6 @@ public class MorayMobs
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
-            }
-
-    if (event.getTabKey()==CreativeModeTabs.SPAWN_EGGS){
-        event.accept(Itemregististeries.BODYSNATCHER_SPAWN_EGG);
-        event.accept(Itemregististeries.OPPOSUM_SPAWN_EGG);
-        event.accept(Itemregististeries.BASALTlISK_SPAWN_EGG);
-        event.accept(Itemregististeries.VOLCANOBACK_SPAWN_EGG);
-        event.accept(Itemregististeries.MORAY_SPAWN_EGG);
-    }
-
-    if (event.getTabKey()==CreativeModeTabs.FUNCTIONAL_BLOCKS){
-        event.accept(Blockregistrires.BASALTLAMP);
-        event.accept(Blockregistrires.BLOCK_OF_SCALES);
-    }
-
-
-    if (event.getTabKey()==CreativeModeTabs.INGREDIENTS){
-        event.accept(Itemregististeries.BRAIN);
-        event.accept(Itemregististeries.JAW);
-        event.accept(Itemregististeries.BEETLE_SCALE);
-    }
-if(event.getTabKey()==CreativeModeTabs.COMBAT){
-    event.accept(Itemregististeries.BEETLE_HELMET);
-    event.accept(Itemregististeries.BEETLE_CHESTPLATE);
-    event.accept(Itemregististeries.BEETLE_LEGGINGS);
-    event.accept(Itemregististeries.BEETLE_BOOTS);
-    event.accept(Itemregististeries.EEL_WHIP);
-}
-
-
-
 
     }
 

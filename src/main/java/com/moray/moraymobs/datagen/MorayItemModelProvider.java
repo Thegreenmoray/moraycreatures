@@ -29,6 +29,7 @@ withExistingParent(Itemregististeries.MORAY_SPAWN_EGG.getId().getPath(),mcLoc("i
         simpleItem(Itemregististeries.BEETLE_CHESTPLATE);
         simpleItem(Itemregististeries.BEETLE_LEGGINGS);
         simpleItem(Itemregististeries.BEETLE_BOOTS);
+        simpleItem(Itemregististeries.BASALT_CRYSTAL);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

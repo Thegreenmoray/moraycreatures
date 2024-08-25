@@ -11,8 +11,7 @@ public class ModLootTableProvider {
     public static LootTableProvider create(PackOutput output) {
         return new LootTableProvider(output, Set.of(), List.of(
                 new LootTableProvider.SubProviderEntry(MorayBlockLootTables::new, LootContextParamSets.BLOCK),
-                new LootTableProvider.SubProviderEntry(MorayMobLootTable::new,LootContextParamSets.ENTITY)
-        ));
+                new LootTableProvider.SubProviderEntry(MorayMobLootTable::new,LootContextParamSets.ENTITY)));
     }
 
 

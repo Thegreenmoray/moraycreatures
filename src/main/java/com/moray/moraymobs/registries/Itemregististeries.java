@@ -1,10 +1,7 @@
 package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
-import com.moray.moraymobs.item.Beetlearmor;
-import com.moray.moraymobs.item.Brainitem;
-import com.moray.moraymobs.item.Eelwhip;
-import com.moray.moraymobs.item.Morayarmormaterials;
+import com.moray.moraymobs.item.*;
 import net.minecraft.world.item.*;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.ForgeTier;
@@ -59,6 +56,8 @@ public class Itemregististeries {
     final public static RegistryObject<Item> EEL_WHIP=ITEM.register("eelwhip",
             ()->new Eelwhip(Tiers.WOOD,3, 0.000000001F,new Item.Properties().durability(450)));
 
+    final public static RegistryObject<Item> BASALT_CRYSTAL=ITEM.register("basalt_crystal",
+            ()->new Cagedbasalitisk(new Item.Properties().stacksTo(64)));
 
 
     public static void register(IEventBus bus){

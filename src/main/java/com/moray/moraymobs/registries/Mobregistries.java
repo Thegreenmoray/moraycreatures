@@ -28,8 +28,6 @@ public class Mobregistries {
   final public static DeferredRegister<EntityType<?>> ENTITY_TYPE=DeferredRegister.create(
           ForgeRegistries.ENTITY_TYPES, MorayMobs.MODID);
 
-
-
     final public static RegistryObject<EntityType<Body_Snatcher>> BODY_SNATCHER=
             ENTITY_TYPE.register("bodysnatcher",()->EntityType.Builder.of(Body_Snatcher::new, MobCategory.MONSTER)
                     .sized(0.5F,2).build(new ResourceLocation(MorayMobs.MODID,"bodysnatcher").toString()));
@@ -58,18 +56,15 @@ public class Mobregistries {
           ENTITY_TYPE.register("bonymorayjaw",()->EntityType.Builder.<Morayjaw>of(Morayjaw::new, MobCategory.MISC)
                   .sized(0.5f,0.5F).build(new ResourceLocation(MorayMobs.MODID,"bonymorayjaw").toString()));
 
-
-
   public static void register(IEventBus bus){
     ENTITY_TYPE.register(bus);
 }
 
   @SubscribeEvent
   public static void initializeAttributes(SpawnPlacementRegisterEvent event) {
-
-    event.register(MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
+    event.register(MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR, Monster::checkAnyLightMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
  event.register(OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
-event.register(VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Monster::checkAnyLightMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
-
+event.register(VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Volcanoback::checkMonsterSpawnRuleschance,SpawnPlacementRegisterEvent.Operation.REPLACE);
+//event.register(BASALTISK.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Basaltlisk::checkBasaltliskSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
   }
 }

@@ -2,17 +2,21 @@ package com.moray.moraymobs.entity.living.monster;
 
 
 import com.moray.moraymobs.ai.*;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
@@ -26,12 +30,22 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Objects;
 
 public class Volcanoback extends Monster implements GeoEntity {
     private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
@@ -88,11 +102,12 @@ public class Volcanoback extends Monster implements GeoEntity {
         return new GroundPathNavigation(this, pLevel);
     }
 
-
-
+    public static boolean checkMonsterSpawnRules(EntityType<? extends Monster> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        return !Objects.requireNonNull(pLevel.getBlockEntity(pPos)).getBlockState().isAir()&&pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn(pLevel, pPos, pRandom) && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
+    }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 100.0).add(Attributes.MOVEMENT_SPEED, 0.5f).add(Attributes.ARMOR,10f).add(Attributes.ATTACK_DAMAGE,12f).add(Attributes.FOLLOW_RANGE,20);
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 100.0).add(Attributes.MOVEMENT_SPEED, 0.3f).add(Attributes.ARMOR,5f).add(Attributes.ATTACK_DAMAGE,12f).add(Attributes.FOLLOW_RANGE,20);
     }
 
     protected void registerGoals() {
@@ -186,12 +201,21 @@ if (this.getanimation_timer()>0&&getgroundpound()==100){
     }
 
 
+    public static boolean checkMonsterSpawnRuleschance(EntityType<? extends Monster> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        BlockPos blockpos = pPos.below();
+
+        return pLevel.getBlockState(blockpos).is(Blocks.NETHERRACK) &&
+                 pLevel.getDifficulty() != Difficulty.PEACEFUL&&pRandom.nextInt(30) == 0
+                && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom)
+                && isDarkEnoughToSpawn((ServerLevelAccessor)pLevel, pPos, pRandom);
+    }
+
     public MobType getMobType() {
         return MobType.ARTHROPOD;
     }
 
     public boolean isInvulnerableTo(DamageSource source) {
-        return source.is(DamageTypeTags.IS_PROJECTILE) || super.isInvulnerableTo(source);
+        return source.is(DamageTypeTags.IS_FALL)||source.is(DamageTypeTags.IS_PROJECTILE) || super.isInvulnerableTo(source);
     }
 
     @Override

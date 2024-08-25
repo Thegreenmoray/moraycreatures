@@ -16,6 +16,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -113,13 +114,7 @@ this.setTimer(compound.getInt("timer"));
         Entity leader = this.getParent();
         if (leader!=null) {
             setNoGravity(true);
-            float radian =  leader.getYRot() * Mth.DEG_TO_RAD;
-            float x_amount = 2*-Mth.sin(radian);
-            float z_amount =2*Mth.cos(radian);
-            this.setPos(leader.getX() + x_amount, leader.getY(), leader.getZ() + z_amount);
-            this.setYRot(leader.yRotO);
-            this.yHeadRot = this.getYRot();
-            this.yBodyRot = this.yRotO;
+
         }
 
 if (leader!=null&&gettimer()>0){

@@ -22,8 +22,8 @@ import java.util.stream.Stream;
 public class MorayMobLootTable extends EntityLootSubProvider {
 
 
-    protected MorayMobLootTable() {
-        super(FeatureFlags.REGISTRY.allFlags());
+   protected MorayMobLootTable() {
+       super(FeatureFlags.REGISTRY.allFlags());
     }
 
     @Override

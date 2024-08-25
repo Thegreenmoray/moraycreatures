@@ -6,6 +6,7 @@
   "item.moraymobs.beetleleggings": "Beetle Leggings",
   "item.moraymobs.beetleboots": "Beetle Boots",
   "item.moraymobs.eelwhip": "Eel Whip",
+  "item.moraymobs.basalt_crystal":"Basalt Crystal",
   "item.moraymobs.spawn_basaltlisk": "Spawn Basaltlisk",
   "item.moraymobs.spawn_body_snatcher": "Spawn Body Snatcher",
   "item.moraymobs.spawn_opposum": "Spawn Opossum",
@@ -21,10 +22,10 @@
   "entity.moraymobs.volcanoback": "Volcanoback",
   "entity.moraymobs.bonymoray": "Bony Moray",
 
-
+"creative.moray_tab": "Moray Items",
 
 
   "tooltip.moraymobs.brain": "Shift-Right Click to gain more exp",
-  "tooltip.moraymobs.basaltlamp": "Rare, Powerful, or Notable creatures are lit up by this lamp by right clicking the block. Obtained from Basaltlisks after eating a small magma cube."
-
+  "tooltip.moraymobs.basaltlamp": "Rare, Powerful, or Notable creatures are lit up by this lamp by right clicking the block. Obtained from Basaltlisks after eating a small magma cube or Basalt Sanctuaries.",
+  "tooltip.moraymobs.crystal": "A Neutral creature is held with this magical cage, be warned that freeing it will break the cage, and you cannot reform it. Right click on a block to free it."
 }

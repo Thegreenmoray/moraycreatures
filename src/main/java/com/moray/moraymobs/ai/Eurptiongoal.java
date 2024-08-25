@@ -26,7 +26,7 @@ public class Eurptiongoal extends Goal {
     private void spawn_projectiles(){
 
         float radians =this.volcanoback.level().random.nextInt(360)* Mth.DEG_TO_RAD;
-float direction=this.volcanoback.getRandom().nextBoolean()?1:-1*5;
+float direction=(this.volcanoback.getRandom().nextBoolean()?1:-1)*this.volcanoback.getRandom().nextInt(5);
         Fireheap fireheap= new Fireheap(this.volcanoback.level());
 
         fireheap.setPos(this.volcanoback.getX(),this.volcanoback.getY()+5,this.volcanoback.getZ());
