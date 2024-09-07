@@ -139,7 +139,7 @@ this.setScream(pCompound.getBoolean("screm"));
     }
 
     private PlayState animations(AnimationState<Opossum> opossumAnimationState) {
-        if (isscream()){  //add new varaible
+        if (isscream()){
             opossumAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.model.screm", Animation.LoopType.HOLD_ON_LAST_FRAME));
             return PlayState.CONTINUE;
         }

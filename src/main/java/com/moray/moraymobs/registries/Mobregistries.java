@@ -2,12 +2,14 @@ package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.entity.living.animal.Basaltlisk;
+import com.moray.moraymobs.entity.living.animal.LavaPaddleFish;
 import com.moray.moraymobs.entity.living.animal.Opossum;
 import com.moray.moraymobs.entity.living.monster.Body_Snatcher;
 import com.moray.moraymobs.entity.living.monster.Moray;
 import com.moray.moraymobs.entity.living.monster.Morayjaw;
 import com.moray.moraymobs.entity.living.monster.Volcanoback;
 import com.moray.moraymobs.entity.projectiles.Fireheap;
+import com.moray.moraymobs.entity.projectiles.Soulpiece;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -55,6 +57,15 @@ public class Mobregistries {
   final public static RegistryObject<EntityType<Morayjaw>> MORAYJAW=
           ENTITY_TYPE.register("bonymorayjaw",()->EntityType.Builder.<Morayjaw>of(Morayjaw::new, MobCategory.MISC)
                   .sized(0.5f,0.5F).build(new ResourceLocation(MorayMobs.MODID,"bonymorayjaw").toString()));
+
+  final public static RegistryObject<EntityType<LavaPaddleFish>> PADDLEFISH=
+          ENTITY_TYPE.register("paddlefish",()->EntityType.Builder.of(LavaPaddleFish::new, MobCategory.WATER_CREATURE)
+                  .sized(0.5f,0.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"paddlefish").toString()));
+
+  final public static RegistryObject<EntityType<Soulpiece>> SOULPROJECTILE=
+          ENTITY_TYPE.register("soulprojectile",()->EntityType.Builder.<Soulpiece>of(Soulpiece::new, MobCategory.MISC)
+                  .sized(1,2F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"soulprojectile").toString()));
+
 
   public static void register(IEventBus bus){
     ENTITY_TYPE.register(bus);

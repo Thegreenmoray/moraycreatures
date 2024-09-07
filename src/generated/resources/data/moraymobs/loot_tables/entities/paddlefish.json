@@ -6,17 +6,12 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:killed_by_player"
-            }
-          ],
           "functions": [
             {
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 4.0,
+                "max": 1.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
@@ -30,31 +25,11 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "minecraft:bone"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "chance": 0.25,
-          "condition": "minecraft:random_chance_with_looting",
-          "looting_multiplier": 0.01
-        }
-      ],
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "moraymobs:jawloose"
+          "name": "moraymobs:paddlefishfood"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "moraymobs:entities/bonymoray"
+  "random_sequence": "moraymobs:entities/paddlefish"
 }

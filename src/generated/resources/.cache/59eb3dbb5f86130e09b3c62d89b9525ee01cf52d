@@ -1,8 +1,9 @@
-// 1.20.1	2024-08-09T20:46:54.2109396	Loot Tables
+// 1.20.1	2024-08-30T09:44:30.9133619	Loot Tables
 f0d2e92677d34968cd9211b990b317ab40d3821f data/moraymobs/loot_tables/blocks/basaltlamp.json
 a076d08baa9c7a9aa3b87d83fcf6f95349b22d6b data/moraymobs/loot_tables/blocks/blockscale.json
 92e4e7c531c7de0fda3a32b3a249e848b7313c6d data/moraymobs/loot_tables/entities/basaltlisk.json
 a2105ad688d637fbcc0d9f551418fedcf317d632 data/moraymobs/loot_tables/entities/bodysnatcher.json
-484c62423e26b7c62ae6376f421ac11ea4d1d929 data/moraymobs/loot_tables/entities/bonymoray.json
+51445dfca1d5326424ff6cab619553c78a7b058c data/moraymobs/loot_tables/entities/bonymoray.json
 148809bf2a1a30c385f40db00ecdf3ed60e2a093 data/moraymobs/loot_tables/entities/opossum.json
+7717b28d8089995395a8085e2450b0726d925da0 data/moraymobs/loot_tables/entities/paddlefish.json
 2df30f89a9bc5f5d8fa5abeab2e016d9e61d8fae data/moraymobs/loot_tables/entities/volcanoback.json

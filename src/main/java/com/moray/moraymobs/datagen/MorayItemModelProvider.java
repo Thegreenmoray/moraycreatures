@@ -30,7 +30,11 @@ withExistingParent(Itemregististeries.MORAY_SPAWN_EGG.getId().getPath(),mcLoc("i
         simpleItem(Itemregististeries.BEETLE_LEGGINGS);
         simpleItem(Itemregististeries.BEETLE_BOOTS);
         simpleItem(Itemregististeries.BASALT_CRYSTAL);
+   simpleItem(Itemregististeries.BUCKETED_PADDLEFISH);
+   simpleItem(Itemregististeries.PADDLEFISH_FOOD);
     }
+
+
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),

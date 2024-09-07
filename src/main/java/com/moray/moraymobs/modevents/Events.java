@@ -2,6 +2,7 @@ package com.moray.moraymobs.modevents;
 
 import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.entity.living.animal.Basaltlisk;
+import com.moray.moraymobs.entity.living.animal.LavaPaddleFish;
 import com.moray.moraymobs.entity.living.animal.Opossum;
 import com.moray.moraymobs.entity.living.monster.Body_Snatcher;
 import com.moray.moraymobs.entity.living.monster.Moray;
@@ -41,6 +42,7 @@ event.put(Mobregistries.OPOSSUM.get(), Opossum.createAttributes().build());
 event.put(Mobregistries.VOLCANOBACK.get(), Volcanoback.createAttributes().build());
 event.put(Mobregistries.MORAY.get(), Moray.createAttributes().build());
 event.put(Mobregistries.MORAYJAW.get(), Morayjaw.createAttributes().build());
+event.put(Mobregistries.PADDLEFISH.get(), LavaPaddleFish.createAttributes().build());
 }
 
 

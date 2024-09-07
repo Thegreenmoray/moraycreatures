@@ -2,13 +2,20 @@ package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.item.*;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.ForgeTier;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Supplier;
 
 
 public class Itemregististeries {
@@ -59,6 +66,11 @@ public class Itemregististeries {
     final public static RegistryObject<Item> BASALT_CRYSTAL=ITEM.register("basalt_crystal",
             ()->new Cagedbasalitisk(new Item.Properties().stacksTo(64)));
 
+    final public static RegistryObject<Item> BUCKETED_PADDLEFISH=ITEM.register("paddlefishbucket",
+           ()->new Moraybuckets( Mobregistries.PADDLEFISH,Fluids.LAVA,new Item.Properties()));
+
+    final public static RegistryObject<Item> PADDLEFISH_FOOD=ITEM.register("paddlefishfood",
+            ()->new Item(new Item.Properties().fireResistant().food(new FoodProperties.Builder().nutrition(6).saturationMod(3).build())));
 
     public static void register(IEventBus bus){
         ITEM.register(bus);
