@@ -17,6 +17,8 @@ public class Enitityholder {
    EntityRenderers.register(Mobregistries.MORAY.get(), Morayrender::new);
     EntityRenderers.register(Mobregistries.MORAYJAW.get(), Morayjawrender::new);
     EntityRenderers.register(Mobregistries.PADDLEFISH.get(),Paddlefishrender::new);
+    EntityRenderers.register(Mobregistries.SOULCATCHER.get(),Soulcatcherrender::new);
+    EntityRenderers.register(Mobregistries.SOULPROJECTILE.get(),Soulballrenderer::new);
     }
 
 

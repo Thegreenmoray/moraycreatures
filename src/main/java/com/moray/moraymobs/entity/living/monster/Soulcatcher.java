@@ -3,6 +3,7 @@ package com.moray.moraymobs.entity.living.monster;
 import com.moray.moraymobs.ai.SoulBeamGoal;
 import com.moray.moraymobs.ai.SoulCatcherFloatAroundGoal;
 import com.moray.moraymobs.ai.SoulProjectileGoal;
+import com.moray.moraymobs.entity.projectiles.Soulpiece;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -34,7 +35,7 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class Soulcatcher extends FlyingMob implements GeoEntity {
-    protected Soulcatcher(EntityType<? extends FlyingMob> pEntityType, Level pLevel) {
+    public Soulcatcher(EntityType<Soulcatcher> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
 moveControl=new SoulcatcherMoveControl(this);
 
@@ -44,6 +45,8 @@ moveControl=new SoulcatcherMoveControl(this);
     private static final EntityDataAccessor<Byte> ANIMATION= SynchedEntityData.defineId(Soulcatcher.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Integer> TIMER= SynchedEntityData.defineId(Soulcatcher.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> BEAMTIMER= SynchedEntityData.defineId(Soulcatcher.class, EntityDataSerializers.INT);
+
+
 
     public int getbeamtimer(){
         return this.entityData.get(BEAMTIMER);

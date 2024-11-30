@@ -4,10 +4,7 @@ import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.entity.living.animal.Basaltlisk;
 import com.moray.moraymobs.entity.living.animal.LavaPaddleFish;
 import com.moray.moraymobs.entity.living.animal.Opossum;
-import com.moray.moraymobs.entity.living.monster.Body_Snatcher;
-import com.moray.moraymobs.entity.living.monster.Moray;
-import com.moray.moraymobs.entity.living.monster.Morayjaw;
-import com.moray.moraymobs.entity.living.monster.Volcanoback;
+import com.moray.moraymobs.entity.living.monster.*;
 import com.moray.moraymobs.entity.projectiles.Fireheap;
 import com.moray.moraymobs.entity.projectiles.Soulpiece;
 import net.minecraft.resources.ResourceLocation;
@@ -65,6 +62,12 @@ public class Mobregistries {
   final public static RegistryObject<EntityType<Soulpiece>> SOULPROJECTILE=
           ENTITY_TYPE.register("soulprojectile",()->EntityType.Builder.<Soulpiece>of(Soulpiece::new, MobCategory.MISC)
                   .sized(1,2F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"soulprojectile").toString()));
+
+  final public static RegistryObject<EntityType<Soulcatcher>> SOULCATCHER=
+          ENTITY_TYPE.register("soulcatcher",()->EntityType.Builder.of(Soulcatcher::new, MobCategory.MONSTER)
+                  .sized(1.5F,2.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"soulcatcher").toString()));
+
+
 
 
   public static void register(IEventBus bus){
