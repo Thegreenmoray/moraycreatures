@@ -6,7 +6,6 @@ import com.moray.moraymobs.registries.Mobregistries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.phys.Vec3;
 
 public class SoulProjectileGoal extends Goal {
     Soulcatcher soulcatcher;
@@ -20,13 +19,11 @@ int count;
     @Override
     public void start() {
         count=0;
-
     }
 
     @Override
     public void stop() {
         count=0;
-    this.soulcatcher.settimer(0);
     }
 
     @Override
@@ -39,32 +36,21 @@ int count;
     public void tick() {
 
        LivingEntity entity=this.soulcatcher.getTarget();
-
+++count;
        if(entity!=null) {
 
-           ++count;
+
 if (count==14){
             Soulpiece soulpiece = new Soulpiece(this.soulcatcher.level());
 
-    Vec3 $$4 = this.soulcatcher.getViewVector(1.0F);
 
-
-    soulpiece.setPos(this.soulcatcher.getX() + $$4.x*3,this.soulcatcher.getY(0.5)+0.5, soulcatcher.getZ() + $$4.z * 3.0);
-
-            double d0 = entity.getX() - (this.soulcatcher.getX()+$$4.x);
-            double d1 = entity.getY(0.5D) - (0.5D + this.soulcatcher.getY(0.5D));
-            double d2 = entity.getZ() - (this.soulcatcher.getZ()+$$4.z);
+            double d0 = entity.getX() - this.soulcatcher.getX();
+            double d1 = entity.getY(0.3333333333333333) - soulpiece.getY();
+            double d2 = entity.getZ() - this.soulcatcher.getZ();
             double d3 = Math.sqrt(d0 * d0 + d2 * d2);
-
-    Vec3 vec3=new Vec3(d0, d1 + d3 * 0.20000000298023224, d2);
-
-   soulpiece.setDeltaMovement(vec3.normalize());
-    soulpiece.setOwner(this.soulcatcher);
-         this.soulcatcher.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.soulcatcher.getRandom().nextFloat() * 0.4F + 0.8F));
-            this.soulcatcher.level().addFreshEntity(soulpiece);
-
-
-}
+            soulpiece.shoot(d0, d1 + d3 * 0.20000000298023224, d2, 1.6F, (float) (14 - this.soulcatcher.level().getDifficulty().getId() * 4));
+            this.soulcatcher.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.soulcatcher.getRandom().nextFloat() * 0.4F + 0.8F));
+            this.soulcatcher.level().addFreshEntity(soulpiece);}
         }
 
 
@@ -77,6 +63,6 @@ if (count==14){
            return false;
        }
 
-        return this.soulcatcher.gettimer()>50&&this.soulcatcher.getbeamtimer()<140;
+        return this.soulcatcher.gettimer()>50&&this.soulcatcher.getbeamtimer()<100;
     }
 }

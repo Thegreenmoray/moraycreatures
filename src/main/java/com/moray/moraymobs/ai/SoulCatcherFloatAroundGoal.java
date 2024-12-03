@@ -4,6 +4,8 @@ import com.moray.moraymobs.entity.living.monster.Soulcatcher;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.monster.Ghast;
+
 import java.util.EnumSet;
 
 public class SoulCatcherFloatAroundGoal extends Goal {
@@ -26,8 +28,6 @@ public class SoulCatcherFloatAroundGoal extends Goal {
                 double $$4 = $$1 * $$1 + $$2 * $$2 + $$3 * $$3;
                 return $$4 < 1.0 || $$4 > 3600.0;
             }
-
-
         }
 
         public boolean canContinueToUse() {

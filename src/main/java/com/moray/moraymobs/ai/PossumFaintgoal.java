@@ -1,11 +1,12 @@
 package com.moray.moraymobs.ai;
 
-import com.moray.moraymobs.entity.Opossum;
+import com.moray.moraymobs.entity.living.animal.Opossum;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
@@ -29,20 +30,21 @@ int faint_time;
 
     @Override
     public void stop() {
-        this.out=0;
         opossum.setFainted(false);
+        this.out=0;
+
     }
 
     @Override
     public void tick() {
         super.tick();
-++out;
-        List<Entity> snetch=this.opossum.level().getEntities(this.opossum,this.opossum.getBoundingBox().inflate(3), e->e instanceof LivingEntity);
+             ++out;
+        List<Entity> snetch=this.opossum.level().getEntities(this.opossum,this.opossum.getBoundingBox().inflate(5), e->e instanceof LivingEntity);
 
 for (Entity entity:snetch){
 
-    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS,500,2),this.opossum);
-    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.CONFUSION,500,2),this.opossum);
+    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.WEAKNESS,200,2),this.opossum);
+    ((LivingEntity) entity).addEffect(new MobEffectInstance(MobEffects.CONFUSION,200,2),this.opossum);
 }
     }
 

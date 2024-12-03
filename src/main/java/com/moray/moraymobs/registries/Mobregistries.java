@@ -61,11 +61,11 @@ public class Mobregistries {
 
   final public static RegistryObject<EntityType<Soulpiece>> SOULPROJECTILE=
           ENTITY_TYPE.register("soulprojectile",()->EntityType.Builder.<Soulpiece>of(Soulpiece::new, MobCategory.MISC)
-                  .sized(1,1F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"soulprojectile").toString()));
+                  .sized(1,2F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"soulprojectile").toString()));
 
   final public static RegistryObject<EntityType<Soulcatcher>> SOULCATCHER=
           ENTITY_TYPE.register("soulcatcher",()->EntityType.Builder.of(Soulcatcher::new, MobCategory.MONSTER)
-                  .sized(1.5F,1.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"soulcatcher").toString()));
+                  .sized(1.5F,2.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"soulcatcher").toString()));
 
 
 
@@ -79,5 +79,6 @@ public class Mobregistries {
     event.register(MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR, Monster::checkAnyLightMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
  event.register(OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
 event.register(VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Volcanoback::checkMonsterSpawnRuleschance,SpawnPlacementRegisterEvent.Operation.REPLACE);
- }
+//event.register(BASALTISK.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Basaltlisk::checkBasaltliskSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
+  }
 }

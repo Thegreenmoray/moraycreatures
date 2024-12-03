@@ -10,17 +10,17 @@ public class Soulcatchermodel extends GeoModel<Soulcatcher> {
 
     @Override
     public ResourceLocation getModelResource(Soulcatcher soulcatcher) {
-        return new ResourceLocation(MorayMobs.MODID,"geo/soulcatcher.geo.json");
+        return new ResourceLocation(MorayMobs.MODID,"geo/soulball.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(Soulcatcher soulcatcher) {
-        return new ResourceLocation(MorayMobs.MODID,"textures/entity/soulcatcher.png");
+        return new ResourceLocation(MorayMobs.MODID,"textures/entity/soulprojectile.png");
     }
 
     @Override
     public ResourceLocation getAnimationResource(Soulcatcher soulcatcher) {
-        return new ResourceLocation(MorayMobs.MODID,"animations/soulcatcher.animation.json");
+        return new ResourceLocation(MorayMobs.MODID,"animations/soulspin.json");
 
     }
 
