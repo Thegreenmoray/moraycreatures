@@ -4,10 +4,7 @@ import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.entity.living.animal.Basaltlisk;
 import com.moray.moraymobs.entity.living.animal.LavaPaddleFish;
 import com.moray.moraymobs.entity.living.animal.Opossum;
-import com.moray.moraymobs.entity.living.monster.Body_Snatcher;
-import com.moray.moraymobs.entity.living.monster.Moray;
-import com.moray.moraymobs.entity.living.monster.Morayjaw;
-import com.moray.moraymobs.entity.living.monster.Volcanoback;
+import com.moray.moraymobs.entity.living.monster.*;
 import com.moray.moraymobs.item.Beetlearmor;
 import com.moray.moraymobs.registries.Itemregististeries;
 import com.moray.moraymobs.registries.Mobregistries;
@@ -43,6 +40,7 @@ event.put(Mobregistries.VOLCANOBACK.get(), Volcanoback.createAttributes().build(
 event.put(Mobregistries.MORAY.get(), Moray.createAttributes().build());
 event.put(Mobregistries.MORAYJAW.get(), Morayjaw.createAttributes().build());
 event.put(Mobregistries.PADDLEFISH.get(), LavaPaddleFish.createAttributes().build());
+event.put(Mobregistries.SOULCATCHER.get(), Soulcatcher.createAttributes().build());
 }
 
 

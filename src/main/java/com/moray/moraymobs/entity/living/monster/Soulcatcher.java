@@ -35,9 +35,12 @@ import java.util.EnumSet;
 public class Soulcatcher extends FlyingMob implements GeoEntity {
     public Soulcatcher(EntityType<Soulcatcher> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-this.moveControl=new SoulcatcherMoveControl(this);
+        this.moveControl=new SoulcatcherMoveControl(this);
 
     }
+
+
+
     private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
 
     private static final EntityDataAccessor<Integer> ANIMATION= SynchedEntityData.defineId(Soulcatcher.class, EntityDataSerializers.INT);
@@ -124,14 +127,13 @@ if (gettimer()<50){
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,35).add(Attributes.FOLLOW_RANGE, 25.0).add(Attributes.FLYING_SPEED,0.6);
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,15).add(Attributes.FOLLOW_RANGE, 25.0).add(Attributes.FLYING_SPEED,0.6);
     }
 
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, (p_289460_) -> {
             return Math.abs(p_289460_.getY() - this.getY()) <= 4.0;}));
-
         this.targetSelector.addGoal(1,new SoulLookGoal(this));
         this.goalSelector.addGoal(5, new SoulCatcherFloatAroundGoal(this));
   this.goalSelector.addGoal(2,new SoulProjectileGoal(this,15));
@@ -173,7 +175,19 @@ if (gettimer()<50){
         }
     }
 
+    @Override
+    protected void tickDeath() {
+        ++this.deathTime;
+this.setDeltaMovement(0,-0.1,0);
 
+        if ( this.deathTime==1){
+            setanimation(0);
+        }
+        if (this.deathTime == 60 && !this.level().isClientSide()) {
+            this.level().broadcastEntityEvent(this, (byte) 30);
+            this.remove(RemovalReason.KILLED);
+        }
+    }
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
@@ -183,8 +197,19 @@ if (gettimer()<50){
 
     private PlayState animations(AnimationState<Soulcatcher> soulcatcherAnimationState) {
 
+        if (this.getHealth()<=0.01){
+            setanimation(0);
+           soulcatcherAnimationState.getController().setAnimation(RawAnimation.begin().then("soulcatcher.death", Animation.LoopType.HOLD_ON_LAST_FRAME));
+            return PlayState.CONTINUE;
+        }
+
         if(getanimation()>0&&getbeamtimer()>=140){
             soulcatcherAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.beam.soulcatcher", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        }
+
+        if(getanimation()>0&&gettimer()>=50){
+            soulcatcherAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.projectilespin.soulcatcher", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
 
@@ -217,14 +242,17 @@ if (gettimer()<50){
 
         public void tick() {
 
-if(this.soulcatcher.getTarget()!=null &&this.soulcatcher.getanimation()<1){
+
+
+
+if(this.soulcatcher.getTarget()!=null &&this.soulcatcher.getbeamtimer()<140){
     if (this.floatDuration-- <= 0) {
-        this.floatDuration += this.soulcatcher.getRandom().nextInt(5) + 2;
+        this.floatDuration += this.soulcatcher.getRandom().nextInt(1) + 2;
         Vec3 $$0 = new Vec3(this.wantedX - this.soulcatcher.getX(), 0, this.wantedZ - this.soulcatcher.getZ());
         double $$1 = $$0.length();
         $$0 = $$0.normalize();
         if (this.canReach($$0, Mth.ceil($$1))) {
-            this.soulcatcher.setDeltaMovement(this.soulcatcher.getDeltaMovement().add($$0.scale(0.1)));
+            this.soulcatcher.setDeltaMovement(this.soulcatcher.getDeltaMovement().add($$0.scale(0.01)));
         } else {
             this.operation = Operation.WAIT;
         }}
@@ -233,12 +261,12 @@ if(this.soulcatcher.getTarget()!=null &&this.soulcatcher.getanimation()<1){
 
             if (this.operation == Operation.MOVE_TO&&this.soulcatcher.getTarget()==null) {
                 if (this.floatDuration-- <= 0) {
-                    this.floatDuration += this.soulcatcher.getRandom().nextInt(5) + 2;
+                    this.floatDuration += this.soulcatcher.getRandom().nextInt(1) + 2;
                     Vec3 $$0 = new Vec3(this.wantedX - this.soulcatcher.getX(), this.wantedY - this.soulcatcher.getY(), this.wantedZ - this.soulcatcher.getZ());
                     double $$1 = $$0.length();
                     $$0 = $$0.normalize();
                     if (this.canReach($$0, Mth.ceil($$1))) {
-                        this.soulcatcher.setDeltaMovement(this.soulcatcher.getDeltaMovement().add($$0.scale(0.1)));
+                        this.soulcatcher.setDeltaMovement(this.soulcatcher.getDeltaMovement().add($$0.scale(0.01)));
                     } else {
                         this.operation = Operation.WAIT;
                     }

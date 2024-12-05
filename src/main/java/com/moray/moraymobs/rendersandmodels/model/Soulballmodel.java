@@ -9,19 +9,22 @@ import software.bernie.geckolib.model.GeoModel;
 
 public class Soulballmodel extends GeoModel<Soulpiece> {
 
+
     @Override
-    public ResourceLocation getModelResource(Soulpiece soulpiece) {
-        return new ResourceLocation(MorayMobs.MODID,"geo/soulcatcher.geo.json");
+    public ResourceLocation getModelResource(Soulpiece soulballmodel) {
+        return new ResourceLocation(MorayMobs.MODID,"geo/soulball.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(Soulpiece soulpiece) {
-        return new ResourceLocation(MorayMobs.MODID,"textures/entity/soulcatcher.png");
+    public ResourceLocation getTextureResource(Soulpiece soulballmodel) {
+        return new ResourceLocation(MorayMobs.MODID,"textures/entity/soulprojectile.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(Soulpiece soulpiece) {
-        return new ResourceLocation(MorayMobs.MODID,"animations/soulcatcher.animation.json");
+    public ResourceLocation getAnimationResource(Soulpiece soulballmodel) {
+        return new ResourceLocation(MorayMobs.MODID,"animations/soulspin.json");
 
     }
+
+
 }

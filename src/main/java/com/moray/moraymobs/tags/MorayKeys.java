@@ -17,8 +17,8 @@ public static final TagKey<EntityType<?>> IS_SPOTTABLE=EntityTag("canbespotted")
     return TagKey.create(Registries.ENTITY_TYPE,new ResourceLocation(MorayMobs.MODID,name));
     }
 
-   // private static TagKey<Block> BlockTag(String name){
-  //      return TagKey.create(Registries.BLOCK,new ResourceLocation(MorayMobs.MODID,name));
-   // }
+    private static TagKey<Block> BlockTag(String name){
+        return TagKey.create(Registries.BLOCK,new ResourceLocation(MorayMobs.MODID,name));
+   }
 
 }

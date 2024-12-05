@@ -24,11 +24,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
-import java.util.Locale;
 
-import static javax.swing.text.html.parser.DTDConstants.ID;
-
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(MorayMobs.MODID)
 public class MorayMobs
 {

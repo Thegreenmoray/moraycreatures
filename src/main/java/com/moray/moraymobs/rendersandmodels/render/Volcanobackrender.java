@@ -9,9 +9,6 @@ public class Volcanobackrender extends GeoEntityRenderer<Volcanoback> {
     public Volcanobackrender(EntityRendererProvider.Context renderManager) {
         super(renderManager, new Volcanobackmodel());
     }
-
-
-
     @Override
     protected float getDeathMaxRotation(Volcanoback entityLivingBaseIn) {
         return 0.0F;

@@ -13,6 +13,11 @@ public class SoulBeamGoal extends Goal {
     Soulcatcher soulcatcher;
     int timer;
     int count;
+    Vec3 vec3d;
+    Vec3 vec3d2;
+    Vec3 vec3d3;
+
+
 
     public SoulBeamGoal(Soulcatcher soulcatcher,int timer){
         this.soulcatcher=soulcatcher;
@@ -27,6 +32,7 @@ count=0;
     @Override
     public void stop() {
 count=0;
+this.soulcatcher.setBeamtimer(0);
     }
 
     @Override
@@ -40,15 +46,18 @@ if (count<30){
     this.soulcatcher.setYRot((float) Mth.atan2(z_diff,x_diff));
 }
 
-if (count>=30){
-        Vec3 vec3d = this.soulcatcher.position().add(0.0D, 1.600000023841858D, 0.0D);
-        Vec3 vec3d2 = livingEntity.getEyePosition().subtract(vec3d);
-        Vec3 vec3d3 = vec3d2.normalize();
-
-
+if(count==20){
+         vec3d = this.soulcatcher.position().add(0.0D, 0.100000023841858D, 0.0D);
+         vec3d2 = livingEntity.getEyePosition().subtract(vec3d);
+         vec3d3 = vec3d2.normalize();}
+//modified warden sonicboom
+            if (count>=30){
         for (int i = 1; i < Mth.floor(vec3d2.length()) + 7; ++i) {
             Vec3 vec3d4 = vec3d.add(vec3d3.scale((double) i));
-            ((ServerLevel) this.soulcatcher.level()).sendParticles(ParticleTypes.SOUL, vec3d4.x, vec3d4.y + 1.0D, vec3d4.z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
+            ((ServerLevel) this.soulcatcher.level()).sendParticles(ParticleTypes.SOUL, vec3d4.x, vec3d4.y, vec3d4.z, i, this.soulcatcher.getRandom().nextFloat(),  this.soulcatcher.getRandom().nextFloat(), this.soulcatcher.getRandom().nextFloat() , 0.0D);
+        if (livingEntity.getPosition(1).distanceTo(vec3d4)<2){
+            livingEntity.hurt(this.soulcatcher.damageSources().sonicBoom(livingEntity),10);
+        }
         }}
     }}
 
@@ -65,6 +74,6 @@ if (count>=30){
             return false;
         }
 
-        return this.soulcatcher.gettimer()<50&&this.soulcatcher.getbeamtimer()>100;
+        return this.soulcatcher.gettimer()<50&&this.soulcatcher.getbeamtimer()>140;
     }
 }
