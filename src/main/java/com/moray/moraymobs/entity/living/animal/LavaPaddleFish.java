@@ -2,15 +2,22 @@ package com.moray.moraymobs.entity.living.animal;
 
 import com.moray.moraymobs.entity.abstractentity.Abstractfishmoray;
 import com.moray.moraymobs.registries.Itemregististeries;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
@@ -51,6 +58,15 @@ public class LavaPaddleFish extends Abstractfishmoray implements GeoEntity {
         }
 
     }
+
+
+    public static boolean checkPaddlefishSpawnRules(EntityType<LavaPaddleFish> pfish, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        BlockPos.MutableBlockPos $$5 = pPos.mutable();
+
+        return (pLevel.getFluidState($$5).is(FluidTags.LAVA));
+    }
+
+
 
 
     @Override

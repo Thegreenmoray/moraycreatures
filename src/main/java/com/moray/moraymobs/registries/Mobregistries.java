@@ -80,7 +80,7 @@ public class Mobregistries {
  event.register(OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
 event.register(VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Volcanoback::checkMonsterSpawnRuleschance,SpawnPlacementRegisterEvent.Operation.REPLACE);
 //event.register(BASALTISK.get(),SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Basaltlisk::checkBasaltliskSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
-    event.register(PADDLEFISH.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,LavaPaddleFish::,SpawnPlacementRegisterEvent.Operation.REPLACE);
-
+    event.register(PADDLEFISH.get(),SpawnPlacements.Type.IN_LAVA,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,LavaPaddleFish::checkPaddlefishSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
+event.register(SOULCATCHER.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Soulcatcher::checkMobSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
   }
 }
