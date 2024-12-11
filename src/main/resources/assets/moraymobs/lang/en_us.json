@@ -7,6 +7,9 @@
   "item.moraymobs.beetleboots": "Beetle Boots",
   "item.moraymobs.eelwhip": "Eel Whip",
   "item.moraymobs.paddlefishfood": "Paddlefish",
+  "item.moraymobs.paddlefishbucket": "Bucket of Paddlefish",
+  "item.moraymobs.soulbead": "Soul Bead",
+  "item.moraymobs.soulbeamjewel": "Soul Blaster",
   "item.moraymobs.basalt_crystal":"Basalt Crystal",
   "item.moraymobs.spawn_basaltlisk": "Spawn Basaltlisk",
   "item.moraymobs.spawn_body_snatcher": "Spawn Body Snatcher",
@@ -22,7 +25,8 @@
   "entity.moraymobs.basaltlisk": "Basaltlisk",
   "entity.moraymobs.volcanoback": "Volcanoback",
   "entity.moraymobs.bonymoray": "Bony Moray",
-
+  "entity.moraymobs.paddlefish": "Lava Paddlefish",
+  "entity.moraymobs.bonymoray": "Bony Moray",
 "creative.moray_tab": "Moray Items",
 
 

@@ -72,6 +72,14 @@ public class Itemregististeries {
     final public static RegistryObject<Item> PADDLEFISH_FOOD=ITEM.register("paddlefishfood",
             ()->new Item(new Item.Properties().fireResistant().food(new FoodProperties.Builder().nutrition(6).saturationMod(3).build())));
 
+    final public static RegistryObject<Item> SOULJEWEL=ITEM.register("soulbead",
+            ()->new Item(new Item.Properties().stacksTo(64)));
+
+    final public static RegistryObject<Item> SOULBEADRING=ITEM.register("soulbeamjewel",
+            ()->new Soulbeamweapon(new Item.Properties().durability(100)));
+
+
+
     public static void register(IEventBus bus){
         ITEM.register(bus);
     }

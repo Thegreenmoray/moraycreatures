@@ -34,6 +34,7 @@ public class MorayMobLootTable extends EntityLootSubProvider {
   this.add(Mobregistries.VOLCANOBACK.get(),LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(Itemregististeries.BEETLE_SCALE.get())).apply(SetItemCountFunction.setCount(UniformGenerator.between(5,11))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0,1))).when(LootItemKilledByPlayerCondition.killedByPlayer())));
    this.add(Mobregistries.MORAY.get(),LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(Items.BONE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,4))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0,1))).when(LootItemKilledByPlayerCondition.killedByPlayer()))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(Itemregististeries.JAW.get())).when(LootItemKilledByPlayerCondition.killedByPlayer()).when(LootItemRandomChanceWithLootingCondition.randomChanceAndLootingBoost(0.25F, 0.01F))));
     this.add(Mobregistries.PADDLEFISH.get(),LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1)).add(LootItem.lootTableItem(Itemregististeries.PADDLEFISH_FOOD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1,1))).apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0,1))))));
+  this.add(Mobregistries.SOULCATCHER.get(),LootTable.lootTable());
    }
 
     @Override

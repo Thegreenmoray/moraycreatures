@@ -32,6 +32,8 @@ withExistingParent(Itemregististeries.MORAY_SPAWN_EGG.getId().getPath(),mcLoc("i
         simpleItem(Itemregististeries.BASALT_CRYSTAL);
    simpleItem(Itemregististeries.BUCKETED_PADDLEFISH);
    simpleItem(Itemregististeries.PADDLEFISH_FOOD);
+    simpleItem(Itemregististeries.SOULJEWEL);
+    simpleItem(Itemregististeries.SOULBEADRING);
     }
 
 

@@ -27,6 +27,7 @@ count=0;
     @Override
     public void stop() {
 count=0;
+this.soulcatcher.setBeamtimer(0);
     }
 
     @Override
@@ -48,8 +49,14 @@ if (count>=30){
 
         for (int i = 1; i < Mth.floor(vec3d2.length()) + 7; ++i) {
             Vec3 vec3d4 = vec3d.add(vec3d3.scale((double) i));
-            ((ServerLevel) this.soulcatcher.level()).sendParticles(ParticleTypes.SOUL, vec3d4.x, vec3d4.y + 1.0D, vec3d4.z, 1, 0.0D, 0.0D, 0.0D, 0.0D);
-        }}
+            ((ServerLevel) this.soulcatcher.level()).sendParticles(ParticleTypes.SOUL, vec3d4.x, vec3d4.y + 1.0D, vec3d4.z, i, 0.0D, 0.0D, 0.0D, 0.0D);
+      if (livingEntity.position().distanceTo(vec3d4)<2){
+          livingEntity.hurt(this.soulcatcher.damageSources().sonicBoom(soulcatcher),10);
+      }
+
+        }
+
+}
     }}
 
     @Override
@@ -65,6 +72,6 @@ if (count>=30){
             return false;
         }
 
-        return this.soulcatcher.gettimer()<50&&this.soulcatcher.getbeamtimer()>100;
+        return this.soulcatcher.gettimer()<50&&this.soulcatcher.getbeamtimer()>140;
     }
 }

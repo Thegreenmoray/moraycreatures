@@ -3,14 +3,18 @@ package com.moray.moraymobs.entity.living.monster;
 import com.moray.moraymobs.ai.SoulBeamGoal;
 import com.moray.moraymobs.ai.SoulCatcherFloatAroundGoal;
 import com.moray.moraymobs.ai.SoulProjectileGoal;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.FlyingMob;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
@@ -20,8 +24,12 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import software.bernie.geckolib.animatable.GeoEntity;
@@ -32,14 +40,14 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 
 import java.util.EnumSet;
 
+import static net.minecraft.world.entity.monster.Monster.isDarkEnoughToSpawn;
+
 public class Soulcatcher extends FlyingMob implements GeoEntity {
     public Soulcatcher(EntityType<Soulcatcher> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl=new SoulcatcherMoveControl(this);
 
     }
-
-
 
     private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -73,6 +81,12 @@ public class Soulcatcher extends FlyingMob implements GeoEntity {
     }
 
 
+    public static boolean checkMonsterSpawnruleschance(EntityType<? extends FlyingMob> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        BlockPos blockpos = pPos.below();
+
+        return pLevel.getBlockState(blockpos).is(Blocks.SOUL_SOIL) &&pLevel.getBlockState(blockpos).is(Blocks.SOUL_SAND)&&
+        pLevel.getDifficulty() != Difficulty.PEACEFUL&&pRandom.nextInt(40) == 0&& isDarkEnoughToSpawn((ServerLevelAccessor)pLevel, pPos, pRandom);}
+
 
 
 @Override
@@ -93,8 +107,6 @@ if (getbeamtimer()==140||gettimer()==50){
 if (gettimer()<50){
     setBeamtimer(getbeamtimer()+1);}
 
-
-
    super.aiStep();
 }
 
@@ -113,7 +125,6 @@ if (gettimer()<50){
 
         super.addAdditionalSaveData(compound);
     }
-
 
     protected void defineSynchedData() {
         this.entityData.define(ANIMATION, 0);
@@ -198,7 +209,7 @@ this.setDeltaMovement(0,-0.1,0);
     private PlayState animations(AnimationState<Soulcatcher> soulcatcherAnimationState) {
 
         if (this.getHealth()<=0.01){
-            setanimation(0);
+
            soulcatcherAnimationState.getController().setAnimation(RawAnimation.begin().then("soulcatcher.death", Animation.LoopType.HOLD_ON_LAST_FRAME));
             return PlayState.CONTINUE;
         }

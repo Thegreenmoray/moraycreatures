@@ -14,10 +14,12 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
@@ -57,13 +59,23 @@ public class LavaPaddleFish extends Abstractfishmoray implements GeoEntity {
             this.setAirSupply(300);
         }
 
+
+
+    }
+    public static boolean checkSurfaceWaterAnimalSpawnRules(EntityType<? extends WaterAnimal> pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+        int $$5 = pLevel.getSeaLevel();
+        int $$6 = $$5 - 13;
+        return pPos.getY() >= $$6 && pPos.getY() <= $$5 && pLevel.getFluidState(pPos.below()).is(FluidTags.WATER) && pLevel.getBlockState(pPos.above()).is(Blocks.WATER);
     }
 
-
     public static boolean checkPaddlefishSpawnRules(EntityType<LavaPaddleFish> pfish, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        BlockPos.MutableBlockPos $$5 = pPos.mutable();
+        BlockPos.MutableBlockPos blockpos$mutable = pPos.mutable();
 
-        return (pLevel.getFluidState($$5).is(FluidTags.LAVA));
+        do {
+            blockpos$mutable.move(Direction.UP);
+        } while(pLevel.getFluidState(blockpos$mutable).is(FluidTags.LAVA));
+
+        return pLevel.getBlockState(blockpos$mutable).isAir();
     }
 
 
