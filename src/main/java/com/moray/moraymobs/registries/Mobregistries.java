@@ -78,12 +78,8 @@ public class Mobregistries {
   public static void initializeAttributes(SpawnPlacementRegisterEvent event) {
     event.register(MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.OCEAN_FLOOR, Monster::checkAnyLightMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
  event.register(OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
-event.register(VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Volcanoback::checkMonsterSpawnRuleschance,SpawnPlacementRegisterEvent.Operation.REPLACE);
+event.register(VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.WORLD_SURFACE,Volcanoback::checkMonsterSpawnRuleschance,SpawnPlacementRegisterEvent.Operation.REPLACE);
  event.register(PADDLEFISH.get(),SpawnPlacements.Type.IN_LAVA,Heightmap.Types.OCEAN_FLOOR_WG,LavaPaddleFish::checkPaddlefishSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
-event.register(SOULCATCHER.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Soulcatcher::checkMonsterSpawnruleschance,SpawnPlacementRegisterEvent.Operation.REPLACE);
-
-
-
-
+event.register(SOULCATCHER.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.WORLD_SURFACE,Soulcatcher::checkMonsterSpawnruleschance,SpawnPlacementRegisterEvent.Operation.REPLACE);
   }
 }

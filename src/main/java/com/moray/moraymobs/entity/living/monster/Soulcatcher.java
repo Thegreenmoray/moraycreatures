@@ -84,8 +84,8 @@ public class Soulcatcher extends FlyingMob implements GeoEntity {
     public static boolean checkMonsterSpawnruleschance(EntityType<? extends FlyingMob> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         BlockPos blockpos = pPos.below();
 
-        return pLevel.getBlockState(blockpos).is(Blocks.SOUL_SOIL) &&pLevel.getBlockState(blockpos).is(Blocks.SOUL_SAND)&&
-        pLevel.getDifficulty() != Difficulty.PEACEFUL&&pRandom.nextInt(40) == 0&& isDarkEnoughToSpawn((ServerLevelAccessor)pLevel, pPos, pRandom);}
+        return (pLevel.getBlockState(blockpos).is(Blocks.SOUL_SOIL) ||pLevel.getBlockState(blockpos).is(Blocks.SOUL_SAND))&&
+        pLevel.getDifficulty() != Difficulty.PEACEFUL&&pRandom.nextInt(20) == 0&& isDarkEnoughToSpawn((ServerLevelAccessor)pLevel, pPos, pRandom)&&checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);}
 
 
 

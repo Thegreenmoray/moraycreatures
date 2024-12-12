@@ -45,6 +45,9 @@ event.put(Mobregistries.SOULCATCHER.get(), Soulcatcher.createAttributes().build(
 
 
 
+
+
+
     @Mod.EventBusSubscriber(modid = MorayMobs.MODID)
  public static class deathspawn{
 
