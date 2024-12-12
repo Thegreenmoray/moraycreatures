@@ -37,6 +37,10 @@ public class Itemregististeries {
     final public static RegistryObject<Item> MORAY_SPAWN_EGG=ITEM.register
             ("spawn_moray",()-> new ForgeSpawnEggItem(Mobregistries.MORAY,0xbcbcbc,0xadabad,new Item.Properties()));
 
+    final public static RegistryObject<Item> PADDLE_SPAWN_EGG=ITEM.register
+            ("spawn_lava_paddlefish",()-> new ForgeSpawnEggItem(Mobregistries.PADDLEFISH,0xff2500,0xe56520,new Item.Properties()));
+    final public static RegistryObject<Item> SOULCATCHER_SPAWN_EGG=ITEM.register
+            ("spawn_soulcatcher",()-> new ForgeSpawnEggItem(Mobregistries.SOULCATCHER,0x00FFFF,0x964B00,new Item.Properties()));
 
 
     final public static RegistryObject<Item> BRAIN=ITEM.register("brain",

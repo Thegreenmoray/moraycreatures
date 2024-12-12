@@ -1,4 +1,4 @@
-// 1.20.1	2024-12-07T17:35:51.1061623	Loot Tables
+// 1.20.1	2024-12-11T23:48:07.5427208	Loot Tables
 f0d2e92677d34968cd9211b990b317ab40d3821f data/moraymobs/loot_tables/blocks/basaltlamp.json
 a076d08baa9c7a9aa3b87d83fcf6f95349b22d6b data/moraymobs/loot_tables/blocks/blockscale.json
 92e4e7c531c7de0fda3a32b3a249e848b7313c6d data/moraymobs/loot_tables/entities/basaltlisk.json
@@ -6,5 +6,5 @@ a2105ad688d637fbcc0d9f551418fedcf317d632 data/moraymobs/loot_tables/entities/bod
 51445dfca1d5326424ff6cab619553c78a7b058c data/moraymobs/loot_tables/entities/bonymoray.json
 148809bf2a1a30c385f40db00ecdf3ed60e2a093 data/moraymobs/loot_tables/entities/opossum.json
 7717b28d8089995395a8085e2450b0726d925da0 data/moraymobs/loot_tables/entities/paddlefish.json
-872c6be81146a74d50ed7bb2a3e01c16e1026322 data/moraymobs/loot_tables/entities/soulcatcher.json
+3ec5c65deaf77ba95a96992b0ffe71d68b8613e1 data/moraymobs/loot_tables/entities/soulcatcher.json
 2df30f89a9bc5f5d8fa5abeab2e016d9e61d8fae data/moraymobs/loot_tables/entities/volcanoback.json

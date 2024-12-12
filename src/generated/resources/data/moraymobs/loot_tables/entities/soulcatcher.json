@@ -1,4 +1,34 @@
 {
   "type": "minecraft:entity",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.1,
+              "condition": "minecraft:random_chance_with_looting",
+              "looting_multiplier": 0.75
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "moraymobs:soulbead"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
   "random_sequence": "moraymobs:entities/soulcatcher"
 }

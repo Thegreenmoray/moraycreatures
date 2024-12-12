@@ -16,6 +16,8 @@
   "item.moraymobs.spawn_opposum": "Spawn Opossum",
   "item.moraymobs.spawn_volcanoback": "Spawn Volcanoback",
   "item.moraymobs.spawn_moray": "Spawn Bony Moray",
+  "item.moraymobs.spawn_lava_paddlefish": "Spawn Lava Paddlefish",
+  "item.moraymobs.spawn_soulcatcher": "Spawn Soulcatcher",
 
   "block.moraymobs.basaltlamp": "Basalt Lamp",
   "block.moraymobs.blockscale": "Block of Scales",
@@ -27,6 +29,7 @@
   "entity.moraymobs.bonymoray": "Bony Moray",
   "entity.moraymobs.paddlefish": "Lava Paddlefish",
   "entity.moraymobs.bonymoray": "Bony Moray",
+  "entity.moraymobs.soulcatcher": "Soulcatcher",
 "creative.moray_tab": "Moray Items",
 
 

@@ -68,6 +68,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" *&").define('$',Itemregististeries.JAW.get()).define('*', Items.BONE).define('&',Items.LEATHER)
                 .unlockedBy(getHasName(Itemregististeries.JAW.get()),has(Itemregististeries.JAW.get()))
                 .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, Itemregististeries.SOULBEADRING.get())
+                .pattern("*&*")
+                .pattern("&$&")
+                .pattern("*&*").define('$',Itemregististeries.SOULJEWEL.get()).define('*', Items.STRING).define('&',Items.SOUL_SOIL)
+                .unlockedBy(getHasName(Itemregististeries.SOULJEWEL.get()),has(Itemregististeries.SOULJEWEL.get()))
+                .save(pWriter);
+
+
+
     }
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {

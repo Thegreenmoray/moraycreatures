@@ -1,4 +1,4 @@
-// 1.20.1	2024-12-07T17:35:51.1061623	Item Models: moraymobs
+// 1.20.1	2024-12-12T12:21:39.9033992	Item Models: moraymobs
 620d1057bbc305de467830ba2d799f70dc3ff86e assets/moraymobs/models/item/basalt_crystal.json
 2aaafccd2f9caa60c26546840130703bf4027450 assets/moraymobs/models/item/beetleboots.json
 d9bca312dbb8b1a550eda0750bb249b66e92f6b3 assets/moraymobs/models/item/beetlechestplate.json
@@ -13,6 +13,8 @@ e75887297c21d730b9a4c9a9d15cfbc81fd48325 assets/moraymobs/models/item/paddlefish
 385c8f47ef4436357f2879111d28bd2699af15ec assets/moraymobs/models/item/soulbeamjewel.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_basaltlisk.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_body_snatcher.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_lava_paddlefish.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_moray.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_opposum.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_soulcatcher.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_volcanoback.json

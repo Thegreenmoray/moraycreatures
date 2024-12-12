@@ -22,6 +22,8 @@ withExistingParent(Itemregististeries.BODYSNATCHER_SPAWN_EGG.getId().getPath(),m
 withExistingParent(Itemregististeries.BASALTlISK_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
 withExistingParent(Itemregististeries.VOLCANOBACK_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
 withExistingParent(Itemregististeries.MORAY_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
+withExistingParent(Itemregististeries.PADDLE_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
+withExistingParent(Itemregististeries.SOULCATCHER_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
     simpleItem(Itemregististeries.BRAIN);
      simpleItem(Itemregististeries.JAW);
      simpleItem(Itemregististeries.BEETLE_SCALE);

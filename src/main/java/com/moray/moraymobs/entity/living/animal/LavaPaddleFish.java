@@ -9,17 +9,16 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.AbstractFish;
-import net.minecraft.world.entity.animal.WaterAnimal;
-import net.minecraft.world.entity.monster.Strider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
@@ -33,6 +32,7 @@ public class LavaPaddleFish extends Abstractfishmoray implements GeoEntity {
 
     public LavaPaddleFish(EntityType<? extends Abstractfishmoray> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.xpReward=5;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -49,7 +49,7 @@ public class LavaPaddleFish extends Abstractfishmoray implements GeoEntity {
 
 
     protected void handleAirSupply(int pAirSupply) {
-        if (this.isAlive() && (!this.isInWaterOrBubble()||!this.isInLava())) {
+        if (this.isAlive() && (!this.isInLava())) {
             this.setAirSupply(pAirSupply - 1);
             if (this.getAirSupply() == -20) {
                 this.setAirSupply(0);
@@ -62,11 +62,7 @@ public class LavaPaddleFish extends Abstractfishmoray implements GeoEntity {
 
 
     }
-    public static boolean checkSurfaceWaterAnimalSpawnRules(EntityType<? extends WaterAnimal> pWaterAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        int $$5 = pLevel.getSeaLevel();
-        int $$6 = $$5 - 13;
-        return pPos.getY() >= $$6 && pPos.getY() <= $$5 && pLevel.getFluidState(pPos.below()).is(FluidTags.WATER) && pLevel.getBlockState(pPos.above()).is(Blocks.WATER);
-    }
+
 
     public static boolean checkPaddlefishSpawnRules(EntityType<LavaPaddleFish> pfish, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
         BlockPos.MutableBlockPos blockpos$mutable = pPos.mutable();
@@ -78,7 +74,10 @@ public class LavaPaddleFish extends Abstractfishmoray implements GeoEntity {
         return pLevel.getBlockState(blockpos$mutable).isAir();
     }
 
-
+    @Override
+    public boolean isInvulnerableTo(DamageSource source) {
+        return source.is(DamageTypes.FALL) || source.is(DamageTypes.IN_WALL) ||source.is(DamageTypes.LAVA) ||super.isInvulnerableTo(source);
+    }
 
 
     @Override

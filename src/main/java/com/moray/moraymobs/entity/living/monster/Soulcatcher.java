@@ -46,7 +46,7 @@ public class Soulcatcher extends FlyingMob implements GeoEntity {
     public Soulcatcher(EntityType<Soulcatcher> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl=new SoulcatcherMoveControl(this);
-
+        this.xpReward=10;
     }
 
     private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
