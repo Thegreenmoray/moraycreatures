@@ -2,10 +2,13 @@ package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.block.Basaltlightblock;
+import com.moray.moraymobs.block.EndFlowerBlock;
+import com.moray.moraymobs.block.EndGrass;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -25,6 +28,15 @@ public class Blockregistrires {
 
     public static final RegistryObject<Block> BLOCK_OF_SCALES=registerBlock("blockscale",
             ()->new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+
+    public static final RegistryObject<Block> END_CELSOSIA=registerBlock("endercelosia",
+            ()->new EndFlowerBlock(Effectregisteries.STUN,5,BlockBehaviour.Properties.copy(Blocks.ALLIUM).noCollission().instabreak()));
+
+    public static final RegistryObject<Block> END_CELSOSIA_POTTED=BLOCKS.register("potted_endercelosia",
+            ()->new FlowerPotBlock(()->(FlowerPotBlock)Blocks.FLOWER_POT,Blockregistrires.END_CELSOSIA,BlockBehaviour.Properties.copy(Blocks.POTTED_ALLIUM).instabreak()));
+
+    public static final RegistryObject<Block> END_GRASS=registerBlock("chorousgrass",
+            ()->new EndGrass(BlockBehaviour.Properties.copy(Blocks.GRASS).noCollission().instabreak()));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

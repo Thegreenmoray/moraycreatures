@@ -11,6 +11,8 @@
   "item.moraymobs.soulbead": "Soul Bead",
   "item.moraymobs.soulbeamjewel": "Soul Blaster",
   "item.moraymobs.basalt_crystal":"Basalt Crystal",
+  "item.moraymobs.shulkerberryseed": "Shulkerberry Seeds",
+  "item.moraymobs.shulkerberry": "Shulkerberry",
   "item.moraymobs.spawn_basaltlisk": "Spawn Basaltlisk",
   "item.moraymobs.spawn_body_snatcher": "Spawn Body Snatcher",
   "item.moraymobs.spawn_opposum": "Spawn Opossum",
@@ -21,6 +23,8 @@
 
   "block.moraymobs.basaltlamp": "Basalt Lamp",
   "block.moraymobs.blockscale": "Block of Scales",
+"block.moraymobs.endercelosia": "Ender Celosia",
+  "block.moraymobs.chorousgrass": "Chorus Grass",
 
   "entity.moraymobs.bodysnatcher": "Body Snatcher",
   "entity.moraymobs.opossum": "Opossum",
@@ -28,10 +32,9 @@
   "entity.moraymobs.volcanoback": "Volcanoback",
   "entity.moraymobs.bonymoray": "Bony Moray",
   "entity.moraymobs.paddlefish": "Lava Paddlefish",
-  "entity.moraymobs.bonymoray": "Bony Moray",
   "entity.moraymobs.soulcatcher": "Soulcatcher",
 "creative.moray_tab": "Moray Items",
-
+"effect.moraymobs.stun": "Stun",
 
   "tooltip.moraymobs.brain": "Shift-Right Click to gain more exp",
   "tooltip.moraymobs.basaltlamp": "Rare, Powerful, or Notable creatures are lit up by this lamp by right clicking the block. Obtained from Basaltlisks after eating a small magma cube or Basalt Sanctuaries.",

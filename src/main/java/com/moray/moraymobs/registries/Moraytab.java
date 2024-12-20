@@ -22,6 +22,7 @@ public static final RegistryObject<CreativeModeTab> MORAYTAB=
                 .displayItems(((itemDisplayParameters, output) ->{
                         output.accept(Blockregistrires.BASALTLAMP.get());
                         output.accept(Blockregistrires.BLOCK_OF_SCALES.get());
+                        output.accept(Blockregistrires.END_CELSOSIA.get());
 for(RegistryObject<Item> itemRegistryObject:Itemregististeries.ITEM.getEntries()){output.accept(itemRegistryObject.get());}})).build());
 
 

@@ -1,14 +1,12 @@
 package com.moray.moraymobs;
 
 import com.mojang.logging.LogUtils;
-import com.moray.moraymobs.registries.Blockregistrires;
-import com.moray.moraymobs.registries.Itemregististeries;
-import com.moray.moraymobs.registries.Mobregistries;
-import com.moray.moraymobs.registries.Moraytab;
+import com.moray.moraymobs.registries.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -49,6 +47,7 @@ public class MorayMobs
         Blockregistrires.register(modEventBus);
         Itemregististeries.register(modEventBus);
         Moraytab.register(modEventBus);
+        Effectregisteries.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
 
 
@@ -73,6 +72,10 @@ public class MorayMobs
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+
+
+ event.enqueueWork(()->{((FlowerPotBlock)Blocks.FLOWER_POT).addPlant(Blockregistrires.END_CELSOSIA.getId(),Blockregistrires.END_CELSOSIA_POTTED);});
+
     }
 
     // Add the example block item to the building blocks tab

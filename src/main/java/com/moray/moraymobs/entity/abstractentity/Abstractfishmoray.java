@@ -21,6 +21,7 @@ import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
+import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.entity.animal.WaterAnimal;
@@ -28,8 +29,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.Vec3;
 
+import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.function.Predicate;
 
@@ -39,7 +42,6 @@ public abstract class Abstractfishmoray extends WaterAnimal implements Bucketabl
 
     protected Abstractfishmoray(EntityType<? extends WaterAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.moveControl = new Abstractfishmoray.FishMoveControl(this);
     }
 
     protected float getStandingEyeHeight(Pose pPose, EntityDimensions pSize) {
@@ -85,22 +87,14 @@ public abstract class Abstractfishmoray extends WaterAnimal implements Bucketabl
         this.setFromBucket(pCompound.getBoolean("FromBucket"));
     }
 
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(0, new PanicGoal(this, 1.25));
-        GoalSelector var10000 = this.goalSelector;
-        Predicate var10009 = EntitySelector.NO_SPECTATORS;
-        Objects.requireNonNull(var10009);
-        var10000.addGoal(2, new AvoidEntityGoal(this, Player.class, 8.0F, 1.6, 1.4, var10009::test));
-        this.goalSelector.addGoal(4, new Abstractfishmoray.FishSwimGoal(this));
-    }
+
 
     protected PathNavigation createNavigation(Level pLevel) {
         return new WaterBoundPathNavigation(this, pLevel);
     }
 
     public void travel(Vec3 pTravelVector) {
-        if (this.isEffectiveAi() && this.isInWater()) {
+        if (this.isEffectiveAi() && this.isInLava()) {
             this.moveRelative(0.01F, pTravelVector);
             this.move(MoverType.SELF, this.getDeltaMovement());
             this.setDeltaMovement(this.getDeltaMovement().scale(0.9));
@@ -114,7 +108,7 @@ public abstract class Abstractfishmoray extends WaterAnimal implements Bucketabl
     }
 
     public void aiStep() {
-        if (!this.isInWater() && this.onGround() && this.verticalCollision) {
+        if (!this.isInLava()||!this.isInWater() && this.onGround() && this.verticalCollision) {
             this.setDeltaMovement(this.getDeltaMovement().add((double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F), 0.4000000059604645, (double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.05F)));
             this.setOnGround(false);
             this.hasImpulse = true;
@@ -140,7 +134,7 @@ public abstract class Abstractfishmoray extends WaterAnimal implements Bucketabl
         return SoundEvents.BUCKET_FILL_FISH;
     }
 
-    protected boolean canRandomSwim() {
+    public boolean canRandomSwim() {
         return true;
     }
 
@@ -157,54 +151,10 @@ public abstract class Abstractfishmoray extends WaterAnimal implements Bucketabl
         FROM_BUCKET = SynchedEntityData.defineId(Abstractfishmoray.class, EntityDataSerializers.BOOLEAN);
     }
 
-    private static class FishMoveControl extends MoveControl {
-        private final Abstractfishmoray fish;
 
-        FishMoveControl(Abstractfishmoray pFish) {
-            super(pFish);
-            this.fish = pFish;
-        }
 
-        public void tick() {
-            if (this.fish.isEyeInFluid(FluidTags.WATER)) {
-                this.fish.setDeltaMovement(this.fish.getDeltaMovement().add(0.0, 0.005, 0.0));
-            }
 
-            if (this.operation == Operation.MOVE_TO && !this.fish.getNavigation().isDone()) {
-                float $$0 = (float)(this.speedModifier * this.fish.getAttributeValue(Attributes.MOVEMENT_SPEED));
-                this.fish.setSpeed(Mth.lerp(0.125F, this.fish.getSpeed(), $$0));
-                double $$1 = this.wantedX - this.fish.getX();
-                double $$2 = this.wantedY - this.fish.getY();
-                double $$3 = this.wantedZ - this.fish.getZ();
-                if ($$2 != 0.0) {
-                    double $$4 = Math.sqrt($$1 * $$1 + $$2 * $$2 + $$3 * $$3);
-                    this.fish.setDeltaMovement(this.fish.getDeltaMovement().add(0.0, (double)this.fish.getSpeed() * ($$2 / $$4) * 0.1, 0.0));
-                }
 
-                if ($$1 != 0.0 || $$3 != 0.0) {
-                    float $$5 = (float)(Mth.atan2($$3, $$1) * 57.2957763671875) - 90.0F;
-                    this.fish.setYRot(this.rotlerp(this.fish.getYRot(), $$5, 90.0F));
-                    this.fish.yBodyRot = this.fish.getYRot();
-                }
-
-            } else {
-                this.fish.setSpeed(0.0F);
-            }
-        }
-    }
-
-    static class FishSwimGoal extends RandomSwimmingGoal {
-        private final Abstractfishmoray fish;
-
-        public FishSwimGoal(Abstractfishmoray pFish) {
-            super(pFish, 1.0, 40);
-            this.fish = pFish;
-        }
-
-        public boolean canUse() {
-            return this.fish.canRandomSwim() && super.canUse();
-        }
-    }
 }
 
 

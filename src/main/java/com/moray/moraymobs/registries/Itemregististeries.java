@@ -49,6 +49,12 @@ public class Itemregististeries {
     final public static RegistryObject<Item> JAW=ITEM.register("jawloose",
             ()->new Item(new Item.Properties().stacksTo(64)));
 
+    final public static RegistryObject<Item> END_SEED=ITEM.register("shulkerberryseed",
+            ()->new Item(new Item.Properties().stacksTo(64)));
+    final public static RegistryObject<Item> SHULKERBERRY=ITEM.register("shulkerberry",
+            ()->new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().nutrition(3).saturationMod(3).build()).stacksTo(64)));
+
+
     final public static RegistryObject<Item> BEETLE_SCALE=ITEM.register("scale",
             ()->new Item(new Item.Properties().stacksTo(64)));
 

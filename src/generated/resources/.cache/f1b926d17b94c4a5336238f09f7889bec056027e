@@ -1,7 +1,16 @@
-// 1.20.1	2024-08-09T18:02:20.2223928	Block States: moraymobs
+// 1.20.1	2024-12-19T18:25:07.2998812	Block States: moraymobs
 79ea2debd5e5bf9f199f0179d293b57114b1e9ba assets/moraymobs/blockstates/basaltlamp.json
 f84459adf45d982877c318e118ccab0bf9b1714a assets/moraymobs/blockstates/blockscale.json
+1634dd9f6dbf27efc06efbc5f1faaf1ab0aecb11 assets/moraymobs/blockstates/chorousgrass.json
+e72d4938dbc02363c558b6ddf217c43b2d937f24 assets/moraymobs/blockstates/endercelosia.json
+ef00a55dec4938db3c5ed9854ccc240de9762d23 assets/moraymobs/blockstates/potted_endercelosia.json
 44cf034213486248506256056ab1935b296efbc2 assets/moraymobs/models/block/basaltlamp.json
 149c981327ac26ce0754959ac94db21f0dd28441 assets/moraymobs/models/block/blockscale.json
+059af271fba3dfad9e19060622c48441b669c626 assets/moraymobs/models/block/chorousgrass.json
+853c514c4324138a1d257e62e4c5c4af2bddfdfe assets/moraymobs/models/block/endercelosia.json
+1e4b6b92983cea06fa07dccf9b14373b2b21fa75 assets/moraymobs/models/block/potted_endercelosia.json
 b1c4cee570a53fb91ad70ec7fead9ab1ed476cdf assets/moraymobs/models/item/basaltlamp.json
 87a57620b38a59c65a359dee2697341a64e6847d assets/moraymobs/models/item/blockscale.json
+1a0843db34761e08f414c11514b94b4656eb44f2 assets/moraymobs/models/item/chorousgrass.json
+7cc59581848b72de01b83e89d4a5948fb61fe355 assets/moraymobs/models/item/endercelosia.json
+9070068c9cc1798b2c601b253806303c6554a376 assets/moraymobs/models/item/potted_endercelosia.json

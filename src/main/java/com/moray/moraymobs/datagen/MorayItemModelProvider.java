@@ -1,10 +1,12 @@
 package com.moray.moraymobs.datagen;
 
 import com.moray.moraymobs.MorayMobs;
+import com.moray.moraymobs.registries.Blockregistrires;
 import com.moray.moraymobs.registries.Itemregististeries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -36,6 +38,10 @@ withExistingParent(Itemregististeries.SOULCATCHER_SPAWN_EGG.getId().getPath(),mc
    simpleItem(Itemregististeries.PADDLEFISH_FOOD);
     simpleItem(Itemregististeries.SOULJEWEL);
     simpleItem(Itemregististeries.SOULBEADRING);
+simpleItemblock(Blockregistrires.END_CELSOSIA);
+simpleItemblock(Blockregistrires.END_GRASS);
+simpleItem(Itemregististeries.END_SEED);
+simpleItem(Itemregististeries.SHULKERBERRY);
     }
 
 
@@ -44,5 +50,11 @@ withExistingParent(Itemregististeries.SOULCATCHER_SPAWN_EGG.getId().getPath(),mc
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(MorayMobs.MODID,"item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder simpleItemblock(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MorayMobs.MODID,"block/" + item.getId().getPath()));
     }
 }

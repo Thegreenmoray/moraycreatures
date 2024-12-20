@@ -1,14 +1,18 @@
-// 1.20.1	2024-12-12T12:21:39.9033992	Item Models: moraymobs
+// 1.20.1	2024-12-19T20:09:53.8343019	Item Models: moraymobs
 620d1057bbc305de467830ba2d799f70dc3ff86e assets/moraymobs/models/item/basalt_crystal.json
 2aaafccd2f9caa60c26546840130703bf4027450 assets/moraymobs/models/item/beetleboots.json
 d9bca312dbb8b1a550eda0750bb249b66e92f6b3 assets/moraymobs/models/item/beetlechestplate.json
 3cf59f842dab1a7c3f4ff8b2cbe15a2f3cf9ad7d assets/moraymobs/models/item/beetleleggings.json
 a946d57c14b693f22d2a54e996ecc6d95134b9ae assets/moraymobs/models/item/beetlemask.json
 aea342caeb496305e1b66379bc97c3ff8bf8e43f assets/moraymobs/models/item/brain.json
+6c005bae06c28e09c1f639a1706bddf7ad473cb6 assets/moraymobs/models/item/chorousgrass.json
+f8137f53fa6e730cd386fc8ae16a4ee2b403b6e9 assets/moraymobs/models/item/endercelosia.json
 9d1395e062361b3f52f1da3f25e533504d78a2db assets/moraymobs/models/item/jawloose.json
 e75887297c21d730b9a4c9a9d15cfbc81fd48325 assets/moraymobs/models/item/paddlefishbucket.json
 26c3f4c54c55a16fb0d4878aa374e4695b5540d5 assets/moraymobs/models/item/paddlefishfood.json
 9667441bf175707749a542a48f771b5fd5f0f599 assets/moraymobs/models/item/scale.json
+33d4aff33cf4d2ec70aed115c38bad33299240c5 assets/moraymobs/models/item/shulkerberry.json
+db8eb6e7da4476f3d2c0194741a8ed9e931b3ec8 assets/moraymobs/models/item/shulkerberryseed.json
 2515d1515fd682d55b5f13985e13e1c76c5b4159 assets/moraymobs/models/item/soulbead.json
 385c8f47ef4436357f2879111d28bd2699af15ec assets/moraymobs/models/item/soulbeamjewel.json
 63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/moraymobs/models/item/spawn_basaltlisk.json
