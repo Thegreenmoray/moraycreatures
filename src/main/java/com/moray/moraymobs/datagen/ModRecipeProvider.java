@@ -5,6 +5,7 @@ import com.moray.moraymobs.registries.Blockregistrires;
 import com.moray.moraymobs.registries.Itemregististeries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
@@ -77,8 +78,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
 
-
+cookingRecipes(pWriter,"smelted", RecipeSerializer.SMELTING_RECIPE, 200);
+        cookingRecipes(pWriter, "smoked", RecipeSerializer.SMOKING_RECIPE, 100);
+cookingRecipes(pWriter,"campfired", RecipeSerializer.CAMPFIRE_COOKING_RECIPE, 500);
     }
+
+    private void cookingRecipes(Consumer<FinishedRecipe> consumer, String processName, RecipeSerializer<? extends AbstractCookingRecipe> process, int smeltingTime) {
+        SimpleCookingRecipeBuilder.generic(Ingredient.of(Itemregististeries.RAW_BOWFIN.get()), RecipeCategory.FOOD,Itemregististeries.COOKED_BOWFIN.get() , 0.3f, smeltingTime, process).unlockedBy("has_food", has(Itemregististeries.RAW_BOWFIN.get())).save(consumer,new ResourceLocation("food/" + processName + "_rawbowfin") );
+    }
+
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");

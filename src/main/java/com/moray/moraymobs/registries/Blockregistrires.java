@@ -1,9 +1,7 @@
 package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
-import com.moray.moraymobs.block.Basaltlightblock;
-import com.moray.moraymobs.block.EndFlowerBlock;
-import com.moray.moraymobs.block.EndGrass;
+import com.moray.moraymobs.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -37,6 +35,13 @@ public class Blockregistrires {
 
     public static final RegistryObject<Block> END_GRASS=registerBlock("chorousgrass",
             ()->new EndGrass(BlockBehaviour.Properties.copy(Blocks.GRASS).noCollission().instabreak()));
+
+    public static final RegistryObject<Block> PADDED_MOSS=BLOCKS.register("chorousmoss",
+            ()->new Voidmoss(BlockBehaviour.Properties.copy(Blocks.LILY_PAD).noCollission().instabreak()));
+
+    public static final RegistryObject<Block> SHULKERFRUIT_CROP=BLOCKS.register("shulkerberrycrop",
+            ()->new Shulkerberrycrop(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion().instabreak()));
+
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

@@ -97,8 +97,6 @@ public class LavaPaddleFish extends Abstractfishmoray implements GeoEntity {
 
 
 
-
-
     static class FishSwimGoal extends RandomSwimmingGoal {
         private final Abstractfishmoray fish;
 
@@ -111,6 +109,8 @@ public class LavaPaddleFish extends Abstractfishmoray implements GeoEntity {
             return this.fish.canRandomSwim() && super.canUse();
         }
     }
+
+
 
 
     protected void defineSynchedData() {

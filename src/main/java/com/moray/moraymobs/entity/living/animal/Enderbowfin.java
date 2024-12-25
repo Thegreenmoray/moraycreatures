@@ -1,6 +1,7 @@
 package com.moray.moraymobs.entity.living.animal;
 
 import com.moray.moraymobs.entity.abstractentity.Abstractfishmoray;
+import com.moray.moraymobs.registries.Itemregististeries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
@@ -10,36 +11,38 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.PanicGoal;
+import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class Enderbowfin extends Abstractfishmoray {
-    protected Enderbowfin(EntityType<? extends WaterAnimal> pEntityType, Level pLevel) {
+public class Enderbowfin extends Abstractfishmoray implements GeoEntity {
+    public Enderbowfin(EntityType<? extends WaterAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.setPathfindingMalus(BlockPathTypes.WATER,0.0f);
         this.moveControl = new FishMoveControl(this);
-        this.navigation=new WaterBoundPathNavigation(this,this.level());
+       this.navigation=new WaterBoundPathNavigation(this,this.level());
         this.xpReward=5;
     }
+    private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
+
+
+
 
     public static AttributeSupplier.Builder createAttributes() {
-        return AbstractFish.createMobAttributes().add(Attributes.MAX_HEALTH,10).add(Attributes.MOVEMENT_SPEED, 1.75).add(Attributes.FOLLOW_RANGE,10);
+        return AbstractFish.createMobAttributes().add(Attributes.MAX_HEALTH,10).add(Attributes.MOVEMENT_SPEED, 0.3).add(Attributes.FOLLOW_RANGE,10);
     }
 
     protected void handleAirSupply(int pAirSupply) {
-        if (this.isAlive() && (!this.isInWater())) {
-            this.setAirSupply(pAirSupply - 1);
-            if (this.getAirSupply() == -20) {
-                this.setAirSupply(0);
-                this.hurt(this.damageSources().drown(), 2.0F);
-            }
-        } else {
+       //Bowfins are air breathing fish, so I'll just set their air supply like this.
             this.setAirSupply(300);
-        }
 
 
 
@@ -48,9 +51,33 @@ public class Enderbowfin extends Abstractfishmoray {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new PanicGoal(this, 1.25));
-        this.goalSelector.addGoal(4, new LavaPaddleFish.FishSwimGoal(this));
+        this.goalSelector.addGoal(4, new FishSwimGoal(this));
 
     }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return Cache;
+    }
+
+    static class FishSwimGoal extends RandomSwimmingGoal {
+        private final Enderbowfin enderbowfin;
+
+        public FishSwimGoal(Enderbowfin enderbowfin) {
+            super(enderbowfin, 1.0, 40);
+            this.enderbowfin = enderbowfin;
+        }
+
+        public boolean canUse() {
+            return this.enderbowfin.canRandomSwim() && super.canUse();
+        }
+    }
+
 
 
     @Override
@@ -60,7 +87,7 @@ public class Enderbowfin extends Abstractfishmoray {
 
     @Override
     public ItemStack getBucketItemStack() {
-        return null;
+        return new ItemStack(Itemregististeries.BUCKETED_BOWFIN.get());
     }
 
     private static class FishMoveControl extends MoveControl {

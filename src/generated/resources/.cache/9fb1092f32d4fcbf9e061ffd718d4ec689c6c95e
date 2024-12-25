@@ -1,4 +1,10 @@
-// 1.20.1	2024-12-11T23:48:07.5452984	Recipes
+// 1.20.1	2024-12-22T16:48:02.3124326	Recipes
+430146be258bbdc0e61afb507a0da565a4f2dcb7 data/minecraft/advancements/recipes/food/food/campfired_rawbowfin.json
+b7e8c4d952bd3f4ca209902452a583e32666aff5 data/minecraft/advancements/recipes/food/food/smelted_rawbowfin.json
+2a601ab9e30184da5fe4fec51a47d96a3cbb8eae data/minecraft/advancements/recipes/food/food/smoked_rawbowfin.json
+4f2d133d5d5b0d7bbf9e545506a257638840515c data/minecraft/recipes/food/campfired_rawbowfin.json
+5b06e4cd46001fe9ae0949549d61ab367a7739b0 data/minecraft/recipes/food/smelted_rawbowfin.json
+c7429714248674cefb23f92917c2572011c28da1 data/minecraft/recipes/food/smoked_rawbowfin.json
 a92c01af8d311cc62c45031301ea8735762ec57a data/moraymobs/advancements/recipes/combat/beetleboots.json
 4d8c1cd1fecfd97c8fd7afedb58f12bbe552e655 data/moraymobs/advancements/recipes/combat/beetlechestplate.json
 6d4425de926ed87793949d758185965c9a6fbf59 data/moraymobs/advancements/recipes/combat/beetleleggings.json

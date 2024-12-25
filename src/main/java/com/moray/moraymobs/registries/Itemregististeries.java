@@ -42,6 +42,9 @@ public class Itemregististeries {
     final public static RegistryObject<Item> SOULCATCHER_SPAWN_EGG=ITEM.register
             ("spawn_soulcatcher",()-> new ForgeSpawnEggItem(Mobregistries.SOULCATCHER,0x00FFFF,0x964B00,new Item.Properties()));
 
+    final public static RegistryObject<Item> BOWFIN_SPAWN_EGG=ITEM.register
+            ("spawn_endbowfin",()-> new ForgeSpawnEggItem(Mobregistries.BOWFIN,0xEEF6B4,0x3f1b40,new Item.Properties()));
+
 
     final public static RegistryObject<Item> BRAIN=ITEM.register("brain",
            ()->new Brainitem(new Item.Properties().stacksTo(8)));
@@ -50,9 +53,19 @@ public class Itemregististeries {
             ()->new Item(new Item.Properties().stacksTo(64)));
 
     final public static RegistryObject<Item> END_SEED=ITEM.register("shulkerberryseed",
-            ()->new Item(new Item.Properties().stacksTo(64)));
+            ()->new ItemNameBlockItem(Blockregistrires.SHULKERFRUIT_CROP.get(),new Item.Properties().stacksTo(64)));
+
     final public static RegistryObject<Item> SHULKERBERRY=ITEM.register("shulkerberry",
-            ()->new Item(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().nutrition(3).saturationMod(3).build()).stacksTo(64)));
+            ()->new Shulkerfruit(new Item.Properties().food(new FoodProperties.Builder().alwaysEat().nutrition(3).saturationMod(3).build()).stacksTo(64)));
+
+    final public static RegistryObject<Item> RAW_BOWFIN=ITEM.register("rawbowfin",
+            ()->new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).meat().saturationMod(3).build()).stacksTo(64)));
+
+    final public static RegistryObject<Item> COOKED_BOWFIN=ITEM.register("cookedbowfin",
+            ()->new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).meat().saturationMod(7).build()).stacksTo(64)));
+
+    final public static RegistryObject<Item> MOSS=ITEM.register("chorousmoss",
+            ()->new PlaceOnWaterBlockItem(Blockregistrires.PADDED_MOSS.get(),new Item.Properties().stacksTo(64)));
 
 
     final public static RegistryObject<Item> BEETLE_SCALE=ITEM.register("scale",
@@ -79,8 +92,11 @@ public class Itemregististeries {
     final public static RegistryObject<Item> BUCKETED_PADDLEFISH=ITEM.register("paddlefishbucket",
            ()->new Moraybuckets( Mobregistries.PADDLEFISH,Fluids.LAVA,new Item.Properties()));
 
+    final public static RegistryObject<Item> BUCKETED_BOWFIN=ITEM.register("bowfinbucket",
+            ()->new Moraybuckets( Mobregistries.BOWFIN,Fluids.WATER,new Item.Properties()));
+
     final public static RegistryObject<Item> PADDLEFISH_FOOD=ITEM.register("paddlefishfood",
-            ()->new Item(new Item.Properties().fireResistant().food(new FoodProperties.Builder().nutrition(6).saturationMod(3).build())));
+            ()->new Item(new Item.Properties().fireResistant().food(new FoodProperties.Builder().nutrition(6).saturationMod(3).meat().build())));
 
     final public static RegistryObject<Item> SOULJEWEL=ITEM.register("soulbead",
             ()->new Item(new Item.Properties().stacksTo(64)));

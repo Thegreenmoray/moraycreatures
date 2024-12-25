@@ -2,6 +2,7 @@ package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
 import com.moray.moraymobs.entity.living.animal.Basaltlisk;
+import com.moray.moraymobs.entity.living.animal.Enderbowfin;
 import com.moray.moraymobs.entity.living.animal.LavaPaddleFish;
 import com.moray.moraymobs.entity.living.animal.Opossum;
 import com.moray.moraymobs.entity.living.monster.*;
@@ -66,6 +67,10 @@ public class Mobregistries {
   final public static RegistryObject<EntityType<Soulcatcher>> SOULCATCHER=
           ENTITY_TYPE.register("soulcatcher",()->EntityType.Builder.of(Soulcatcher::new, MobCategory.MONSTER)
                   .sized(1.5F,2.5F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"soulcatcher").toString()));
+
+  final public static RegistryObject<EntityType<Enderbowfin>> BOWFIN=
+          ENTITY_TYPE.register("bowfin",()->EntityType.Builder.of(Enderbowfin::new, MobCategory.WATER_CREATURE)
+                  .sized(0.5f,0.5F).build(new ResourceLocation(MorayMobs.MODID,"bowfin").toString()));
 
 
 

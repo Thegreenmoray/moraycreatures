@@ -1,12 +1,15 @@
-// 1.20.1	2024-12-19T18:25:07.2914974	Loot Tables
+// 1.20.1	2024-12-22T16:48:02.3094238	Loot Tables
 f0d2e92677d34968cd9211b990b317ab40d3821f data/moraymobs/loot_tables/blocks/basaltlamp.json
 a076d08baa9c7a9aa3b87d83fcf6f95349b22d6b data/moraymobs/loot_tables/blocks/blockscale.json
 4d3f1bd1cf5c74cd44623bbc8ce246dc8b2e4dc7 data/moraymobs/loot_tables/blocks/chorousgrass.json
+7675aa0e996b29310553932f189faa861255c165 data/moraymobs/loot_tables/blocks/chorousmoss.json
 7a9f6ccc4013f6b72ffc980a05a3187026dc8bbf data/moraymobs/loot_tables/blocks/endercelosia.json
 6416c1bdcbd66d7f7e2af06c1671f0b7655d01b6 data/moraymobs/loot_tables/blocks/potted_endercelosia.json
+8d05cfbe8796cdcc26230b05af61d04c458da7dc data/moraymobs/loot_tables/blocks/shulkerberrycrop.json
 92e4e7c531c7de0fda3a32b3a249e848b7313c6d data/moraymobs/loot_tables/entities/basaltlisk.json
 a2105ad688d637fbcc0d9f551418fedcf317d632 data/moraymobs/loot_tables/entities/bodysnatcher.json
 51445dfca1d5326424ff6cab619553c78a7b058c data/moraymobs/loot_tables/entities/bonymoray.json
+b5dae5ae876eb59c9fa56cf52cfa0cbe3b8826bc data/moraymobs/loot_tables/entities/bowfin.json
 148809bf2a1a30c385f40db00ecdf3ed60e2a093 data/moraymobs/loot_tables/entities/opossum.json
 7717b28d8089995395a8085e2450b0726d925da0 data/moraymobs/loot_tables/entities/paddlefish.json
 3ec5c65deaf77ba95a96992b0ffe71d68b8613e1 data/moraymobs/loot_tables/entities/soulcatcher.json

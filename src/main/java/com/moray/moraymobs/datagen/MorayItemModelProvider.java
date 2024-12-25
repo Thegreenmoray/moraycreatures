@@ -26,7 +26,8 @@ withExistingParent(Itemregististeries.VOLCANOBACK_SPAWN_EGG.getId().getPath(),mc
 withExistingParent(Itemregististeries.MORAY_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
 withExistingParent(Itemregististeries.PADDLE_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
 withExistingParent(Itemregististeries.SOULCATCHER_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
-    simpleItem(Itemregististeries.BRAIN);
+withExistingParent(Itemregististeries.BOWFIN_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
+        simpleItem(Itemregististeries.BRAIN);
      simpleItem(Itemregististeries.JAW);
      simpleItem(Itemregististeries.BEETLE_SCALE);
      simpleItem(Itemregististeries.BEETLE_HELMET);
@@ -35,6 +36,7 @@ withExistingParent(Itemregististeries.SOULCATCHER_SPAWN_EGG.getId().getPath(),mc
         simpleItem(Itemregististeries.BEETLE_BOOTS);
         simpleItem(Itemregististeries.BASALT_CRYSTAL);
    simpleItem(Itemregististeries.BUCKETED_PADDLEFISH);
+   simpleItem(Itemregististeries.BUCKETED_BOWFIN);
    simpleItem(Itemregististeries.PADDLEFISH_FOOD);
     simpleItem(Itemregististeries.SOULJEWEL);
     simpleItem(Itemregististeries.SOULBEADRING);
@@ -42,6 +44,9 @@ simpleItemblock(Blockregistrires.END_CELSOSIA);
 simpleItemblock(Blockregistrires.END_GRASS);
 simpleItem(Itemregististeries.END_SEED);
 simpleItem(Itemregististeries.SHULKERBERRY);
+simpleItem(Itemregististeries.RAW_BOWFIN);
+simpleItem(Itemregististeries.COOKED_BOWFIN);
+simpleItem(Itemregististeries.MOSS);
     }
 
 

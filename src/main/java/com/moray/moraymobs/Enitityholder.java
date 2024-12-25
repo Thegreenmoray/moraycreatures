@@ -19,6 +19,7 @@ public class Enitityholder {
     EntityRenderers.register(Mobregistries.PADDLEFISH.get(),Paddlefishrender::new);
     EntityRenderers.register(Mobregistries.SOULCATCHER.get(),Soulcatcherrender::new);
     EntityRenderers.register(Mobregistries.SOULPROJECTILE.get(),Soulballrenderer::new);
+   EntityRenderers.register(Mobregistries.BOWFIN.get(),Bowfinrender::new);
     }
 
 
