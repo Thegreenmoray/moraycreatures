@@ -10,9 +10,6 @@
 
 "step": "surface_structures",
 
-
-"terrain_adaptation": "beard_thin",
-
 "start_height": {
 "absolute": 70
 },
