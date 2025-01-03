@@ -1,10 +1,10 @@
 {"type": "forge:add_spawns",
-  "biomes": [
+  "biomes":
     "minecraft:nether_wastes"
-  ],
-  "spawners": {
+,
+  "spawners": [{
     "type": "moraymobs:volcanoback",
     "maxCount": 1,
     "minCount": 1,
-    "weight": 1
-  }}
+    "weight": 5
+  }]}

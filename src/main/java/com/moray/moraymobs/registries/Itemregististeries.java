@@ -45,6 +45,9 @@ public class Itemregististeries {
     final public static RegistryObject<Item> BOWFIN_SPAWN_EGG=ITEM.register
             ("spawn_endbowfin",()-> new ForgeSpawnEggItem(Mobregistries.BOWFIN,0xEEF6B4,0x3f1b40,new Item.Properties()));
 
+    final public static RegistryObject<Item> PRONGHORN_SPAWN_EGG=ITEM.register
+            ("spawn_pronghorn",()-> new ForgeSpawnEggItem(Mobregistries.PRONGHORN,0xcfa141,0xb39671,new Item.Properties()));
+
 
     final public static RegistryObject<Item> BRAIN=ITEM.register("brain",
            ()->new Brainitem(new Item.Properties().stacksTo(8)));
@@ -64,8 +67,17 @@ public class Itemregististeries {
     final public static RegistryObject<Item> COOKED_BOWFIN=ITEM.register("cookedbowfin",
             ()->new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).meat().saturationMod(7).build()).stacksTo(64)));
 
+    final public static RegistryObject<Item> RAW_PRONGHORN=ITEM.register("rawpronghorn",
+            ()->new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).meat().saturationMod(2).build()).stacksTo(64)));
+
+    final public static RegistryObject<Item> COOKED_PRONGHORN=ITEM.register("cookedpronghorn",
+            ()->new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).meat().saturationMod(10).build()).stacksTo(64)));
+
+
+
     final public static RegistryObject<Item> MOSS=ITEM.register("chorousmoss",
-            ()->new PlaceOnWaterBlockItem(Blockregistrires.PADDED_MOSS.get(),new Item.Properties().stacksTo(64)));
+            ()->new PlaceOnWaterBlockItem(Blockregistrires.PADDED_MOSS.get(),
+                    new Item.Properties().stacksTo(64)));
 
 
     final public static RegistryObject<Item> BEETLE_SCALE=ITEM.register("scale",
@@ -104,6 +116,8 @@ public class Itemregististeries {
     final public static RegistryObject<Item> SOULBEADRING=ITEM.register("soulbeamjewel",
             ()->new Soulbeamweapon(new Item.Properties().durability(100)));
 
+    final public static RegistryObject<Item> ANTLER=ITEM.register("pronghornantler",
+            ()->new Item(new Item.Properties().stacksTo(64)));
 
 
     public static void register(IEventBus bus){

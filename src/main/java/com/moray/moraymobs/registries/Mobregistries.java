@@ -1,10 +1,7 @@
 package com.moray.moraymobs.registries;
 
 import com.moray.moraymobs.MorayMobs;
-import com.moray.moraymobs.entity.living.animal.Basaltlisk;
-import com.moray.moraymobs.entity.living.animal.Enderbowfin;
-import com.moray.moraymobs.entity.living.animal.LavaPaddleFish;
-import com.moray.moraymobs.entity.living.animal.Opossum;
+import com.moray.moraymobs.entity.living.animal.*;
 import com.moray.moraymobs.entity.living.monster.*;
 import com.moray.moraymobs.entity.projectiles.Fireheap;
 import com.moray.moraymobs.entity.projectiles.Soulpiece;
@@ -19,11 +16,11 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
 public class Mobregistries {
   final public static DeferredRegister<EntityType<?>> ENTITY_TYPE=DeferredRegister.create(
           ForgeRegistries.ENTITY_TYPES, MorayMobs.MODID);
@@ -72,19 +69,14 @@ public class Mobregistries {
           ENTITY_TYPE.register("bowfin",()->EntityType.Builder.of(Enderbowfin::new, MobCategory.WATER_CREATURE)
                   .sized(0.5f,0.5F).build(new ResourceLocation(MorayMobs.MODID,"bowfin").toString()));
 
-
+  final public static RegistryObject<EntityType<Pronghorn>> PRONGHORN=
+          ENTITY_TYPE.register("pronghorn",()->EntityType.Builder.of(Pronghorn::new, MobCategory.CREATURE)
+                  .sized(1.5F,1.5F).build(new ResourceLocation(MorayMobs.MODID,"pronghorn").toString()));
 
 
   public static void register(IEventBus bus){
     ENTITY_TYPE.register(bus);
 }
 
-  @SubscribeEvent
-  public static void initializeAttributes(SpawnPlacementRegisterEvent event) {
-    event.register(MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
- event.register(OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
-event.register(VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Volcanoback::checkMonsterSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
- event.register(PADDLEFISH.get(),SpawnPlacements.Type.IN_LAVA,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,LavaPaddleFish::checkPaddlefishSpawnRules,SpawnPlacementRegisterEvent.Operation.REPLACE);
-event.register(SOULCATCHER.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Soulcatcher::checkMonsterSpawnruleschance,SpawnPlacementRegisterEvent.Operation.REPLACE);
-  }
+
 }

@@ -102,9 +102,6 @@ public class Volcanoback extends Monster implements GeoEntity {
         return new GroundPathNavigation(this, pLevel);
     }
 
-    public static boolean checkMonsterSpawnRules(EntityType<? extends Monster> pType, ServerLevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return !Objects.requireNonNull(pLevel.getBlockEntity(pPos)).getBlockState().isAir()&&pLevel.getDifficulty() != Difficulty.PEACEFUL && isDarkEnoughToSpawn(pLevel, pPos, pRandom) && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom);
-    }
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 100.0).add(Attributes.MOVEMENT_SPEED, 0.3f).add(Attributes.ARMOR,5f).add(Attributes.ATTACK_DAMAGE,12f).add(Attributes.FOLLOW_RANGE,20);
@@ -202,12 +199,8 @@ if (this.getanimation_timer()>0&&getgroundpound()==100){
 
 
     public static boolean checkMonsterSpawnRuleschance(EntityType<? extends Monster> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        BlockPos blockpos = pPos.below();
 
-        return pLevel.getBlockState(blockpos).is(Blocks.NETHERRACK) &&
-                 pLevel.getDifficulty() != Difficulty.PEACEFUL&&pRandom.nextInt(30) == 0
-                && checkMobSpawnRules(pType, pLevel, pSpawnType, pPos, pRandom)
-                && isDarkEnoughToSpawn((ServerLevelAccessor)pLevel, pPos, pRandom);
+        return pLevel.getDifficulty() != Difficulty.PEACEFUL && !pLevel.getBlockState(pPos.below()).is(Blocks.NETHER_WART_BLOCK);
     }
 
     public MobType getMobType() {
@@ -215,7 +208,7 @@ if (this.getanimation_timer()>0&&getgroundpound()==100){
     }
 
     public boolean isInvulnerableTo(DamageSource source) {
-        return source.is(DamageTypeTags.IS_FALL)||source.is(DamageTypeTags.IS_PROJECTILE) || super.isInvulnerableTo(source);
+        return source.is(DamageTypeTags.IS_PROJECTILE) || super.isInvulnerableTo(source);
     }
 
     @Override

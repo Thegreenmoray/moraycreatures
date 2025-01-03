@@ -58,7 +58,7 @@ public class Opossum extends Animal implements GeoEntity {
 
     @Override
     public void aiStep() {
-
+//I will add something for the opposum later
 
         super.aiStep();
     }

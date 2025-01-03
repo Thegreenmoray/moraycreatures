@@ -103,11 +103,6 @@ public void set_eaten(boolean eaten){
         return false;
     }
 
-    public static boolean checkBasaltliskSpawnRules(EntityType<? extends Animal> pAnimal, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
-        return true;
-                //pLevel.getBlockState(pPos.below()).is(BlockTags.BASE_STONE_NETHER);
-    }
-
 
     public void tick() {
         super.tick();

@@ -1,10 +1,7 @@
 package com.moray.moraymobs.modevents;
 
 import com.moray.moraymobs.MorayMobs;
-import com.moray.moraymobs.entity.living.animal.Basaltlisk;
-import com.moray.moraymobs.entity.living.animal.Enderbowfin;
-import com.moray.moraymobs.entity.living.animal.LavaPaddleFish;
-import com.moray.moraymobs.entity.living.animal.Opossum;
+import com.moray.moraymobs.entity.living.animal.*;
 import com.moray.moraymobs.entity.living.monster.*;
 import com.moray.moraymobs.item.Beetlearmor;
 import com.moray.moraymobs.registries.Itemregististeries;
@@ -19,10 +16,15 @@ import net.minecraft.world.damagesource.DamageSources;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -30,6 +32,18 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = MorayMobs.MODID,bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Events {
+
+
+    @SubscribeEvent
+    public static void entitySpawnRestrictions(SpawnPlacementRegisterEvent event) {
+
+        event.register(Mobregistries.MORAY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(Mobregistries.OPOSSUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(Mobregistries.VOLCANOBACK.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Volcanoback::checkMonsterSpawnRuleschance, SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(Mobregistries.PADDLEFISH.get(),SpawnPlacements.Type.IN_LAVA,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,LavaPaddleFish::checkPaddlefishSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+        event.register(Mobregistries.SOULCATCHER.get(),SpawnPlacements.Type.ON_GROUND,Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,Soulcatcher::checkMonsterSpawnruleschance, SpawnPlacementRegisterEvent.Operation.REPLACE);
+
+    }
 
 
 @SubscribeEvent
@@ -43,6 +57,7 @@ event.put(Mobregistries.MORAYJAW.get(), Morayjaw.createAttributes().build());
 event.put(Mobregistries.PADDLEFISH.get(), LavaPaddleFish.createAttributes().build());
 event.put(Mobregistries.SOULCATCHER.get(), Soulcatcher.createAttributes().build());
 event.put(Mobregistries.BOWFIN.get(), Enderbowfin.createAttributes().build());
+event.put(Mobregistries.PRONGHORN.get(), Pronghorn.createAttributes().build());
 }
 
 

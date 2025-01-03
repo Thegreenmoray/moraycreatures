@@ -20,7 +20,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.*;
+import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class Enderbowfin extends Abstractfishmoray implements GeoEntity {
@@ -57,7 +58,23 @@ public class Enderbowfin extends Abstractfishmoray implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+        controllerRegistrar.add(new AnimationController<>(this,
+                "Controller",this::animations));
+    }
 
+    private PlayState animations(AnimationState<Enderbowfin> enderbowfinAnimationState) {
+
+        if(enderbowfinAnimationState.isMoving()){
+            enderbowfinAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.move.swim", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        }
+        if (!enderbowfinAnimationState.isMoving()){
+            enderbowfinAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.idle.swim", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        }
+
+
+        return PlayState.STOP;
     }
 
     @Override

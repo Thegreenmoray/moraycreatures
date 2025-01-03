@@ -27,6 +27,7 @@ withExistingParent(Itemregististeries.MORAY_SPAWN_EGG.getId().getPath(),mcLoc("i
 withExistingParent(Itemregististeries.PADDLE_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
 withExistingParent(Itemregististeries.SOULCATCHER_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
 withExistingParent(Itemregististeries.BOWFIN_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
+withExistingParent(Itemregististeries.PRONGHORN_SPAWN_EGG.getId().getPath(),mcLoc("item/template_spawn_egg"));
         simpleItem(Itemregististeries.BRAIN);
      simpleItem(Itemregististeries.JAW);
      simpleItem(Itemregististeries.BEETLE_SCALE);
@@ -46,6 +47,9 @@ simpleItem(Itemregististeries.END_SEED);
 simpleItem(Itemregististeries.SHULKERBERRY);
 simpleItem(Itemregististeries.RAW_BOWFIN);
 simpleItem(Itemregististeries.COOKED_BOWFIN);
+simpleItem(Itemregististeries.RAW_PRONGHORN);
+simpleItem(Itemregististeries.COOKED_PRONGHORN);
+simpleItem(Itemregististeries.ANTLER);
 simpleItem(Itemregististeries.MOSS);
     }
 

@@ -1,3 +1,6 @@
 {
-  "parent": "moraymobs:block/chorousmoss"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moraymobs:item/chorousmoss"
+  }
 }

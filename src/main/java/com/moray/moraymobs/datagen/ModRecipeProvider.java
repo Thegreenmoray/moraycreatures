@@ -81,10 +81,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 cookingRecipes(pWriter,"smelted", RecipeSerializer.SMELTING_RECIPE, 200);
         cookingRecipes(pWriter, "smoked", RecipeSerializer.SMOKING_RECIPE, 100);
 cookingRecipes(pWriter,"campfired", RecipeSerializer.CAMPFIRE_COOKING_RECIPE, 500);
+
+
     }
 
     private void cookingRecipes(Consumer<FinishedRecipe> consumer, String processName, RecipeSerializer<? extends AbstractCookingRecipe> process, int smeltingTime) {
         SimpleCookingRecipeBuilder.generic(Ingredient.of(Itemregististeries.RAW_BOWFIN.get()), RecipeCategory.FOOD,Itemregististeries.COOKED_BOWFIN.get() , 0.3f, smeltingTime, process).unlockedBy("has_food", has(Itemregististeries.RAW_BOWFIN.get())).save(consumer,new ResourceLocation("food/" + processName + "_rawbowfin") );
+        SimpleCookingRecipeBuilder.generic(Ingredient.of(Itemregististeries.RAW_BOWFIN.get()), RecipeCategory.FOOD,Itemregististeries.COOKED_PRONGHORN.get() , 0.3f, smeltingTime, process).unlockedBy("has_food", has(Itemregististeries.RAW_PRONGHORN.get())).save(consumer,new ResourceLocation("food/" + processName + "_rawpronghorn") );
     }
 
 
