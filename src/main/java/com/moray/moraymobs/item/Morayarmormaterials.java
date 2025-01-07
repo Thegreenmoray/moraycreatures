@@ -21,11 +21,11 @@ import java.util.function.Supplier;
 public enum Morayarmormaterials implements ArmorMaterial {
 
     BEETLE("beetle", 40, (EnumMap)Util.make(new EnumMap(ArmorItem.Type.class), (p_266655_) -> {
-        p_266655_.put(ArmorItem.Type.BOOTS, 2);
-        p_266655_.put(ArmorItem.Type.LEGGINGS, 5);
-        p_266655_.put(ArmorItem.Type.CHESTPLATE, 6);
-        p_266655_.put(ArmorItem.Type.HELMET, 2);
-    }), 10, SoundEvents.ARMOR_EQUIP_NETHERITE, 1.0F, 0F, () -> {
+        p_266655_.put(ArmorItem.Type.BOOTS, 4);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
+        p_266655_.put(ArmorItem.Type.HELMET, 4);
+    }), 10, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0F, () -> {
         return Ingredient.of(new ItemLike[]{Itemregististeries.BEETLE_SCALE.get()});
     });
 

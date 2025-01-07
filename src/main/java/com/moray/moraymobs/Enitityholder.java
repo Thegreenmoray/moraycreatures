@@ -20,7 +20,9 @@ public class Enitityholder {
     EntityRenderers.register(Mobregistries.SOULCATCHER.get(),Soulcatcherrender::new);
     EntityRenderers.register(Mobregistries.SOULPROJECTILE.get(),Soulballrenderer::new);
    EntityRenderers.register(Mobregistries.BOWFIN.get(),Bowfinrender::new);
-        EntityRenderers.register(Mobregistries.PRONGHORN.get(),Pronghornrenderer::new);
+   EntityRenderers.register(Mobregistries.PRONGHORN.get(),Pronghornrenderer::new);
+   EntityRenderers.register(Mobregistries.THRESHER.get(),ThresherSharkRender::new);
+   EntityRenderers.register(Mobregistries.STUNWAVE.get(),StunwaveRender::new);
     }
 
 

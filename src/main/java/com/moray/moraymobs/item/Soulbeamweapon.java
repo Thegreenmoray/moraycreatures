@@ -58,9 +58,6 @@ if (!player.isCreative()){
         return UseAnim.BOW;
     }
 
-
-
-
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         boolean flag = !pPlayer.getProjectile(itemstack).isEmpty();

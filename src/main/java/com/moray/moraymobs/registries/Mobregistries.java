@@ -5,6 +5,7 @@ import com.moray.moraymobs.entity.living.animal.*;
 import com.moray.moraymobs.entity.living.monster.*;
 import com.moray.moraymobs.entity.projectiles.Fireheap;
 import com.moray.moraymobs.entity.projectiles.Soulpiece;
+import com.moray.moraymobs.entity.projectiles.Stunwave;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -73,6 +74,13 @@ public class Mobregistries {
           ENTITY_TYPE.register("pronghorn",()->EntityType.Builder.of(Pronghorn::new, MobCategory.CREATURE)
                   .sized(1.5F,1.5F).build(new ResourceLocation(MorayMobs.MODID,"pronghorn").toString()));
 
+  final public static RegistryObject<EntityType<Thresher_shark>> THRESHER=
+          ENTITY_TYPE.register("threshershark",()->EntityType.Builder.of(Thresher_shark::new, MobCategory.CREATURE)
+                  .sized(1.5F,1F).build(new ResourceLocation(MorayMobs.MODID,"threshershark").toString()));
+
+  final public static RegistryObject<EntityType<Stunwave>> STUNWAVE=
+          ENTITY_TYPE.register("stunwave",()->EntityType.Builder.<Stunwave>of(Stunwave::new, MobCategory.MISC)
+                  .sized(1.5f,1F).fireImmune().build(new ResourceLocation(MorayMobs.MODID,"stunwave").toString()));
 
   public static void register(IEventBus bus){
     ENTITY_TYPE.register(bus);

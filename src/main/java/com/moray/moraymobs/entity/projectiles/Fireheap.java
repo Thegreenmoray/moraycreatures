@@ -25,7 +25,9 @@ public class Fireheap extends AbstractHurtingProjectile implements GeoEntity {
     private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
 
 
-
+    public boolean isPickable() {
+        return false;
+    }
 
     public void tick() {
         super.tick();

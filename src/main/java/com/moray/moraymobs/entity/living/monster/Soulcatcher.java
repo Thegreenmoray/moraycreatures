@@ -188,7 +188,7 @@ if (gettimer()<50){
     @Override
     protected void tickDeath() {
         ++this.deathTime;
-this.setDeltaMovement(0,-0.1,0);
+this.setDeltaMovement(0,-1,0);
 
         if ( this.deathTime==1){
             setanimation(0);

@@ -83,7 +83,7 @@ public class Moray extends Monster implements GeoEntity {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,25).add(Attributes.FOLLOW_RANGE, 20.0).add(Attributes.MOVEMENT_SPEED, 0.5).add(Attributes.ATTACK_DAMAGE, 5.0);
+        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH,25).add(Attributes.FOLLOW_RANGE, 20.0).add(Attributes.MOVEMENT_SPEED, 0.55).add(Attributes.ATTACK_DAMAGE, 5.0);
     }
 
     @Override
@@ -111,14 +111,8 @@ public class Moray extends Monster implements GeoEntity {
 
     @Override
     public void aiStep() {
-
-
        if (gettimer()<50){
        settimer(gettimer()+1);}
-
-
-
-
 
         super.aiStep();
     }

@@ -48,6 +48,8 @@ public class Itemregististeries {
     final public static RegistryObject<Item> PRONGHORN_SPAWN_EGG=ITEM.register
             ("spawn_pronghorn",()-> new ForgeSpawnEggItem(Mobregistries.PRONGHORN,0xcfa141,0xb39671,new Item.Properties()));
 
+    final public static RegistryObject<Item>  THRESHERSHARK_SPAWN_EGG=ITEM.register
+            ("spawn_thresher",()-> new ForgeSpawnEggItem(Mobregistries.THRESHER,0xADD8E6,0xFFFFFF,new Item.Properties()));
 
     final public static RegistryObject<Item> BRAIN=ITEM.register("brain",
            ()->new Brainitem(new Item.Properties().stacksTo(8)));
@@ -118,6 +120,12 @@ public class Itemregististeries {
 
     final public static RegistryObject<Item> ANTLER=ITEM.register("pronghornantler",
             ()->new Item(new Item.Properties().stacksTo(64)));
+
+    final public static RegistryObject<Item> BOTTLE_OF_SHOCK=ITEM.register("glassofstunwave",
+            ()->new Item(new Item.Properties().stacksTo(64)));
+
+    final public static RegistryObject<Item> STUNGUN=ITEM.register("stungun",
+            ()->new Stungun(new Item.Properties().durability(50)));
 
 
     public static void register(IEventBus bus){

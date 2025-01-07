@@ -37,6 +37,7 @@ public class Pronghorn extends Animal implements GeoEntity {
 
     public Pronghorn(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.setMaxUpStep(1.0F);
     }
 
     public int getrunning(){
@@ -63,17 +64,22 @@ public class Pronghorn extends Animal implements GeoEntity {
     @Override
     protected void registerGoals() {
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25){
+        this.goalSelector.addGoal(1, new PanicGoal(this, 4.25){
             @Override
             public void start() {
-              setrunning(20);
-                super.start();
+               super.start();
+                if (this.mob instanceof Pronghorn pronghorn){
+                    pronghorn.setrunning(40);
+                    pronghorn.seteating(0);
+              }
             }
 
-            @Override
-            public void stop() {
-            setrunning(0);
-                super.stop();
+          @Override
+           public void stop() {
+               super.stop();
+                if (this.mob instanceof Pronghorn pronghorn){
+                   pronghorn.setrunning(0);
+              }
             }
         });
         this.goalSelector.addGoal(0, new FloatGoal(this));
@@ -94,19 +100,19 @@ public class Pronghorn extends Animal implements GeoEntity {
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
         pCompound.putInt("eating", this.geteating());
-
+        pCompound.putInt("running", this.getrunning());
     }
 
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.seteating(pCompound.getInt("eating"));
-
+        this.seteating(pCompound.getInt("running"));
     }
 
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(EATING, 0);
-
+this.entityData.define(RUNNING,0);
     }
 
     @Override
@@ -143,18 +149,24 @@ public class Pronghorn extends Animal implements GeoEntity {
 
     private PlayState animations(AnimationState<Pronghorn> pronghornAnimationState) {
 
-        if (this.geteating()>=20){
+        if (this.geteating()>=10){
             pronghornAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.pronghorn.eat", Animation.LoopType.PLAY_ONCE));
            return PlayState.CONTINUE;
         }
 
-      if (pronghornAnimationState.isMoving()&&this.geteating()<20){
-           pronghornAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.pronghorn.run", Animation.LoopType.LOOP));
+        if (this.getrunning()>=10){
+            pronghornAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.pronghorn.run", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        }
+
+
+      if (pronghornAnimationState.isMoving()&&this.geteating()<10&&this.getrunning()<10){
+           pronghornAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.pronghorn.walk", Animation.LoopType.LOOP));
           return PlayState.CONTINUE;
-       } //Probably wont work, but a good reference for later.
+       }
 
 
-       if(!pronghornAnimationState.isMoving()&&this.geteating()<20){
+       if(!pronghornAnimationState.isMoving()&&this.geteating()<10&&this.getrunning()<10){
         pronghornAnimationState.getController().setAnimation(RawAnimation.begin().then("animation.idle.pronghorn", Animation.LoopType.LOOP));
           return PlayState.CONTINUE;
         }

@@ -22,12 +22,14 @@ public class Soulpiece extends AbstractHurtingProjectile implements GeoEntity {
         super(Mobregistries.SOULPROJECTILE.get(), pLevel);
     }
 
-
+    public boolean isPickable() {
+        return false;
+    }
     @Override
     public void tick() {
         super.tick();
 
-   //this.setDeltaMovement(this.getX(),this.getY()-0.05,this.getZ());
+   this.setDeltaMovement(this.getX(),this.getY()-0.05,this.getZ());
 
     }
 

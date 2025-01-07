@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.List;
@@ -77,6 +78,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Itemregististeries.SOULJEWEL.get()),has(Itemregististeries.SOULJEWEL.get()))
                 .save(pWriter);
 
+ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BONE_MEAL,4)
+        .requires(Itemregististeries.ANTLER.get())
+        .unlockedBy(getHasName(Itemregististeries.ANTLER.get()), has(Itemregististeries.ANTLER.get()))
+        .save(pWriter);
 
 cookingRecipes(pWriter,"smelted", RecipeSerializer.SMELTING_RECIPE, 200);
         cookingRecipes(pWriter, "smoked", RecipeSerializer.SMOKING_RECIPE, 100);

@@ -26,7 +26,7 @@ public class Pronghorneatgoal extends Goal {
 
 
     public boolean canUse() {
-        if (this.pronghorn.getRandom().nextInt(this.pronghorn.isBaby() ? 50 : 1000) != 0&&this.pronghorn.getTarget()==null) {
+        if (this.pronghorn.getRandom().nextInt(this.pronghorn.isBaby() ? 50 : 500) != 0) {
             return false;
         } else {
             BlockPos blockpos = this.pronghorn.blockPosition();
@@ -54,7 +54,7 @@ public class Pronghorneatgoal extends Goal {
 
     public void tick() {
      pronghorn.seteating(Math.max(0, this.pronghorn.geteating() - 1));
-        if (this.pronghorn.geteating() >0) {
+        if (this.pronghorn.geteating()>0) {
             BlockPos blockpos = this.pronghorn.blockPosition();
             if (IS_TALL_GRASS.test(this.level.getBlockState(blockpos))) {
                 if (ForgeEventFactory.getMobGriefingEvent(this.level, this.pronghorn)) {

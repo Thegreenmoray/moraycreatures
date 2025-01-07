@@ -1,10 +1,12 @@
-// 1.20.1	2025-01-02T19:16:07.9550218	Recipes
+// 1.20.1	2025-01-02T21:52:43.0666233	Recipes
 430146be258bbdc0e61afb507a0da565a4f2dcb7 data/minecraft/advancements/recipes/food/food/campfired_rawbowfin.json
 3b7e756927da56c882060885413158dbda83dcaf data/minecraft/advancements/recipes/food/food/campfired_rawpronghorn.json
 b7e8c4d952bd3f4ca209902452a583e32666aff5 data/minecraft/advancements/recipes/food/food/smelted_rawbowfin.json
 be3fbc084c6bd76e8d78ad068b5cc3979da23f5a data/minecraft/advancements/recipes/food/food/smelted_rawpronghorn.json
 2a601ab9e30184da5fe4fec51a47d96a3cbb8eae data/minecraft/advancements/recipes/food/food/smoked_rawbowfin.json
 b54055e189bbe705ed1637e8e4d353c9ab1d725f data/minecraft/advancements/recipes/food/food/smoked_rawpronghorn.json
+8dadcb9c0317fcfcdf270bb0cf0b00565bd07814 data/minecraft/advancements/recipes/misc/bone_meal.json
+912ce4442b5194528254b4a9da88ff855c6c5d59 data/minecraft/recipes/bone_meal.json
 4f2d133d5d5b0d7bbf9e545506a257638840515c data/minecraft/recipes/food/campfired_rawbowfin.json
 30decc89264b526f2da73f58c996b9eb5d134cdb data/minecraft/recipes/food/campfired_rawpronghorn.json
 5b06e4cd46001fe9ae0949549d61ab367a7739b0 data/minecraft/recipes/food/smelted_rawbowfin.json

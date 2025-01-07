@@ -23,7 +23,7 @@ public class Eelmeeleeattackgoal extends Goal {
     private int ticksUntilNextPathRecalculation;
     private int ticksUntilNextAttack;
     private final int attackInterval = 20;
-    private long lastCanUseCheck;
+    private long lastUpdateTime;
     private static final long COOLDOWN_BETWEEN_CAN_USE_CHECKS = 20L;
     private int failedPathFindingPenalty = 0;
     private boolean canPenalize = false;
@@ -40,39 +40,28 @@ public class Eelmeeleeattackgoal extends Goal {
 
 
     public boolean canUse() {
-        long i = this.moray.level().getGameTime();
-
-       if (moray.gettimer()>=50){
-           return false;
-       }
-
-
-        if (i - this.lastCanUseCheck < 20L) {
-            return false;
+//credit to the graveyard mod for this.
+        long l = this.moray.level().getGameTime();
+       if (l - this.lastUpdateTime < 20L) {
+            this.lastUpdateTime -= 20;
+            return canUse();
         } else {
-            this.lastCanUseCheck = i;
-            LivingEntity livingentity = this.moray.getTarget();
-            if (livingentity == null) {
+            this.lastUpdateTime = l;
+            LivingEntity livingEntity = this.moray.getTarget();
+            if (livingEntity == null) {
                 return false;
-            } else if (!livingentity.isAlive()) {
+            } else if (!livingEntity.isAlive()) {
                 return false;
-            } else if (this.canPenalize) {
-                if (--this.ticksUntilNextPathRecalculation <= 0) {
-                    this.path = this.moray.getNavigation().createPath(livingentity, 0);
-                    this.ticksUntilNextPathRecalculation = 4 + this.moray.getRandom().nextInt(7);
-                    return this.path != null;
-                } else {
-                    return true;
-                }
             } else {
-                this.path = this.moray.getNavigation().createPath(livingentity, 0);
+                this.path = this.moray.getNavigation().createPath(livingEntity, 0);
                 if (this.path != null) {
                     return true;
                 } else {
-                    return this.getAttackReachSqr(livingentity) >= this.moray.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
+                    return this.getAttackReachSqr(livingEntity) >= this.moray.distanceToSqr(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
                 }
             }
         }
+
     }
 
     public boolean canContinueToUse() {

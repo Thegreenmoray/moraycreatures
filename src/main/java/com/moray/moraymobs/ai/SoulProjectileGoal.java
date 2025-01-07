@@ -52,7 +52,6 @@ if (count==14){
             double d3 = Math.sqrt(d0 * d0 + d2 * d2);
             Vec3 vec31=new Vec3(d0, d1 + d3 * 0.20000000298023224, d2);
             soulpiece.setDeltaMovement(vec31.normalize());
-            this.soulcatcher.playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (this.soulcatcher.getRandom().nextFloat() * 0.4F + 0.8F));
             this.soulcatcher.level().addFreshEntity(soulpiece);}
         }
 
