@@ -1,4 +1,4 @@
-// 1.20.1	2025-01-02T21:52:43.0666233	Recipes
+// 1.20.1	2025-01-07T19:09:32.4584668	Recipes
 430146be258bbdc0e61afb507a0da565a4f2dcb7 data/minecraft/advancements/recipes/food/food/campfired_rawbowfin.json
 3b7e756927da56c882060885413158dbda83dcaf data/minecraft/advancements/recipes/food/food/campfired_rawpronghorn.json
 b7e8c4d952bd3f4ca209902452a583e32666aff5 data/minecraft/advancements/recipes/food/food/smelted_rawbowfin.json
@@ -19,6 +19,7 @@ a92c01af8d311cc62c45031301ea8735762ec57a data/moraymobs/advancements/recipes/com
 6cd63f342f6bacf2e0bde4a5fd481f984008a41a data/moraymobs/advancements/recipes/combat/beetlemask.json
 a8218c7095de791c627d3415e609437b4c080d52 data/moraymobs/advancements/recipes/combat/eelwhip.json
 ced9c02b994f79d9683aaea902b60fe4fa14ea1f data/moraymobs/advancements/recipes/combat/soulbeamjewel.json
+7972ffc0172c59b2d6a0a880dde13810e2c9718a data/moraymobs/advancements/recipes/combat/stungun3.json
 8d0a28fd525a607e89ab4fac59d073e2243ae635 data/moraymobs/advancements/recipes/misc/blockscale.json
 efee8b92bb4a0777ad70dec900c62bd189891132 data/moraymobs/advancements/recipes/misc/scale.json
 e079441fff66d673df030f7271aeaec71c67f551 data/moraymobs/recipes/beetleboots.json
@@ -29,3 +30,4 @@ ea5ebacbe2f59cc23b33ec5d040a660df619d226 data/moraymobs/recipes/beetleleggings.j
 a2c5e58fc1c75e40bc0b194c3ff32d3fc2ed7040 data/moraymobs/recipes/eelwhip.json
 3c82d725300d93d432242c2e1caf5e359e0dd9bc data/moraymobs/recipes/scale.json
 95c1f89a505c1699dba32dd63af604e41826140a data/moraymobs/recipes/soulbeamjewel.json
+26b699930725c23cf2ecef5c23fbbcf99ce854d7 data/moraymobs/recipes/stungun3.json

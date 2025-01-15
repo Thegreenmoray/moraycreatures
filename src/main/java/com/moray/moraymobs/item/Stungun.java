@@ -4,21 +4,14 @@ import com.moray.moraymobs.entity.projectiles.Stunwave;
 import com.moray.moraymobs.rendersandmodels.render.Stungunrender;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.minecraftforge.event.ForgeEventFactory;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -33,7 +26,6 @@ public class Stungun extends Item implements GeoItem {
 
     private final AnimatableInstanceCache Cache = GeckoLibUtil.createInstanceCache(this);
 
-
     public Stungun(Properties pProperties) {
         super(pProperties);
         SingletonGeoAnimatable.registerSyncedAnimatable(this);
@@ -44,14 +36,11 @@ public class Stungun extends Item implements GeoItem {
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
-        if (pLevel instanceof ServerLevel serverLevel) {
+       if (pLevel instanceof ServerLevel serverLevel) {
             pPlayer.startUsingItem(pHand);
             this.triggerAnim(pPlayer, GeoItem.getOrAssignId(pPlayer.getItemInHand(pHand), serverLevel),
                     "Controller", "stunguncharge");
         }
-
-
-
 
         return super.use(pLevel, pPlayer, pHand);
     }
@@ -66,16 +55,17 @@ public class Stungun extends Item implements GeoItem {
                 Vec3 vec= player.getViewVector(1);
                 stunwave.setPos(player.getX() + vec.x * 2.0, player.getY(0.33333) + 0.5, player.getZ() + vec.z * 2.0);
 
-                stunwave.setDeltaMovement(vec.normalize());
+
                 stunwave.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.1f * 3.0F, 1.0F);
                 stunwave.setDeltaMovement(vec.normalize());
 
-                pStack.hurtAndBreak(1, player, (p_289501_) -> {
-                    p_289501_.broadcastBreakEvent(player.getUsedItemHand());
-                });
+                pStack.hurtAndBreak(1, player, (p_289501_) ->
+                    p_289501_.broadcastBreakEvent(player.getUsedItemHand()));
+
 
                 this.triggerAnim(player, GeoItem.getOrAssignId(player.getItemInHand(player.getUsedItemHand()), (ServerLevel) pLevel),
                         "BagController", "stunblast");
+
 
                 pLevel.addFreshEntity(stunwave);
             }
@@ -92,7 +82,8 @@ public class Stungun extends Item implements GeoItem {
     public boolean isPerspectiveAware() {
         return true;
     }
-@Override
+
+    @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
             private Stungunrender renderer;
@@ -113,10 +104,9 @@ public class Stungun extends Item implements GeoItem {
                 "Controller",state -> PlayState.STOP).triggerableAnim("stunguncharge", RawAnimation.begin().then("animation.blaster.charge", Animation.LoopType.HOLD_ON_LAST_FRAME))
         );
         controllerRegistrar.add(new AnimationController<>(this,
-                "BagController",state -> PlayState.STOP).triggerableAnim("stunblast",RawAnimation.begin().then("animation.blaster.blast", Animation.LoopType.HOLD_ON_LAST_FRAME))
+                "BagController",state -> PlayState.STOP).triggerableAnim("stunblast",RawAnimation.begin().then("animation.blaster.blast", Animation.LoopType.PLAY_ONCE))
         );
     }
-
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {

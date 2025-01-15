@@ -78,6 +78,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(Itemregististeries.SOULJEWEL.get()),has(Itemregististeries.SOULJEWEL.get()))
                 .save(pWriter);
 
+
+       ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT,Itemregististeries.STUNGUN.get())
+               .pattern("%@ ")
+               .pattern("@*@")
+               .pattern("  *").define('@',Items.LAPIS_LAZULI).define('*',Items.IRON_INGOT)
+               .define('%',Itemregististeries.BOTTLE_OF_SHOCK.get()).
+               unlockedBy(getHasName(Itemregististeries.BOTTLE_OF_SHOCK.get()),has(Itemregististeries.BOTTLE_OF_SHOCK.get()))
+               .save(pWriter);
+
+
 ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BONE_MEAL,4)
         .requires(Itemregististeries.ANTLER.get())
         .unlockedBy(getHasName(Itemregististeries.ANTLER.get()), has(Itemregististeries.ANTLER.get()))

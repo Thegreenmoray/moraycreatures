@@ -1,5 +1,6 @@
 {
   "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
   "texture_size": [
     32,
     32
@@ -8,24 +9,17 @@
     "gui": {
       "rotation": [
         0,
-        90,
+        -90,
         0
       ],
       "translation": [
-        1,
+        -2,
         -1,
-        0
-      ]
-    },
-    "head": {
-      "translation": [
-        0,
-        9,
         0
       ]
     }
   },
   "textures": {
-    "particle": "item/stungun1"
+    "particle": "item/stungun3"
   }
 }

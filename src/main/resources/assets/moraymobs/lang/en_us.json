@@ -21,6 +21,7 @@
   "item.moraymobs.basalt_crystal":"Basalt Crystal",
   "item.moraymobs.shulkerberryseed": "Shulkerberry Seeds",
   "item.moraymobs.shulkerberry": "Shulkerberry",
+  "item.moraymobs.stungun3": "Stun Blaster",
   "item.moraymobs.spawn_basaltlisk": "Spawn Basaltlisk",
   "item.moraymobs.spawn_body_snatcher": "Spawn Body Snatcher",
   "item.moraymobs.spawn_opposum": "Spawn Opossum",
@@ -30,7 +31,7 @@
   "item.moraymobs.spawn_soulcatcher": "Spawn Soulcatcher",
   "item.moraymobs.spawn_endbowfin": "Spawn End Bowfin",
   "item.moraymobs.spawn_pronghorn": "Spawn Pronghorn",
-
+"item.moraymobs.spawn_thresher": "Spawn Thresher Shark",
   "block.moraymobs.basaltlamp": "Basalt Lamp",
   "block.moraymobs.blockscale": "Block of Scales",
 "block.moraymobs.endercelosia": "Ender Celosia",
@@ -54,5 +55,6 @@
   "tooltip.moraymobs.brain": "Shift-Right Click to gain more exp",
   "tooltip.moraymobs.basaltlamp": "Rare, Powerful, or Notable creatures are lit up by this lamp by right clicking the block. Obtained from Basaltlisks after eating a small magma cube or Basalt Sanctuaries.",
   "tooltip.moraymobs.crystal": "A Neutral creature is held with this magical cage, be warned that freeing it will break the cage, and you cannot reform it. Right click on a block to free it.",
-  "tooltip.moraymobs.shulkerfruit": "Eat to clear effects of Levitation, can be eaten even when not hungry"
+  "tooltip.moraymobs.shulkerfruit": "Eat to clear effects of Levitation, can be eaten even when not hungry",
+"tooltip.moraymobs.glassofstunwave": "Obtained by bottling a shockwave from an agro'ed Thresher Shark, be careful not to be stunned!"
 }

@@ -122,10 +122,10 @@ public class Itemregististeries {
             ()->new Item(new Item.Properties().stacksTo(64)));
 
     final public static RegistryObject<Item> BOTTLE_OF_SHOCK=ITEM.register("glassofstunwave",
-            ()->new Item(new Item.Properties().stacksTo(64)));
+            ()->new Bottleofshock(new Item.Properties().stacksTo(64)));
 
-    final public static RegistryObject<Item> STUNGUN=ITEM.register("stungun",
-            ()->new Stungun(new Item.Properties().durability(50)));
+    final public static RegistryObject<Item> STUNGUN=ITEM.register("stungun3",
+            ()->new Stungun(new Item.Properties().durability(100)));
 
 
     public static void register(IEventBus bus){
